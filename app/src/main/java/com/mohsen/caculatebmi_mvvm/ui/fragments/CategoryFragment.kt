@@ -112,23 +112,18 @@ class CategoryFragment(context: Context): BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        meal = arguments!!.getString("type")
-        if (meal == null) {
-            Log.d(TAG, "onCreateView: damn it, what the hell is going wrong ?")
-            meal = "کله "
-        }
         return inflater.inflate(R.layout.fragment_food_category, container, false)
     }
 
-    override fun onResume() {
-        super.onResume()
-        //index ++
-        Toast.makeText(context,"index is " + index , Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        index++
-        Toast.makeText(context,"index is " + index , Toast.LENGTH_SHORT).show()
-    }
+//    override fun onResume() {
+//        super.onResume()
+//        //index ++
+//        Toast.makeText(context,"onResume index is " + index , Toast.LENGTH_SHORT).show()
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
+//        index++
+//        Toast.makeText(context,"onPause index is " + index , Toast.LENGTH_SHORT).show()
+//    }
 }

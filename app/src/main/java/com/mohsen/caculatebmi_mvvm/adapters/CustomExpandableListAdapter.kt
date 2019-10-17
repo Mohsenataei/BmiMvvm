@@ -2,58 +2,71 @@ package com.mohsen.caculatebmi_mvvm.adapters
 
 import android.content.Context
 import android.database.DataSetObserver
+import android.graphics.Typeface
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ExpandableListAdapter
+import android.widget.TextView
+import android.widget.Toast
+import com.mohsen.caculatebmi_mvvm.R
 
 class CustomExpandableListAdapter(context: Context?, expandableListTitle: List<String>?, expandableListDetail: HashMap<String, List<String>>) :
     ExpandableListAdapter {
+    override fun registerDataSetObserver(observer: DataSetObserver?) {
+
+    }
+
+    private val titles = expandableListTitle
+    val context = context
+    private val listDetails = expandableListDetail
 
 
     override fun onGroupCollapsed(groupPosition: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun isEmpty(): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun registerDataSetObserver(observer: DataSetObserver?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return false
     }
 
     override fun onGroupExpanded(groupPosition: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun getCombinedChildId(groupId: Long, childId: Long): Long {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return  childId
     }
 
     override fun isChildSelectable(groupPosition: Int, childPosition: Int): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return true
     }
 
     override fun hasStableIds(): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return false
     }
 
-    override fun getChildView(
-        groupPosition: Int,
-        childPosition: Int,
-        isLastChild: Boolean,
-        convertView: View?,
-        parent: ViewGroup?
-    ): View {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getChildView(groupPosition: Int, childPosition: Int, isLastChild: Boolean, convertView: View?, parent: ViewGroup?): View {
+        var convertView = convertView
+        val expandedListText = getChild(groupPosition, childPosition) as String
+        if (convertView == null) {
+            val layoutInflater = this.context!!
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            convertView = layoutInflater.inflate(R.layout.list_item, null)
+        }
+        val expandedListTextView = convertView!!
+            .findViewById<View>(R.id.expandedListItem) as TextView
+        expandedListTextView.text = expandedListText
+        return convertView
     }
+
 
     override fun areAllItemsEnabled(): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return false
     }
 
     override fun getCombinedGroupId(groupId: Long): Long {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return groupId
     }
 
     override fun getGroupView(
@@ -62,35 +75,47 @@ class CustomExpandableListAdapter(context: Context?, expandableListTitle: List<S
         convertView: View?,
         parent: ViewGroup?
     ): View {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        val listTitle = getGroup(groupPosition) as String
+        var convertView = convertView
+        if (convertView == null) {
+            val layoutInflater =
+                this.context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            convertView = layoutInflater.inflate(R.layout.list_group, null)
+        }
+        val listTitleTextView = convertView!!
+            .findViewById<View>(R.id.listTitle) as TextView
+        listTitleTextView.setTypeface(null, Typeface.BOLD)
+        listTitleTextView.text = listTitle
+        return convertView
     }
 
     override fun unregisterDataSetObserver(observer: DataSetObserver?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun getChildrenCount(groupPosition: Int): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return listDetails.get(titles?.get(groupPosition))!!.size
     }
 
     override fun getGroup(groupPosition: Int): Any {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return this.titles!!.get(groupPosition)
     }
 
-    override fun getChild(groupPosition: Int, childPosition: Int): Any {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getChild(groupPosition: Int, childPosition: Int): String? {
+        return this.listDetails.get(this.titles?.get(groupPosition))?.get(childPosition)
     }
 
     override fun getGroupId(groupPosition: Int): Long {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return groupPosition.toLong()
     }
 
     override fun getChildId(groupPosition: Int, childPosition: Int): Long {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            return childPosition.toLong()
     }
 
     override fun getGroupCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return titles!!.size
     }
 
 
