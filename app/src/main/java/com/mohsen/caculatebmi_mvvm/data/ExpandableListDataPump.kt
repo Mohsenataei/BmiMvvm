@@ -86,7 +86,7 @@ class ExpandableListDataPump  {
         expandableListDetail["تنقلات" + "  (" + cricket.size + ")"] = cricket
         expandableListDetail["پلو ها"] = football
         expandableListDetail["شیرینی"] = basketball
-        expandableListDetail["خورشت"] = basketball
+        expandableListDetail["خورشت" + "  (" + khoresht.size + ")"] = khoresht
         expandableListDetail["سبزیجات"] = basketball
         expandableListDetail["میوه ها"] = basketball
         expandableListDetail["نوشیدنی"] = basketball

@@ -1,6 +1,7 @@
 package com.mohsen.caculatebmi_mvvm.adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import com.mohsen.caculatebmi_mvvm.model.DialogFood
 import com.mohsen.caculatebmi_mvvm.ui.dialogs.AddFoodDialog
 import com.mohsen.caculatebmi_mvvm.util.TYPE_GLASS
 import com.mohsen.caculatebmi_mvvm.util.TYPE_GRAM
+import com.mohsen.caculatebmi_mvvm.util.toast
 import kotlinx.android.synthetic.main.recycler_row_item.view.*
 import java.util.ArrayList
 
@@ -37,6 +39,7 @@ class RecyclerViewAdapter (val list: MutableList<DialogFood>, context: Context) 
         holder.foodname.text = foodList[position].name
         holder.amount.text = foodList[position].calory
         if(foodList[position].type == TYPE_GRAM){
+            holder.unit.text = "گرم"
 
         }else if (foodList[position].type == TYPE_GLASS){
             holder.unit.text = "لیوان"
@@ -54,11 +57,12 @@ class RecyclerViewAdapter (val list: MutableList<DialogFood>, context: Context) 
                 holder.foodname.text = it.name
                 holder.amount.text = it.calory
 
-
-                if(it.type == TYPE_GRAM){
-                    holder.unit.text = "گرم"
-                }else if (it.type == TYPE_GLASS){
+                if(it.type == TYPE_GLASS){
                     holder.unit.text = "لیوان"
+                    mContext.toast("لیوان انتخاب شد")
+                }else if (it.type == TYPE_GRAM){
+                    mContext.toast("گرم انتخاب شد")
+                    holder.unit.text = "گرم"
                 }
             })
             addFoodDialog.show()

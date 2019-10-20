@@ -3,6 +3,7 @@ package com.mohsen.caculatebmi_mvvm.ui.dialogs
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import com.mohsen.caculatebmi_mvvm.R
@@ -106,6 +107,7 @@ class AddFoodDialog( context: Context, food_title: String, type: String, val onC
     }
 
     private fun confirmation(){
+        Log.d("Type","type is " + type)
         onConfirmClick(DialogFood(title,ateCalory!!,type!!,meal!!))
         dismiss()
     }

@@ -144,7 +144,7 @@
             android:textColor="@color/bmi_30_to_40"
             android:textColorHint="@color/bmi_20_to_25"
             android:background="@drawable/amount_background"
-            android:hint="میزان مصرف را به گرم وارد کنید"
+            android:hint="میزان مصرف را وارد کنید"
             android:autofillHints="auto fill hint"
             android:id="@+id/add_food_dialog_edit_text"
             android:inputType="number"
