@@ -1,6 +1,7 @@
 package com.mohsen.caculatebmi_mvvm.ui.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,15 +13,22 @@ import android.widget.Toast
 import com.mohsen.caculatebmi_mvvm.R
 import com.mohsen.caculatebmi_mvvm.adapters.CustomExpandableListAdapter
 import com.mohsen.caculatebmi_mvvm.data.ExpandableListDataPump
+import com.mohsen.caculatebmi_mvvm.database.entity.Food
+import com.mohsen.caculatebmi_mvvm.model.DialogFood
+import com.mohsen.caculatebmi_mvvm.ui.dialogs.AddFoodDialog
+import com.mohsen.caculatebmi_mvvm.ui.home.HomeActivity
+import com.mohsen.caculatebmi_mvvm.util.EXTRA_FOOD
 import kotlinx.coroutines.launch
 import java.util.HashMap
 import com.mohsen.caculatebmi_mvvm.util.getExpandableListData
+import com.mohsen.caculatebmi_mvvm.util.toast
 import kotlinx.android.synthetic.main.fragment_food_category.*
 
 class CategoryFragment(context: Context): BaseFragment() {
     private var expandableListTitle: List<String>? = null
     private var expandableListDetail: HashMap<String, List<String>>? = null
     private var expandableListAdapter: ExpandableListAdapter? = null
+    private var mContext = context
 
     //val selectedFoods = java.util.ArrayList<AddedFood>()
     //val database = AppDatabase.getDatabase(context!!)
@@ -61,7 +69,7 @@ class CategoryFragment(context: Context): BaseFragment() {
         })
 
         expandableListView.setOnChildClickListener(ExpandableListView.OnChildClickListener { parent, v, groupPosition, childPosition, id ->
-            //Toast.makeText(
+//            Toast.makeText(
 //                context,
 //                (expandableListTitle as ArrayList<String>).get(groupPosition)
 //                        + " -> "
@@ -72,6 +80,25 @@ class CategoryFragment(context: Context): BaseFragment() {
 //                ), Toast.LENGTH_SHORT
 //            ).show()
             var i = 0
+            val food: String = (expandableListDetail as HashMap<String, MutableList<String>>?)!!.get(
+                    (expandableListTitle as ArrayList<String>).get(groupPosition)
+                )!!.get(
+                    childPosition
+                )
+
+            var dialogFood: DialogFood? = null
+
+            val addFoodDialog =  AddFoodDialog(mContext,food,"",onConfirmClick = {
+                context?.toast("food received")
+                dialogFood = it
+                val intent = Intent(context,HomeActivity::class.java)
+                intent.putExtra(EXTRA_FOOD,dialogFood)
+                //intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                context!!.startActivity(intent)
+            })
+            addFoodDialog.show()
+
+
 //            val consumedFoodDialog = meal?.let {
 //                ConsumedFoodDialog(
 //                    context!!,

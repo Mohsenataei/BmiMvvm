@@ -37,17 +37,67 @@
         android:id="@+id/recycler_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/guideline1"
         app:layout_constraintTop_toTopOf="@+id/guideline">
+        <TextView
+            android:text="غذاهای مصرف شده"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/consumed_food_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:overScrollMode="never"
-            app:layout_constraintBottom_toTopOf="@+id/main_page_bottom_Buttons"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline" />
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/home_status_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="شما هنوز هیچ غذایی اضافه نکرده اید"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        app:layout_constraintGuide_percent="0.85"
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="303dp" />
+
+    <LinearLayout
+        android:id="@+id/status_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline1">
+
+        <TextView
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:text="کالری مصرفی امروز :"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:text="کالری سوزانده شده"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 
@@ -60,6 +110,8 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
+            android:background="@drawable/add_food_confirm_background"
+            android:textColor="@color/white"
             android:layout_marginStart="16dp"
             android:id="@+id/adFoodButton"
             android:layout_width="0dp"
@@ -71,6 +123,8 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
+            android:background="@drawable/add_food_confirm_background"
+            android:textColor="@color/white"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:id="@+id/add_exercise"
