@@ -22,6 +22,7 @@ class RecyclerViewAdapter (val list: MutableList<Food>, context: Context) :
     RecyclerView.Adapter<RecyclerViewAdapter.FoodViewHolder>() {
 
     private val foodList = list
+
     private val mContext = context
 
     override fun onCreateViewHolder(
@@ -33,10 +34,12 @@ class RecyclerViewAdapter (val list: MutableList<Food>, context: Context) :
     }
 
     override fun getItemCount(): Int {
+        Log.d("recycler","in adapter size is : ${foodList.size}")
         return foodList.size
     }
 
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
+        Log.d("recycler","in adapter size is : ${foodList.size}")
         holder.foodname.text = foodList[position].name
         holder.amount.text = foodList[position].calory.toString()
         if(foodList[position].unit == TYPE_GRAM){

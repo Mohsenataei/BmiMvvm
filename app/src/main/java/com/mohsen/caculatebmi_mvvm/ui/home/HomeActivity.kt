@@ -36,22 +36,23 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-       // Toast.makeText(this,"onCreate",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,"onCreate",Toast.LENGTH_SHORT).show()
         initDataBaseShits()
         loadStoredData()
-        //addExtraToList()
+        addExtraToList()
+
         //saveOnExit()
 
-        if (commonList.isEmpty()){
-            consumed_food_recycler_view.visibility = View.GONE
-            home_status_text_view.visibility = View.VISIBLE
-        }else{
-            layoutManager = LinearLayoutManager(this)
-            consumed_food_recycler_view.layoutManager = layoutManager
-
-            consumed_food_recycler_view.adapter = adapter
-            //adapter!!.notifyDataSetChanged()
-        }
+//        if (commonList.isEmpty()){
+//            Log.d("recycler", "list still empty wtf ?")
+//            consumed_food_recycler_view.visibility = View.GONE
+//            home_status_text_view.visibility = View.VISIBLE
+//        }else{
+//            layoutManager = LinearLayoutManager(this)
+//            consumed_food_recycler_view.layoutManager = layoutManager
+//            consumed_food_recycler_view.adapter = adapter
+//            //adapter!!.notifyDataSetChanged()
+//        }
         adFoodButton.setOnClickListener {
             startActivity(Intent(this,AddFood::class.java))
         }
@@ -92,8 +93,10 @@ class HomeActivity : AppCompatActivity() {
         val food = getDialogFood()
         if (food != null){
             commonList.add(food)
-            adapter = RecyclerViewAdapter(commonList,this)
-            adapter!!.notifyDataSetChanged()
+            Log.d("extra_food","common list size now is : ${commonList.size} and received food is ${food.name}")
+//            adapter = RecyclerViewAdapter(commonList,this)
+//            adapter!!.notifyDataSetChanged()
+            initRecAdapter()
         }
     }
 
@@ -146,10 +149,8 @@ class HomeActivity : AppCompatActivity() {
          Toast.makeText(this,"onStart",Toast.LENGTH_SHORT).show()
         GlobalScope.launch {
             this@HomeActivity.let {
-                commonList = AppDatabase.getDatabase(this@HomeActivity).detailDao().getAll()
-                if (!commonList.isEmpty()){
-                   Log.d("globalscope","still is not empty and size is ${commonList.size} and second element is : " + commonList[1].name)
-                }
+                val size = AppDatabase.getDatabase(this@HomeActivity).detailDao().getAll().size
+                Log.d("globalscope","still is not empty and size is $size and second element is : ")
             }
         }
         if (commonList.isEmpty()){
@@ -168,6 +169,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
+
         super.onResume()
         Toast.makeText(this,"onResume",Toast.LENGTH_SHORT).show()
 
@@ -179,10 +181,36 @@ class HomeActivity : AppCompatActivity() {
                 commonList = detailDao!!.getAll()
                 if (commonList.isEmpty()){
                     Log.d("globalscope","list is empty")
+                }else{
+                    initRecAdapter()
                 }
             }
         }
+
     }
+
+
+    private fun initRecAdapter(){
+        Log.d("recycler","initRecAdapter commot list size is: ${commonList.size}")
+        adapter = RecyclerViewAdapter(commonList,this@HomeActivity)
+        layoutManager = LinearLayoutManager(this)
+        consumed_food_recycler_view.layoutManager = layoutManager
+        consumed_food_recycler_view.adapter = adapter
+        toggleVisibility()
+
+    }
+
+    private fun toggleVisibility (){
+        if (home_status_text_view.visibility == View.VISIBLE){
+            home_status_text_view.visibility = View.VISIBLE
+            consumed_food_recycler_view.visibility =  View.GONE
+
+        }else {
+            home_status_text_view.visibility = View.GONE
+            consumed_food_recycler_view.visibility = View.VISIBLE
+        }
+    }
+
 
 
 
