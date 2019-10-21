@@ -86,13 +86,13 @@ class CategoryFragment(context: Context): BaseFragment() {
                     childPosition
                 )
 
-            var dialogFood: DialogFood? = null
+            var mFood: Food? = null
 
             val addFoodDialog =  AddFoodDialog(mContext,food,"",onConfirmClick = {
-                context?.toast("food received")
-                dialogFood = it
+                context?.toast("food received" + it.name)
+                mFood = it
                 val intent = Intent(context,HomeActivity::class.java)
-                intent.putExtra(EXTRA_FOOD,dialogFood)
+                intent.putExtra(EXTRA_FOOD,mFood)
                 //intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                 context!!.startActivity(intent)
             })

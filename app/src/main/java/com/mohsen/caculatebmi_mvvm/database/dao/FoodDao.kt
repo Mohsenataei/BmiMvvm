@@ -5,10 +5,10 @@ import com.mohsen.caculatebmi_mvvm.database.entity.Food
 
 @Dao
 interface FoodDao {
-    @Query("select * from food_items")
-    suspend fun getAll(): List<Food>
+    @Query("select * from food_table")
+    abstract suspend fun getAll(): List<Food>
 
-    @Query("SELECT * FROM food_items WHERE food_name LIKE :title")
+    @Query("SELECT * FROM food_table WHERE name LIKE :title")
     suspend fun findByTitle(title: String): Food
 
 //    @Query("SELECT * FROM food_items WHERE category LIKE :category")
@@ -24,3 +24,6 @@ interface FoodDao {
     suspend fun updateTodo(vararg todos: Food)
 
 }
+// ID=Column{name='ID', type='INTEGER', affinity='3', notNull=true, primaryKeyPosition=1, defaultValue='null'}, category=Column{name='category', type='TEXT', affinity='2', notNull=true, primaryKeyPosition=0, defaultValue='null'}}, foreignKeys=[], indices=[]}
+// ID=Column{name='ID', type='INTEGER', affinity='3', notNull=false, primaryKeyPosition=1, defaultValue='null'}, , category=Column{name='category', type='TEXT', affinity='2', notNull=true, primaryKeyPosition=0, defaultValue='null'}}, foreignKeys=[], indices=[]}
+

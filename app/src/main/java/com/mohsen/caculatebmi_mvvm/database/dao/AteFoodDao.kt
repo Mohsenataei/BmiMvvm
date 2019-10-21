@@ -1,19 +1,20 @@
 package com.mohsen.caculatebmi_mvvm.database.dao
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
 import com.mohsen.caculatebmi_mvvm.database.entity.AteFood
+import com.mohsen.caculatebmi_mvvm.database.entity.Food
 
 @Dao
 interface AteFoodDao {
-    @Query("select * from Added_Foods")
+    @Query("SELECT * FROM ate_foods_table")
     suspend fun getAll(): List<AteFood>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Query("SELECT * FROM ate_foods_table WHERE FoodID LIKE :title")
+    suspend fun findByTitle(title: String): AteFood
+
+    @Insert
     suspend fun insertAll(vararg todo: AteFood)
 
-    @Delete
-    suspend fun delete(todo: AteFood)
-
-    @Update
-    suspend fun updateTodo(vararg todos: AteFood)
 }

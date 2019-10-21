@@ -9,6 +9,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mohsen.caculatebmi_mvvm.R
+import com.mohsen.caculatebmi_mvvm.database.entity.Food
 import com.mohsen.caculatebmi_mvvm.model.DialogFood
 import com.mohsen.caculatebmi_mvvm.ui.dialogs.AddFoodDialog
 import com.mohsen.caculatebmi_mvvm.util.TYPE_GLASS
@@ -17,7 +18,7 @@ import com.mohsen.caculatebmi_mvvm.util.toast
 import kotlinx.android.synthetic.main.recycler_row_item.view.*
 import java.util.ArrayList
 
-class RecyclerViewAdapter (val list: MutableList<DialogFood>, context: Context) :
+class RecyclerViewAdapter (val list: MutableList<Food>, context: Context) :
     RecyclerView.Adapter<RecyclerViewAdapter.FoodViewHolder>() {
 
     private val foodList = list
@@ -37,11 +38,11 @@ class RecyclerViewAdapter (val list: MutableList<DialogFood>, context: Context) 
 
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
         holder.foodname.text = foodList[position].name
-        holder.amount.text = foodList[position].calory
-        if(foodList[position].type == TYPE_GRAM){
+        holder.amount.text = foodList[position].calory.toString()
+        if(foodList[position].unit == TYPE_GRAM){
             holder.unit.text = "گرم"
 
-        }else if (foodList[position].type == TYPE_GLASS){
+        }else if (foodList[position].unit == TYPE_GLASS){
             holder.unit.text = "لیوان"
         }
         holder.remove.setOnClickListener {
@@ -55,12 +56,12 @@ class RecyclerViewAdapter (val list: MutableList<DialogFood>, context: Context) 
                 list.add(position,it)
                 notifyItemInserted(position)
                 holder.foodname.text = it.name
-                holder.amount.text = it.calory
+                holder.amount.text = it.calory.toString()
 
-                if(it.type == TYPE_GLASS){
+                if(it.unit == TYPE_GLASS){
                     holder.unit.text = "لیوان"
                     mContext.toast("لیوان انتخاب شد")
-                }else if (it.type == TYPE_GRAM){
+                }else if (it.unit == TYPE_GRAM){
                     mContext.toast("گرم انتخاب شد")
                     holder.unit.text = "گرم"
                 }

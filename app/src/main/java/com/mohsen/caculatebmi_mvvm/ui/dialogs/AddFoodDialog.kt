@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import com.mohsen.caculatebmi_mvvm.R
-import com.mohsen.caculatebmi_mvvm.database.entity.AteFood
 import com.mohsen.caculatebmi_mvvm.database.entity.Food
 import com.mohsen.caculatebmi_mvvm.model.DialogFood
 import com.mohsen.caculatebmi_mvvm.util.*
@@ -15,7 +14,7 @@ import kotlinx.android.synthetic.main.add_food_dialog.*
 import java.util.HashMap
 import kotlin.time.milliseconds
 
-class AddFoodDialog( context: Context, food_title: String, type: String, val onConfirmClick : (food: DialogFood) -> Unit = {}) : Dialog(context)  {
+class AddFoodDialog( context: Context, food_title: String, type: String, val onConfirmClick : (food: Food) -> Unit = {}) : Dialog(context)  {
 
     val hashMap: HashMap<String, Int> = HashMap()
     //val caloriesList = CaloriesList()
@@ -108,7 +107,7 @@ class AddFoodDialog( context: Context, food_title: String, type: String, val onC
 
     private fun confirmation(){
         Log.d("Type","type is " + type)
-        onConfirmClick(DialogFood(title,ateCalory!!,type!!,meal!!))
+        onConfirmClick(Food(0,type!!,title,ateCalory!!.toInt(),meal.toString()))
         dismiss()
     }
     private fun getValues() {
