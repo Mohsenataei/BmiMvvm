@@ -21,3 +21,5 @@ val EXTRA_FOOD = "extra_food"
 
 var commonList: MutableList<Food> = ArrayList()
 //var ateFoodIds: MutableList<SelectedFood> = ArrayList()
+
+var  LAST_ITEM_INDEX = 0

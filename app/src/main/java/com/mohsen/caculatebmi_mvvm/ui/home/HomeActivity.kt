@@ -16,6 +16,7 @@ import com.mohsen.caculatebmi_mvvm.database.dao.FoodDao
 import com.mohsen.caculatebmi_mvvm.database.entity.Food
 import com.mohsen.caculatebmi_mvvm.ui.addfood.AddFood
 import com.mohsen.caculatebmi_mvvm.util.EXTRA_FOOD
+import com.mohsen.caculatebmi_mvvm.util.LAST_ITEM_INDEX
 import com.mohsen.caculatebmi_mvvm.util.commonList
 import com.mohsen.caculatebmi_mvvm.util.toast
 import kotlinx.android.synthetic.main.activity_home.*
@@ -132,10 +133,12 @@ class HomeActivity : AppCompatActivity() {
 
 
     private fun saveOnExit(){
+        Log.d("extra_food","saveOnExit list size is : ${commonList.size}"  )
         GlobalScope.launch {
             this@HomeActivity.let {
-                for (item in commonList )
-                detailDao!!.insertAll(item)
+               for (i in LAST_ITEM_INDEX..commonList.size )
+                   detailDao!!.insertAll(commonList[i])
+                  // Log.d("extra_food","saveOnExit Saving: ${item.name}"  )
             }
         }
     }
@@ -147,12 +150,12 @@ class HomeActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
          Toast.makeText(this,"onStart",Toast.LENGTH_SHORT).show()
-        GlobalScope.launch {
-            this@HomeActivity.let {
-                val size = AppDatabase.getDatabase(this@HomeActivity).detailDao().getAll().size
-                Log.d("globalscope","still is not empty and size is $size and second element is : ")
-            }
-        }
+//        GlobalScope.launch {
+//            this@HomeActivity.let {
+//                val size = AppDatabase.getDatabase(this@HomeActivity).detailDao().getAll().size
+//                Log.d("globalscope","still is not empty and size is $size and second element is : ")
+//            }
+//        }
         if (commonList.isEmpty()){
             this.toast("still empty outside global scope ()")
         }
@@ -179,6 +182,7 @@ class HomeActivity : AppCompatActivity() {
         GlobalScope.launch {
             this@HomeActivity.let {
                 commonList = detailDao!!.getAll()
+                updateLASTITEMINDEX(commonList.size)
                 if (commonList.isEmpty()){
                     Log.d("globalscope","list is empty")
                 }else{
@@ -211,16 +215,8 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
+private fun updateLASTITEMINDEX(index:Int){
+    LAST_ITEM_INDEX = index
+}
 
 }
