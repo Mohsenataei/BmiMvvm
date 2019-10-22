@@ -82,6 +82,7 @@ dependencies {
     // Kotlin coroutine dependencies
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
-
+    //implementation 'com.webianks.library:scroll-choice:1.0.1'
+    implementation 'com.shawnlin:number-picker:2.4.8'
 
 }

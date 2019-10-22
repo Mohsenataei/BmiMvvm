@@ -49,8 +49,10 @@ class RecyclerViewAdapter (val list: MutableList<Food>, context: Context) :
             holder.unit.text = "لیوان"
         }
         holder.remove.setOnClickListener {
+            Log.d("delete","deleted at index : $position")
             list.removeAt(position)
             notifyItemRemoved(position)
+            notifyItemRangeChanged(position,list.size)
         }
 
         holder.edit.setOnClickListener {

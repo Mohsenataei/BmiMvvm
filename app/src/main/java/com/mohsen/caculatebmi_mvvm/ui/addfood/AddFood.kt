@@ -2,13 +2,17 @@ package com.mohsen.caculatebmi_mvvm.ui.addfood
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.mohsen.caculatebmi_mvvm.R
 import com.mohsen.caculatebmi_mvvm.adapters.TabAdapter
 import com.mohsen.caculatebmi_mvvm.ui.fragments.CategoryFragment
+import com.mohsen.caculatebmi_mvvm.ui.fragments.ExerciseFragment
 import com.mohsen.caculatebmi_mvvm.ui.fragments.FavouriteFoods
 import com.mohsen.caculatebmi_mvvm.ui.fragments.PersonalFoodFragment
+import com.mohsen.caculatebmi_mvvm.util.EXERCISE_BUTTON
+import com.mohsen.caculatebmi_mvvm.util.FOOD_BUTTON
 import kotlinx.android.synthetic.main.activity_add_food.*
 
 class AddFood : AppCompatActivity() {
@@ -25,9 +29,18 @@ class AddFood : AppCompatActivity() {
 
         tabAdapter = TabAdapter(supportFragmentManager,this)
 
-        tabAdapter?.addFragment(PersonalFoodFragment(),"غذاهای شخصی", tabIcons[2])
-        tabAdapter?.addFragment(FavouriteFoods(),"غذاهای مورد علاقه",tabIcons[1])
-        tabAdapter?.addFragment(CategoryFragment(this),"دسته بندی غذاها",tabIcons[0])
+        if (intent.hasExtra("food_button")){
+            Log.d("addfood","come from add food button")
+            tabAdapter?.addFragment(PersonalFoodFragment(),"غذاهای شخصی", tabIcons[2])
+            tabAdapter?.addFragment(FavouriteFoods(),"غذاهای مورد علاقه",tabIcons[1])
+            tabAdapter?.addFragment(CategoryFragment(this),"دسته بندی غذاها",tabIcons[0])
+        } else if (intent.hasExtra("exercise_button")){
+            Log.d("addfood","come from add exercise button")
+            tabAdapter?.addFragment(ExerciseFragment(this),"اضافه کردن ورزش",tabIcons[1])
+        } else {
+            Log.d("addfood","came out of nowhere")
+        }
+
 
         viewpager.adapter = tabAdapter
         calories_tab.setSelectedTabIndicatorColor(resources.getColor(R.color.bmi_below_18_5))

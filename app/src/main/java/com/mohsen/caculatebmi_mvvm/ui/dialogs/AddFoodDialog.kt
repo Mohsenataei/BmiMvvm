@@ -2,7 +2,10 @@ package com.mohsen.caculatebmi_mvvm.ui.dialogs
 
 import android.app.Dialog
 import android.content.Context
+import android.content.res.Resources
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
@@ -34,15 +37,27 @@ class AddFoodDialog( context: Context, food_title: String, type: String, val onC
         getMeal()
         getType()
         //getCalories()
-        add_food_dialog_edit_text.addTextChangedListener{
-            if (type != null){
-                add_food_dialog_calory_text_view.text = add_food_dialog_edit_text.text.toString().toInt().times(10).toString()
-            }else if (type == TYPE_GRAM) {
-                add_food_dialog_calory_text_view.text = add_food_dialog_edit_text.text.toString().toInt().times(100).toString()
-            }else if (type == TYPE_GLASS) {
-                add_food_dialog_calory_text_view.text =
-                    add_food_dialog_edit_text.text.toString().toInt().times(5).toString()
+        add_food_dialog_edit_text.addTextChangedListener{object: TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (type == TYPE_GRAM && !add_food_dialog_calory_text_view.text.isNullOrEmpty()  ){
+                    add_food_dialog_calory_text_view.text = add_food_dialog_edit_text.text.toString().toInt().times(100).toString()
+                    ateCalory = add_food_dialog_calory_text_view.text.toString()
+                }else if (type == TYPE_GLASS && !add_food_dialog_calory_text_view.text.isNullOrEmpty()) {
+                    add_food_dialog_calory_text_view.text =
+                        add_food_dialog_edit_text.text.toString().toInt().times(5).toString()
+                    ateCalory = add_food_dialog_calory_text_view.text.toString()
+                }
+            }
+
+        }
         }
         onConfirmClicked()
 
@@ -51,6 +66,7 @@ class AddFoodDialog( context: Context, food_title: String, type: String, val onC
     private fun getMeal() {
         add_food_dialog_breakfast.setOnClickListener {
             meal = BREAKFAST
+            //add_food_dialog_breakfas.compoundDrawableTintList = Resources.getSystem().getColor(R.color.bmi_more_than_40)
             context.toast("شما در حال انتخاب صبحانه هستید")
         }
         add_food_dialog_dinner.setOnClickListener {
@@ -71,11 +87,13 @@ class AddFoodDialog( context: Context, food_title: String, type: String, val onC
         add_food_dialog_glass_text_view.setOnClickListener {
             type = TYPE_GLASS
             context.toast("واحد انتخابی شما: لیوان")
+            getCalories()
             setCaloriesTextView(TYPE_GLASS)
         }
         add_food_dialog_gram_text_view.setOnClickListener {
             type = TYPE_GRAM
             context.toast("واحد انتخابی شما: گرم")
+            getCalories()
             setCaloriesTextView(TYPE_GRAM)
         }
     }
@@ -85,7 +103,7 @@ class AddFoodDialog( context: Context, food_title: String, type: String, val onC
             if (type == TYPE_GLASS){
                 add_food_dialog_calory_text_view.text = add_food_dialog_edit_text.text.toString().toInt().times(5).toString()
             }else if (type == TYPE_GRAM){
-                add_food_dialog_calory_text_view.text = add_food_dialog_edit_text.text.toString().toInt().times(10).toString()
+                add_food_dialog_calory_text_view.text = add_food_dialog_edit_text.text.toString().toInt().times(100).toString()
             }
         }
     }
@@ -107,7 +125,16 @@ class AddFoodDialog( context: Context, food_title: String, type: String, val onC
 
     private fun confirmation(){
         Log.d("Type","type is " + type)
-        onConfirmClick(Food(0,type!!,title,ateCalory!!.toInt(),meal.toString()))
+        //onConfirmClick(Food(0,type!!,title,ateCalory!!.toInt(),meal.toString()))
+
+        //  commonList.add(Food(0,type!!,title,ateCalory!!.toInt(),meal.toString()))
+        tempList.add(Food(0,type!!,title,ateCalory!!.toInt(),meal.toString()))
+        Log.d("extra_food","item added to common list in addFood dialog and list size now is : ${commonList.size}")
+        Log.d("testing","Start Debugging")
+        for (item in commonList){
+            Log.d("testing",item.name)
+        }
+        Log.d("testing","End Debugging")
         dismiss()
     }
     private fun getValues() {

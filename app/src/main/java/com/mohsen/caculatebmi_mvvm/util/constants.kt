@@ -18,8 +18,11 @@ val DINNER = 2
 val MIANVADEH = 3
 val EXERSICE = 4
 val EXTRA_FOOD = "extra_food"
+val FOOD_BUTTON = "food_button"
+val EXERCISE_BUTTON = "exercise_button"
 
 var commonList: MutableList<Food> = ArrayList()
+var tempList: MutableList<Food> = ArrayList()
 //var ateFoodIds: MutableList<SelectedFood> = ArrayList()
 
 var  LAST_ITEM_INDEX = 0

@@ -15,10 +15,7 @@ import com.mohsen.caculatebmi_mvvm.database.dao.DetailDao
 import com.mohsen.caculatebmi_mvvm.database.dao.FoodDao
 import com.mohsen.caculatebmi_mvvm.database.entity.Food
 import com.mohsen.caculatebmi_mvvm.ui.addfood.AddFood
-import com.mohsen.caculatebmi_mvvm.util.EXTRA_FOOD
-import com.mohsen.caculatebmi_mvvm.util.LAST_ITEM_INDEX
-import com.mohsen.caculatebmi_mvvm.util.commonList
-import com.mohsen.caculatebmi_mvvm.util.toast
+import com.mohsen.caculatebmi_mvvm.util.*
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -54,8 +51,18 @@ class HomeActivity : AppCompatActivity() {
 //            consumed_food_recycler_view.adapter = adapter
 //            //adapter!!.notifyDataSetChanged()
 //        }
+
+
         adFoodButton.setOnClickListener {
-            startActivity(Intent(this,AddFood::class.java))
+            val intent = Intent(this,AddFood::class.java)
+            intent.putExtra("food_button","120")
+            startActivity(intent)
+        }
+
+        add_exercise.setOnClickListener {
+            val intent = Intent(this,AddFood::class.java)
+            intent.putExtra("exercise_button","121")
+            startActivity(intent)
         }
 
 
@@ -95,8 +102,8 @@ class HomeActivity : AppCompatActivity() {
         if (food != null){
             commonList.add(food)
             Log.d("extra_food","common list size now is : ${commonList.size} and received food is ${food.name}")
-//            adapter = RecyclerViewAdapter(commonList,this)
-//            adapter!!.notifyDataSetChanged()
+            adapter = RecyclerViewAdapter(commonList,this)
+            adapter!!.notifyItemInserted(commonList.size-1)
             initRecAdapter()
         }
     }
@@ -110,9 +117,10 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onDestroy() {
        super.onDestroy()
-        if (commonList.size > 0){
+        if (tempList.size > 0){
             Toast.makeText(this,"data has been saved from here",Toast.LENGTH_SHORT).show()
             saveOnExit()
+
         }else{
             Toast.makeText(this,"data has not been saved because list is empty",Toast.LENGTH_SHORT).show()
         }
@@ -133,14 +141,15 @@ class HomeActivity : AppCompatActivity() {
 
 
     private fun saveOnExit(){
-        Log.d("extra_food","saveOnExit list size is : ${commonList.size}"  )
+        Log.d("extra_food","saveOnExit list size is : ${tempList.size}"  )
         GlobalScope.launch {
             this@HomeActivity.let {
-               for (i in LAST_ITEM_INDEX..commonList.size )
-                   detailDao!!.insertAll(commonList[i])
+               for (item in tempList )
+                   detailDao!!.insertAll(item)
                   // Log.d("extra_food","saveOnExit Saving: ${item.name}"  )
             }
         }
+        tempList.clear()
     }
 
     private fun retreiveOnStart(){
@@ -168,14 +177,16 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
+
         Toast.makeText(this,"onRestart",Toast.LENGTH_SHORT).show()
     }
 
     override fun onResume() {
-
         super.onResume()
         Toast.makeText(this,"onResume",Toast.LENGTH_SHORT).show()
-
+        initRecAdapter()
+        commonList.addAll(tempList)
+        adapter!!.notifyItemRangeInserted(commonList.size-1, tempList.size)
     }
 
     private fun loadStoredData(){
@@ -195,7 +206,7 @@ class HomeActivity : AppCompatActivity() {
 
 
     private fun initRecAdapter(){
-        Log.d("recycler","initRecAdapter commot list size is: ${commonList.size}")
+        Log.d("recycler","initRecAdapter common list size is: ${commonList.size}")
         adapter = RecyclerViewAdapter(commonList,this@HomeActivity)
         layoutManager = LinearLayoutManager(this)
         consumed_food_recycler_view.layoutManager = layoutManager
@@ -218,5 +229,8 @@ class HomeActivity : AppCompatActivity() {
 private fun updateLASTITEMINDEX(index:Int){
     LAST_ITEM_INDEX = index
 }
+    private fun updateUI(){
+
+    }
 
 }

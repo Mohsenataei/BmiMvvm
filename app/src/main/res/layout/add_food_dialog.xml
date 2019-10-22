@@ -29,7 +29,6 @@
         android:id="@+id/meals"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -40,6 +39,7 @@
             android:textAlignment="center"
             android:drawableTop="@drawable/ic_dinner"
             android:drawablePadding="5dp"
+            android:textColor="@color/grey"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
@@ -50,6 +50,7 @@
             android:text="میان وعده"
             android:textAlignment="center"
             android:layout_weight="1"
+            android:textColor="@color/grey"
             android:drawableTop="@drawable/ic_bread"
             android:drawablePadding="5dp"
             android:layout_width="0dp"
@@ -62,6 +63,7 @@
             android:text="نهار" android:textAlignment="center"
             android:layout_weight="1"  android:drawableTop="@drawable/ic_utensils_alt"
             android:drawablePadding="5dp"
+            android:textColor="@color/grey"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
@@ -72,6 +74,7 @@
             android:text="صبحانه"
             android:textAlignment="center"
             android:layout_weight="1"
+            android:textColor="@color/grey"
             android:drawableTop="@drawable/ic_breakfast"
             android:drawablePadding="5dp"
             android:layout_width="0dp"
@@ -156,6 +159,7 @@
 
     <TextView
         style="@style/FoodDialogTextViews"
+        android:text="ارزش غذایی"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

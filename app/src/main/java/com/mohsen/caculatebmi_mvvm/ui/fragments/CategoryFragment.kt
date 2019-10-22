@@ -33,21 +33,12 @@ class CategoryFragment(context: Context): BaseFragment() {
     //val selectedFoods = java.util.ArrayList<AddedFood>()
     //val database = AppDatabase.getDatabase(context!!)
   //  val AddedFoodDao = database.addedFoodDao()
-    var index = 0
-
-
-
-    private var meal: String? = null
-    private val TAG = "ConsumedCaloriesCalcula"
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         expandableListDetail = getExpandableListData()
-        expandableListTitle = ArrayList<String>((expandableListDetail as HashMap<String, MutableList<String>>?)!!.keys) as List<String>?
+        expandableListTitle = ArrayList<String>((expandableListDetail as HashMap<String, MutableList<String>>?)!!.keys)
         expandableListAdapter =
             CustomExpandableListAdapter(context, expandableListTitle, expandableListDetail!!)
         expandableListView.setAdapter(expandableListAdapter)
@@ -69,16 +60,7 @@ class CategoryFragment(context: Context): BaseFragment() {
         })
 
         expandableListView.setOnChildClickListener(ExpandableListView.OnChildClickListener { parent, v, groupPosition, childPosition, id ->
-//            Toast.makeText(
-//                context,
-//                (expandableListTitle as ArrayList<String>).get(groupPosition)
-//                        + " -> "
-//                        + (expandableListDetail as HashMap<String, MutableList<String>>?)!!.get(
-//                    (expandableListTitle as ArrayList<String>).get(groupPosition)
-//                )!!.get(
-//                    childPosition
-//                ), Toast.LENGTH_SHORT
-//            ).show()
+//
             var i = 0
             val food: String = (expandableListDetail as HashMap<String, MutableList<String>>?)!!.get(
                     (expandableListTitle as ArrayList<String>).get(groupPosition)
