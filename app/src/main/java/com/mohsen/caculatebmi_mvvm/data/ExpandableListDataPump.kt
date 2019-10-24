@@ -55,7 +55,7 @@ class ExpandableListDataPump  {
         football.add("کلم پلو")
 
         val basketball = ArrayList<String>()
-        basketball.add("آبنبات")
+        basketball.add("آدامس")
         basketball.add("ارده")
         basketball.add("باقلوا")
         basketball.add("بامیه (شیرینی)")
