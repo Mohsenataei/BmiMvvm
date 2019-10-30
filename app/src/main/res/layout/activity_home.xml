@@ -8,19 +8,21 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-<!--        <com.anychart.AnyChartView-->
-<!--            android:id="@+id/homePageChart"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="200dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <com.anychart.AnyChartView
+
+            android:id="@+id/homePageChart"
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -102,7 +104,7 @@
         <TextView
             android:textSize="14sp"
             android:textAlignment="center"
-            android:text="کالری سوزانده شده"
+            android:text="کالری سوزانده شده امروز :"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"/>
@@ -119,12 +121,15 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
+            android:drawableTop="@drawable/ic_roast_chicken"
             android:background="@drawable/add_food_confirm_background"
             android:textColor="@color/white"
+            android:drawableTint="@color/white"
             android:layout_marginStart="16dp"
             android:id="@+id/adFoodButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:textSize="12sp"
             android:layout_weight="1"
             android:text="افزودن غذا"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -132,13 +137,17 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
+            android:drawableTop="@drawable/ic_dumbbell"
+            android:drawableTint="@color/white"
             android:background="@drawable/add_food_confirm_background"
             android:textColor="@color/white"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:id="@+id/add_exercise"
+            android:textSize="12sp"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_height="45dp"
             android:layout_weight="1"
             android:text="افزودن ورزش"
             app:layout_constraintBottom_toBottomOf="parent"
