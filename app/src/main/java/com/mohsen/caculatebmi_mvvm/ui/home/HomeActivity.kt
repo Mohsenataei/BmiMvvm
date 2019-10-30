@@ -7,7 +7,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mohsen.caculatebmi_mvvm.R
+
+
 import com.mohsen.caculatebmi_mvvm.adapters.RecyclerViewAdapter
 import com.mohsen.caculatebmi_mvvm.database.AppDatabase
 import com.mohsen.caculatebmi_mvvm.database.dao.AteFoodDao
@@ -19,7 +20,9 @@ import com.mohsen.caculatebmi_mvvm.util.*
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlin.math.log
+
+import com.mohsen.caculatebmi_mvvm.R
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -39,6 +42,43 @@ class HomeActivity : AppCompatActivity() {
         loadStoredData()
         addExtraToList()
 
+//        val cartesian = AnyChart.column()
+//
+//        val data = ArrayList<DataEntry>()
+//        data.add(ValueDataEntry("Rouge", 80540))
+//        data.add(ValueDataEntry("Foundation", 94190))
+//        data.add(ValueDataEntry("Mascara", 102610))
+//        data.add(ValueDataEntry("Lip gloss", 110430))
+//        data.add(ValueDataEntry("Lipstick", 128000))
+//        data.add(ValueDataEntry("Nail polish", 143760))
+//        data.add(ValueDataEntry("Eyebrow pencil", 170670))
+//        data.add(ValueDataEntry("Eyeliner", 213210))
+//        data.add(ValueDataEntry("Eyeshadows", 249980))
+//
+//        val column = cartesian.column(data)
+//
+//        column.tooltip()
+//            .titleFormat("{%X}")
+//            .position(Position.CENTER_BOTTOM)
+//            .anchor(Anchor.CENTER_BOTTOM)
+//            .offsetX(0.0)
+//            .offsetY(5.0)
+//            .format("\${%Value}{groupsSeparator: }")
+//
+//        cartesian.animation(true)
+//        cartesian.title("Top 10 Cosmetic Products by Revenue")
+//
+//        cartesian.yScale().minimum(0.0)
+//
+//        cartesian.yAxis(0).labels().format("\${%Value}{groupsSeparator: }")
+//
+//        cartesian.tooltip().positionMode(TooltipPositionMode.POINT)
+//        cartesian.interactivity().hoverMode(HoverMode.BY_X)
+//
+//        cartesian.xAxis(0).title("Product")
+//        cartesian.yAxis(0).title("Revenue")
+//
+//        homePageChart.setChart(cartesian)
         //saveOnExit()
 
 //        if (commonList.isEmpty()){

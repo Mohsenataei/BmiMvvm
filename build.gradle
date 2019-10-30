@@ -72,5 +72,6 @@ ext {
     bubbleseekbarVersion = '3.12'
     circleImageViewVersion = '3.0.1'
     stickyHeaderVersion = '1.0.6'
+    multidex_version = "2.0.1"
 
 }

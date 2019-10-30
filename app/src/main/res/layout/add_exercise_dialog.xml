@@ -61,7 +61,7 @@
             app:np_dividerColor="@color/white"
             app:np_textColor="@color/bmi_25_to_30"
             app:np_selectedTextColor="@color/bmi_more_than_40"
-            app:np_min="0"
+            app:np_min="1"
             app:np_textSize="18sp"
             />
 

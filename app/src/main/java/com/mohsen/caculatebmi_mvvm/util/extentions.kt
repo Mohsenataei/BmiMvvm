@@ -6,6 +6,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.mohsen.caculatebmi_mvvm.R
 import com.mohsen.caculatebmi_mvvm.data.CaloriesPerGram
+import com.mohsen.caculatebmi_mvvm.data.Exercises
 import com.mohsen.caculatebmi_mvvm.data.ExercisesExpandableListDataPump
 import com.mohsen.caculatebmi_mvvm.data.ExpandableListDataPump
 import org.w3c.dom.Text
@@ -29,6 +30,10 @@ fun getCaloriesData(): HashMap<String, HashMap<String,Int>> {
     return caloriesPerGram.getData()
 }
 
+fun getExerciseCalories() : HashMap<String, Int> {
+    val exercises = Exercises()
+    return exercises.getData()
+}
 
 fun TextView.setDrawableTop(drawableId: Int){
     this.setCompoundDrawablesWithIntrinsicBounds(0,drawableId,0,0)
