@@ -8,7 +8,7 @@
     xmlns:CircleProgressView="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="com.mohsen.caculatebmi_mvvm.ui.BMI.BMIActivity"
+    tools:context="com.avalinejad.sport.ui.BMI.BMIActivity"
     android:background="@color/default_background_color">
 
     <ScrollView
