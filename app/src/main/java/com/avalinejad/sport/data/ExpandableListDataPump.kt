@@ -70,6 +70,9 @@ class ExpandableListDataPump  {
         Ajil.add("کوکی کشمشی")
         Ajil.add("گردو")
         Ajil.add("لواشک")
+        Ajil.add("مویز")
+        Ajil.add("نارگیل خشک")
+
 
         val polo = ArrayList<String>()
 
@@ -85,9 +88,9 @@ class ExpandableListDataPump  {
         polo.add("ته چین بادمجان")
         polo.add("ته چین گوشت")
         polo.add("ته چین مرغ")
-        polo.add("ته چین برنج")
-        polo.add("ته چین سیب زمینی")
-        polo.add("ته چین سیب نان")
+        polo.add("ته دیگ برنج")
+        polo.add("ته دیگ سیب زمینی")
+        polo.add("ته دیگ نان")
         polo.add("دمپخت گوجه")
         polo.add("دمپختک")
         polo.add("رشته پلو")
