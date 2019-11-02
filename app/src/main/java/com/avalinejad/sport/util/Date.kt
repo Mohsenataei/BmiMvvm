@@ -5,7 +5,7 @@ import com.alirezaafkar.sundatepicker.components.DateItem
 import java.util.*
 
 
-internal class Date : DateItem() {
+class Date : DateItem() {
     val date: String
         get() {
             val calendar = calendar

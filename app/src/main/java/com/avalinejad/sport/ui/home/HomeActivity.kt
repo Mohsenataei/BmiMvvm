@@ -6,17 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.Nullable
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alirezaafkar.sundatepicker.DatePicker
-import com.alirezaafkar.sundatepicker.interfaces.DateSetListener
-import com.anychart.AnyChart
-import com.anychart.chart.common.dataentry.DataEntry
-import com.anychart.chart.common.dataentry.ValueDataEntry
-import com.anychart.enums.Anchor
-import com.anychart.enums.HoverMode
-import com.anychart.enums.Position
-import com.anychart.enums.TooltipPositionMode
 
 
 import com.avalinejad.sport.adapters.RecyclerViewAdapter
@@ -32,8 +23,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 import com.avalinejad.sport.R
-import java.util.*
-import androidx.databinding.adapters.TextViewBindingAdapter.setText
 import com.avalinejad.sport.util.Date
 
 
@@ -65,10 +54,10 @@ class HomeActivity : AppCompatActivity() {
                     calendar!!.time.toString()
                     this.toast("is it working ?"+calendar!!.time.toString())
                     //todayDate.text = calendar!!.time.toString().subSequence(4,10)
-                    todayDate.text = mDate.date
+                    todayDate.text = dateHelper(day, month)
                     mDate.setDate(day, month, year)
 
-                    Log.d("dateTime",calendar!!.time.toString())
+                    Log.d("dateTime" ,"$day and $month and $year ")
                 }
                 .show(supportFragmentManager,"")
 

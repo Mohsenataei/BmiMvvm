@@ -2,6 +2,7 @@ package com.avalinejad.sport.util
 
 import android.content.Context
 import android.content.res.Resources
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import com.avalinejad.sport.R
@@ -54,5 +55,42 @@ fun getDipsFromPixel(pixels: Float, context: Context): Int {
     val scale = context.resources.displayMetrics.density
     // Convert the dps to pixels, based on density scale
     return (pixels * scale + 0.5f).toInt()
+}
+
+fun dateHelper(day: Int, month: Int) : String?{
+    var stringDate: String? = null
+    var tmp: String? = null
+
+    stringDate = day.toString()
+    when(month){
+        1 ->
+            tmp = "  فروردین"
+        2 ->
+            tmp = " اردیبهشت"
+        3 ->
+            tmp = "  خرداد"
+        4 ->
+            tmp = "  تیر"
+        5 ->
+            tmp = "  مرداد"
+        6 ->
+            tmp = "  شهریور"
+        7 ->
+            tmp = "  مهر"
+        8 ->
+            tmp = "  آبان"
+        9 ->
+            tmp = "  آذر"
+        10 ->
+            tmp = "  دی"
+        11->
+            tmp = "  بهمن"
+        12->
+            tmp = "  اسفند"
+        else ->
+            Log.d("dateTime","else trrigerd")
+    }
+    Log.d("dateTime",stringDate)
+    return stringDate.plus(tmp)
 }
 
