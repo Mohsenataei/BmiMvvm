@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
+        android:layout_marginTop="5dp"
         android:id="@+id/listTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,7 +14,16 @@
         android:textColor="@color/bmi_30_to_40"
         android:paddingTop="10dp"
         android:paddingRight="30dp"
-        android:fontFamily="@font/iran_sans_normal"
+        android:fontFamily="@font/main_font_family"
         android:background="@color/white"
         android:paddingBottom="10dp" />
+    <View
+        android:layout_marginTop="5dp"
+        android:background="@color/colorPrimary"
+        android:id="@+id/divider"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
 </LinearLayout>

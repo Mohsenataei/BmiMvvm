@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.ExerciseFragment">
@@ -18,8 +19,11 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:overScrollMode="never"
+            android:childDivider="@color/white"
+            android:divider="@color/white"
+            fontPath="fonts/iran_sans_normal.ttf"
+            android:layoutDirection="rtl"
             android:indicatorRight="?android:attr/expandableListPreferredItemIndicatorRight"
-            android:divider="@color/bmi_30_to_40"
             android:dividerHeight="1dp" />
     </androidx.cardview.widget.CardView>
 

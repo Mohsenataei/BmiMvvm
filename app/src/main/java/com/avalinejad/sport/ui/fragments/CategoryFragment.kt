@@ -3,9 +3,11 @@ package com.avalinejad.sport.ui.fragments
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ExpandableListAdapter
 import android.widget.ExpandableListView
 import com.avalinejad.sport.R
@@ -13,10 +15,8 @@ import com.avalinejad.sport.adapters.CustomExpandableListAdapter
 import com.avalinejad.sport.database.entity.Food
 import com.avalinejad.sport.ui.dialogs.AddFoodDialog
 import com.avalinejad.sport.ui.home.HomeActivity
-import com.avalinejad.sport.util.EXTRA_FOOD
+import com.avalinejad.sport.util.*
 import java.util.HashMap
-import com.avalinejad.sport.util.getExpandableListData
-import com.avalinejad.sport.util.toast
 import kotlinx.android.synthetic.main.fragment_food_category.*
 
 class CategoryFragment(context: Context): BaseFragment() {
@@ -32,11 +32,18 @@ class CategoryFragment(context: Context): BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        expandableListDetail = getExpandableListData()
+        var width: Int = 0
+        val displayMetrics = DisplayMetrics()
+        //context.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics)
+        activity!!.windowManager.defaultDisplay.getMetrics(displayMetrics)
+        width = displayMetrics.widthPixels
+
+            expandableListDetail = getExpandableListData()
         expandableListTitle = ArrayList<String>((expandableListDetail as HashMap<String, MutableList<String>>?)!!.keys)
         expandableListAdapter =
             CustomExpandableListAdapter(context, expandableListTitle, expandableListDetail!!)
         expandableListView.setAdapter(expandableListAdapter)
+        //expandableListView.setIndicatorBounds(width - getDipsFromPixel(20F,context!!) ,getDipsFromPixel(2F,context!!) )
 
 
         expandableListView.setOnGroupExpandListener(ExpandableListView.OnGroupExpandListener { groupPosition ->
@@ -130,4 +137,5 @@ class CategoryFragment(context: Context): BaseFragment() {
 //        index++
 //        Toast.makeText(context,"onPause index is " + index , Toast.LENGTH_SHORT).show()
 //    }
+
 }

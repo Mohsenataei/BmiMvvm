@@ -90,4 +90,10 @@ dependencies {
     implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
     implementation "androidx.multidex:multidex:$multidex_version"
 
+    implementation "io.github.inflationx:calligraphy3:$calligraphyVersion"
+    implementation "io.github.inflationx:viewpump:$viewpumpVersion"
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.alirezaafkar:sundatepicker:2.1.2'
+
 }

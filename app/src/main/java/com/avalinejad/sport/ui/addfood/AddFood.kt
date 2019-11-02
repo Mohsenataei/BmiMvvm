@@ -1,18 +1,21 @@
 package com.avalinejad.sport.ui.addfood
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.viewpager.widget.ViewPager
 import com.avalinejad.sport.R
 import com.avalinejad.sport.adapters.TabAdapter
+import com.avalinejad.sport.ui.BaseActivity
 import com.avalinejad.sport.ui.fragments.CategoryFragment
 import com.avalinejad.sport.ui.fragments.ExerciseFragment
 import com.avalinejad.sport.ui.fragments.FavouriteFoods
 import com.avalinejad.sport.ui.fragments.PersonalFoodFragment
+import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_add_food.*
 
-class AddFood : AppCompatActivity() {
+class AddFood : BaseActivity() {
 
     private var tabAdapter: TabAdapter? = null
     private val tabIcons = intArrayOf(

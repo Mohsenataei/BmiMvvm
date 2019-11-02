@@ -11,6 +11,8 @@ import com.avalinejad.sport.data.ExercisesExpandableListDataPump
 import com.avalinejad.sport.data.ExpandableListDataPump
 import java.util.HashMap
 
+
+
 fun getExpandableListData() : HashMap<String, List<String>> {
     val expandableListDataPump = ExpandableListDataPump()
     return expandableListDataPump.getData()
@@ -45,5 +47,12 @@ fun TextView.setTextColor(colorId: Int){
 
 fun TextView.setBackgroundDrawable(drawableId: Int){
     this.background = Resources.getSystem().getDrawable(R.drawable.add_food_confirm_background)
+}
+//Convert pixel to dip
+fun getDipsFromPixel(pixels: Float, context: Context): Int {
+    // Get the screen's density scale
+    val scale = context.resources.displayMetrics.density
+    // Convert the dps to pixels, based on density scale
+    return (pixels * scale + 0.5f).toInt()
 }
 

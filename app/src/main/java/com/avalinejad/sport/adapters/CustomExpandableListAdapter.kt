@@ -7,8 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ExpandableListAdapter
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.avalinejad.sport.R
+import com.avalinejad.sport.util.toast
+
+
+
 
 class CustomExpandableListAdapter(context: Context?, expandableListTitle: List<String>?, expandableListDetail: HashMap<String, List<String>>) :
     ExpandableListAdapter {
@@ -46,6 +52,9 @@ class CustomExpandableListAdapter(context: Context?, expandableListTitle: List<S
     }
 
     override fun getChildView(groupPosition: Int, childPosition: Int, isLastChild: Boolean, convertView: View?, parent: ViewGroup?): View {
+        val selectedPosition = -1
+        val selectedPosition_parent = -1
+        var flag = false
         var convertView = convertView
         val expandedListText = getChild(groupPosition, childPosition) as String
         if (convertView == null) {
@@ -55,7 +64,34 @@ class CustomExpandableListAdapter(context: Context?, expandableListTitle: List<S
         }
         val expandedListTextView = convertView!!
             .findViewById<View>(R.id.expandedListItem) as TextView
+        val favBtn = convertView.findViewById<View>(R.id.expandedListFavBtn) as ImageView
         expandedListTextView.text = expandedListText
+
+        favBtn.setOnClickListener {
+            if (!flag){
+                flag = !flag
+
+                context!!.toast("baba laba dub dub")
+                favBtn.setImageResource(R.drawable.ic_star_filled)
+            }else{
+                flag = !flag
+                context!!.toast("ruby duby hub dub")
+                favBtn.setImageResource(R.drawable.ic_star_empty)
+            }
+        }
+
+
+//        convertView.findViewById<ImageView>(R.id.expandedListFavBtn).setOnClickListener {
+//            if (!flag){
+//                flag = true
+//                context!!.toast("baba laba dub dub")
+//                convertView.findViewById<ImageView>(R.id.expandedListFavBtn).setImageResource(R.drawable.ic_star_filled)
+//            } else {
+//                flag = false
+//                context!!.toast("ruby duby hub dub")
+//                convertView.findViewById<ImageView>(R.id.expandedListFavBtn).setImageResource(R.drawable.ic_star_empty)
+//            }
+//        }
         return convertView
     }
 
@@ -116,6 +152,8 @@ class CustomExpandableListAdapter(context: Context?, expandableListTitle: List<S
     override fun getGroupCount(): Int {
         return titles!!.size
     }
+
+
 
 
 }
