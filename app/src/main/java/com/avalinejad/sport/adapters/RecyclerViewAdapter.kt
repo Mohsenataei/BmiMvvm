@@ -55,11 +55,13 @@ class RecyclerViewAdapter (val list: MutableList<Food>, context: Context) :
 
         holder.edit.setOnClickListener {
             val addFoodDialog = AddFoodDialog(mContext,foodList[position].name,"",onConfirmClick = {
+
                 list.removeAt(position)
                 list.add(position,it)
                 notifyItemInserted(position)
                 holder.foodname.text = it.name
                 holder.amount.text = it.calory.toString()
+
 
                 if(it.unit == TYPE_GLASS){
                     holder.unit.text = "لیوان"

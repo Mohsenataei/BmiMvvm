@@ -1,10 +1,12 @@
 package com.avalinejad.sport.ui.home
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Adapter
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alirezaafkar.sundatepicker.DatePicker
@@ -23,12 +25,21 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 import com.avalinejad.sport.R
+import com.avalinejad.sport.adapters.ExerciseAdapter
 import com.avalinejad.sport.util.Date
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.data.DataSet
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
+import com.github.mikephil.charting.utils.ColorTemplate
 
 
 class HomeActivity : AppCompatActivity() {
 
     var adapter: RecyclerViewAdapter? = null
+    var exerAdapter: ExerciseAdapter? = null
     var layoutManager: LinearLayoutManager? = null
     var database: AppDatabase?= null
     var ateFoodDao: AteFoodDao?= null
@@ -44,6 +55,29 @@ class HomeActivity : AppCompatActivity() {
         loadStoredData()
         addExtraToList()
 
+
+
+        barChart.setMaxVisibleValueCount(4)
+        barChart.setPinchZoom(false)
+        barChart.setDrawBarShadow(false)
+        barChart.setDrawGridBackground(false)
+
+
+//        val xAxis = barChart.xAxis
+//        xAxis.position = XAxis.XAxisPosition.BOTTOM
+//        xAxis.setDrawGridLines(false)
+
+        barChart.axisLeft.setDrawGridLines(false)
+        barChart.animateY(1500)
+        barChart.description.isEnabled = false
+
+        barChart.legend.isEnabled = false
+
+
+
+        if (exerciseList.isEmpty()){
+            exerciseLBl.visibility = View.GONE
+        }
         todayDate.setOnClickListener {
 
             val mDate = Date()
@@ -146,6 +180,7 @@ class HomeActivity : AppCompatActivity() {
 //                }
 //            }
 //        }
+        calculateCalories()
     }
     private fun getDialogFood(): Food? {
         if(intent.hasExtra(EXTRA_FOOD)){
@@ -254,6 +289,9 @@ class HomeActivity : AppCompatActivity() {
         initRecAdapter()
         commonList.addAll(tempList)
         adapter!!.notifyItemRangeInserted(commonList.size-1, tempList.size)
+        calculateCalories()
+        calculateBurntCalories()
+
     }
 
     private fun loadStoredData(){
@@ -265,19 +303,26 @@ class HomeActivity : AppCompatActivity() {
                     Log.d("globalscope","list is empty")
                 }else{
                     initRecAdapter()
+                    produceBarChartData()
+//                    exercise_recycler_view.adapter = RecyclerViewAdapter(commonList,it)
+//                    exercise_recycler_view.layoutManager = LinearLayoutManager(it)
                 }
             }
         }
-
     }
 
-
     private fun initRecAdapter(){
+        if (!exerciseList.isEmpty()){
+            exerciseLBl.visibility = View.VISIBLE
+        }
         Log.d("recycler","initRecAdapter common list size is: ${commonList.size}")
         adapter = RecyclerViewAdapter(commonList,this@HomeActivity)
+        exerAdapter = ExerciseAdapter(exerciseList,this@HomeActivity)
         layoutManager = LinearLayoutManager(this)
         consumed_food_recycler_view.layoutManager = layoutManager
         consumed_food_recycler_view.adapter = adapter
+        exercise_recycler_view .layoutManager = LinearLayoutManager(this)
+        exercise_recycler_view.adapter = exerAdapter
         toggleVisibility()
 
     }
@@ -293,10 +338,71 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-private fun updateLASTITEMINDEX(index:Int){
+    private fun updateLASTITEMINDEX(index:Int){
     LAST_ITEM_INDEX = index
 }
     private fun updateUI(){
+
+    }
+
+    private fun calculateCalories(){
+        var total = 0
+        for (item in commonList){
+            total = total.plus(item.calory)
+        }
+
+        setCunsumedCaloriestv(total.toString())
+
+    }
+
+    private fun setCunsumedCaloriestv(txt: String){
+        consumedCalories.text = txt.plus("  کالری دریافتی")
+    }
+
+    private fun setBurntCaloriestv(txt: String) {
+        val tmp = "فعالیت های ورزشی $txt  کالری"
+        exerciseLBl.text = tmp
+    }
+
+    private fun calculateBurntCalories(){
+        var temp = 0;
+        for (item in exerciseList)
+            temp = temp.plus(item.unitCal)
+
+        setBurntCaloriestv(temp.toString())
+
+    }
+
+    private fun produceBarChartData(){
+        var values: ArrayList<BarEntry> = ArrayList()
+        for (i in 0..3){
+            if (commonList.size == 0){
+                applicationContext.toast("size problem")
+            }else{
+                values.add(BarEntry(i.toFloat(), commonList[i].calory.toFloat().times(10)))
+            }
+
+        }
+        var breakfastSet: BarDataSet? = null
+        val barEntry: ArrayList<BarEntry> = ArrayList()
+        if (barChart.data != null && barChart.data.dataSetCount > 0)
+        {
+            applicationContext.toast("chart data is not empty")
+        }else {
+            breakfastSet = BarDataSet(values, "Data Set")
+            breakfastSet.color = resources.getColor(R.color.colorPrimary)
+            breakfastSet.setDrawValues(false)
+
+
+            val dataSets = ArrayList<IBarDataSet>()
+            dataSets.add(breakfastSet)
+
+            val data = BarData(dataSets)
+            barChart.setData(data)
+            barChart.setFitBars(true)
+        }
+
+        barChart.invalidate()
 
     }
 

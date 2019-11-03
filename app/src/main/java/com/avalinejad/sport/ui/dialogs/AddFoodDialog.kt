@@ -26,6 +26,7 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
     val dilogType = type
     //val onDialogClicked = onClick
     var ateCalory: String? = null
+    var calories: Int? = null
     var meal: Int? = null
     var type: Int? = null
     val title = food_title
@@ -62,12 +63,12 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
                 val text = add_food_dialog_edit_text.text.toString().toInt()
-
-                    Log.d("onchange","is it working ?")
-                    val unit = caloriesData["gram"]!![title]
-                    Consumed_calories_text_view.text = text.times(unit!!).div(100).toString()+" کالری "
-                    ateCalory = add_food_dialog_calory_text_view.text.toString()
-             if (type == TYPE_GLASS && !add_food_dialog_calory_text_view.text.isNullOrEmpty()) {
+                Log.d("onchange","is it working ?")
+                val unit = caloriesData["gram"]!![title]
+                calories = text.times(unit!!).div(100)
+                Consumed_calories_text_view.text = text.times(unit!!).div(100).toString()+" کالری "
+                ateCalory = add_food_dialog_calory_text_view.text.toString()
+                if (type == TYPE_GLASS && !add_food_dialog_calory_text_view.text.isNullOrEmpty()) {
                     add_food_dialog_calory_text_view.text =
                         add_food_dialog_edit_text.text.toString().toInt().times(5).toString()
                     ateCalory = add_food_dialog_calory_text_view.text.toString()
@@ -142,6 +143,7 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
 
             }else if (type == TYPE_GRAM){
                 val cal = caloryByGram!![title]
+                calories = text.times(cal!!).div(100)
                 Consumed_calories_text_view.text = text.times(cal!!).div(100).toString() + "  کالری "
             }
         }
@@ -169,7 +171,7 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
         //onConfirmClick(Food(0,type!!,title,ateCalory!!.toInt(),meal.toString()))
 
         //  commonList.add(Food(0,type!!,title,ateCalory!!.toInt(),meal.toString()))
-        tempList.add(Food(0,type!!,title,ateCalory!!.toInt(),meal.toString()))
+        tempList.add(Food(calories!!,type!!,title,ateCalory!!.toInt(),meal.toString()))
         Log.d("extra_food","item added to common list in addFood dialog and list size now is : ${commonList.size}")
         Log.d("testing","Start Debugging")
         for (item in commonList){
