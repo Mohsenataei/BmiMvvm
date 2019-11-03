@@ -34,6 +34,7 @@ import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.DataSet
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
+import kotlinx.android.synthetic.main.add_food_dialog.*
 
 
 class HomeActivity : AppCompatActivity() {
@@ -61,6 +62,11 @@ class HomeActivity : AppCompatActivity() {
         barChart.setPinchZoom(false)
         barChart.setDrawBarShadow(false)
         barChart.setDrawGridBackground(false)
+        barChart.background = resources.getDrawable(R.drawable.add_food_confirm_background)
+        barChart.axisLeft.setDrawGridLines(false)
+        barChart.xAxis.setDrawGridLines(false)
+        barChart.axisRight.setDrawGridLines(false)
+
 
 
 //        val xAxis = barChart.xAxis
@@ -95,8 +101,7 @@ class HomeActivity : AppCompatActivity() {
                 }
                 .show(supportFragmentManager,"")
 
-
-
+            startActivity(Intent(this@HomeActivity,HomeActivity::class.java))
 
         }
 
@@ -379,7 +384,7 @@ class HomeActivity : AppCompatActivity() {
             if (commonList.size == 0){
                 applicationContext.toast("size problem")
             }else{
-                values.add(BarEntry(i.toFloat(), commonList[i].calory.toFloat().times(10)))
+                values.add(BarEntry(i.toFloat(), commonList[i].calory.toFloat()))
             }
 
         }
@@ -390,7 +395,7 @@ class HomeActivity : AppCompatActivity() {
             applicationContext.toast("chart data is not empty")
         }else {
             breakfastSet = BarDataSet(values, "Data Set")
-            breakfastSet.color = resources.getColor(R.color.colorPrimary)
+            breakfastSet.color = resources.getColor(R.color.white)
             breakfastSet.setDrawValues(false)
 
 
