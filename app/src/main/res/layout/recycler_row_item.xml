@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:background="@drawable/recycler_item_background"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
-        android:layout_marginTop="8dp"
         android:weightSum="10"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -35,7 +40,7 @@
             android:id="@+id/recycler_item_food_name"
             android:layout_width="0dp"
             android:layout_height="match_parent"/>
-        <ImageButton
+        <ImageView
             android:tint="@color/bmi_more_than_40"
             android:src="@drawable/ic_edit"
             android:background="@color/white"
@@ -44,7 +49,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
-        <ImageButton
+        <ImageView
+            android:layout_marginEnd="4dp"
             android:background="@color/white"
             android:src="@drawable/ic_remove"
             android:tint="@color/bmi_more_than_40"

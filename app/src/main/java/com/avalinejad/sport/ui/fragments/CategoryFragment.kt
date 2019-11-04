@@ -16,6 +16,7 @@ import com.avalinejad.sport.database.entity.Food
 import com.avalinejad.sport.ui.dialogs.AddFoodDialog
 import com.avalinejad.sport.ui.home.HomeActivity
 import com.avalinejad.sport.util.*
+import kotlinx.android.synthetic.main.app_bar.*
 import java.util.HashMap
 import kotlinx.android.synthetic.main.fragment_food_category.*
 
@@ -25,13 +26,9 @@ class CategoryFragment(context: Context): BaseFragment() {
     private var expandableListAdapter: ExpandableListAdapter? = null
     private var mContext = context
 
-    //val selectedFoods = java.util.ArrayList<AddedFood>()
-    //val database = AppDatabase.getDatabase(context!!)
-  //  val AddedFoodDao = database.addedFoodDao()
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        activity!!.toolbar.title = "انتخاب مواد "
         var width: Int = 0
         val displayMetrics = DisplayMetrics()
         //context.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics)

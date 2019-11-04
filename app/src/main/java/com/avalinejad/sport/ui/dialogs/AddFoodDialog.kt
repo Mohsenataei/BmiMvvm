@@ -21,10 +21,8 @@ import java.util.HashMap
 class AddFoodDialog(context: Context, food_title: String, type: String, val onConfirmClick : (food: Food) -> Unit = {}) : Dialog(context)  {
 
     val hashMap: HashMap<String, Int> = HashMap()
-    //val caloriesList = CaloriesList()
     val key:  String? = null
     val dilogType = type
-    //val onDialogClicked = onClick
     var ateCalory: String? = null
     var calories: Int? = null
     var meal: Int? = null
@@ -39,6 +37,8 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_food_dialog)
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+
         for (i in 0..flags.size-1)
             flags[i] = false
         food_name.text = title
@@ -171,7 +171,14 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
         //onConfirmClick(Food(0,type!!,title,ateCalory!!.toInt(),meal.toString()))
 
         //  commonList.add(Food(0,type!!,title,ateCalory!!.toInt(),meal.toString()))
-        tempList.add(Food(calories!!,type!!,title,ateCalory!!.toInt(),meal.toString()))
+        var cat: String?=null
+        when(meal){
+            BREAKFAST -> cat = "breakfast"
+            LAUNCH -> cat = "launch"
+            DINNER -> cat = "dinner"
+            MIANVADEH -> cat = "mianvadeh"
+        }
+        tempList.add(Food(calories!!,type!!,title,ateCalory!!.toInt(),cat!!))
         Log.d("extra_food","item added to common list in addFood dialog and list size now is : ${commonList.size}")
         Log.d("testing","Start Debugging")
         for (item in commonList){

@@ -14,6 +14,7 @@ import com.avalinejad.sport.R
 import com.avalinejad.sport.adapters.CustomExpandableListAdapter
 import com.avalinejad.sport.ui.dialogs.AddExerciseDialog
 import com.avalinejad.sport.util.getExerciseData
+import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.fragment_exercise.*
 import java.util.HashMap
 
@@ -38,6 +39,7 @@ class ExerciseFragment(context: Context) : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         expandableListDetail = getExerciseData()
 
+        activity!!.toolbar.title = "انتخاب فعالیت ها"
        // expandableListDetail = getExpandableListData()
         expandableListTitle = ArrayList<String>((expandableListDetail as HashMap<String, MutableList<String>>?)!!.keys)
         expandableListAdapter =

@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.avalinejad.sport.R
@@ -60,7 +61,7 @@ class ExerciseAdapter (val list: MutableList<Exercise>, context: Context) :
         val title = itemView.recycler_item_food_name as TextView
         val amount  = itemView.recycler_food_amount as TextView
         val unit = itemView.recycler_food_unit as TextView
-        val edit = itemView.recycler_edit_button as ImageButton
-        val remove = itemView.recycler_remove_button as ImageButton
+        val edit = itemView.recycler_edit_button as ImageView
+        val remove = itemView.recycler_remove_button as ImageView
     }
 }

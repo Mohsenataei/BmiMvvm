@@ -14,6 +14,7 @@ import com.avalinejad.sport.ui.fragments.FavouriteFoods
 import com.avalinejad.sport.ui.fragments.PersonalFoodFragment
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_add_food.*
+import kotlinx.android.synthetic.main.app_bar.*
 
 class AddFood : BaseActivity() {
 
@@ -27,16 +28,27 @@ class AddFood : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_food)
 
+
         tabAdapter = TabAdapter(supportFragmentManager,this)
+
+        tabAdapter?.addFragment(CategoryFragment(this),"دسته بندی غذاها",tabIcons[0])
+        tabAdapter?.addFragment(ExerciseFragment(this),"اضافه کردن ورزش",tabIcons[1])
+
 
         if (intent.hasExtra("food_button")){
             Log.d("addfood","come from add food button")
-            tabAdapter?.addFragment(PersonalFoodFragment(),"غذاهای شخصی", tabIcons[2])
-            tabAdapter?.addFragment(FavouriteFoods(),"غذاهای مورد علاقه",tabIcons[1])
-            tabAdapter?.addFragment(CategoryFragment(this),"دسته بندی غذاها",tabIcons[0])
+//            tabAdapter?.addFragment(PersonalFoodFragment(),"غذاهای شخصی", tabIcons[2])
+//            tabAdapter?.addFragment(FavouriteFoods(),"غذاهای مورد علاقه",tabIcons[1])
+
+            viewpager.setCurrentItem(0)
+            setTitle("اضافه کردن غذا")
+            toolbar.title = "اضافه کردن غذا"
         } else if (intent.hasExtra("exercise_button")){
             Log.d("addfood","come from add exercise button")
-            tabAdapter?.addFragment(ExerciseFragment(this),"اضافه کردن ورزش",tabIcons[1])
+            viewpager.setCurrentItem(1)
+            setTitle("اضافه کردن غذا")
+            toolbar.title = "اضافه کردن فعالیت ورزشی"
+
         } else {
             Log.d("addfood","came out of nowhere")
         }

@@ -1,9 +1,11 @@
 package com.avalinejad.sport.ui.home
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Adapter
@@ -26,18 +28,21 @@ import kotlinx.coroutines.launch
 
 import com.avalinejad.sport.R
 import com.avalinejad.sport.adapters.ExerciseAdapter
+import com.avalinejad.sport.ui.BaseActivity
 import com.avalinejad.sport.util.Date
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.DataSet
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
+import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.add_food_dialog.*
 
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
 
     var adapter: RecyclerViewAdapter? = null
     var exerAdapter: ExerciseAdapter? = null
@@ -46,32 +51,33 @@ class HomeActivity : AppCompatActivity() {
     var ateFoodDao: AteFoodDao?= null
     var foodDao: FoodDao?= null
     var detailDao: DetailDao?=null
+    var i = 0
+    val chartLbls = arrayOf("میان وعده","شام","نهار","صبحانه")
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        Toast.makeText(this,"onCreate",Toast.LENGTH_SHORT).show()
+        this.toast("common list size is : ${commonList.size} in line 55")
         initDataBaseShits()
-        loadStoredData()
+        //loadStoredData()
         addExtraToList()
-
-
-
+        this.toast("common list size is : ${commonList.size} in line 59")
         barChart.setMaxVisibleValueCount(4)
         barChart.setPinchZoom(false)
         barChart.setDrawBarShadow(false)
         barChart.setDrawGridBackground(false)
-        barChart.background = resources.getDrawable(R.drawable.add_food_confirm_background)
+        //barChart.background = resources.getDrawable(R.drawable.add_food_confirm_background)
         barChart.axisLeft.setDrawGridLines(false)
         barChart.xAxis.setDrawGridLines(false)
         barChart.axisRight.setDrawGridLines(false)
-
-
-
-//        val xAxis = barChart.xAxis
-//        xAxis.position = XAxis.XAxisPosition.BOTTOM
-//        xAxis.setDrawGridLines(false)
+        barChart.setScaleEnabled(false)
+        val xAxis = barChart.xAxis
+        xAxis.position = XAxis.XAxisPosition.BOTTOM
+        xAxis.setDrawGridLines(false)
+        xAxis.isGranularityEnabled = true
+        barChart.xAxis.valueFormatter = IndexAxisValueFormatter(chartLbls)
 
         barChart.axisLeft.setDrawGridLines(false)
         barChart.animateY(1500)
@@ -105,60 +111,6 @@ class HomeActivity : AppCompatActivity() {
 
         }
 
-
-
-
-//        val cartesian = AnyChart.column()
-//
-//        val data = ArrayList<DataEntry>()
-//        data.add(ValueDataEntry("Rouge", 80540))
-//        data.add(ValueDataEntry("Foundation", 94190))
-//        data.add(ValueDataEntry("Mascara", 102610))
-//        data.add(ValueDataEntry("Lip gloss", 110430))
-//        data.add(ValueDataEntry("Lipstick", 128000))
-//        data.add(ValueDataEntry("Nail polish", 143760))
-//        data.add(ValueDataEntry("Eyebrow pencil", 170670))
-//        data.add(ValueDataEntry("Eyeliner", 213210))
-//        data.add(ValueDataEntry("Eyeshadows", 249980))
-//
-//        val column = cartesian.column(data)
-//
-//        column.tooltip()
-//            .titleFormat("{%X}")
-//            .position(Position.CENTER_BOTTOM)
-//            .anchor(Anchor.CENTER_BOTTOM)
-//            .offsetX(0.0)
-//            .offsetY(5.0)
-//            .format("\${%Value}{groupsSeparator: }")
-//
-//        cartesian.animation(true)
-//        cartesian.title("Top 10 Cosmetic Products by Revenue")
-//
-//        cartesian.yScale().minimum(0.0)
-//
-//        cartesian.yAxis(0).labels().format("\${%Value}{groupsSeparator: }")
-//
-//        cartesian.tooltip().positionMode(TooltipPositionMode.POINT)
-//        cartesian.interactivity().hoverMode(HoverMode.BY_X)
-//
-//        cartesian.xAxis(0).title("Product")
-//        cartesian.yAxis(0).title("Revenue")
-
-       // homePageChart.setChart(cartesian)
-        //saveOnExit()
-
-//        if (commonList.isEmpty()){
-//            Log.d("recycler", "list still empty wtf ?")
-//            consumed_food_recycler_view.visibility = View.GONE
-//            home_status_text_view.visibility = View.VISIBLE
-//        }else{
-//            layoutManager = LinearLayoutManager(this)
-//            consumed_food_recycler_view.layoutManager = layoutManager
-//            consumed_food_recycler_view.adapter = adapter
-//            //adapter!!.notifyDataSetChanged()
-//        }
-
-
         adFoodButton.setOnClickListener {
             val intent = Intent(this,AddFood::class.java)
             intent.putExtra("food_button","120")
@@ -170,35 +122,12 @@ class HomeActivity : AppCompatActivity() {
             intent.putExtra("exercise_button","121")
             startActivity(intent)
         }
-
-
-//        Log.d("list","this is global scope")
-//        GlobalScope.launch {
-//            this@HomeActivity.let {
-//                foodDao!!.insertAll(Food(10020,5,"باقالی پلو",5+1,"پلوها"))
-//
-//                val list =  foodDao!!.getAll()
-//                val size = list.size
-//                Log.d("list","size of list is $size")
-//                for (item in list){
-//                    Log.d("list","" + item.ID)
-//                }
-//            }
-//        }
         calculateCalories()
     }
     private fun getDialogFood(): Food? {
         if(intent.hasExtra(EXTRA_FOOD)){
             Log.d(EXTRA_FOOD,"food extra has been found")
             return intent.getSerializableExtra(EXTRA_FOOD) as Food
-//        }else {
-//            GlobalScope.launch {
-//                Log.d("globalscope","data retrieved from database.")
-//                this@HomeActivity.let {
-//                    commonList = detailDao!!.getAll()
-//                }
-//                Log.d("globalscope","data retrieved from database. size is ${commonList.size}")
-//            }
         }
         Log.d(EXTRA_FOOD,"returned null")
         return null
@@ -206,12 +135,15 @@ class HomeActivity : AppCompatActivity() {
 
     private fun addExtraToList(){
         val food = getDialogFood()
+        this.toast("common list size is : ${commonList.size} in line 55")
         if (food != null){
             commonList.add(food)
+            this.toast("common list size is : ${commonList.size} in line 55")
             Log.d("extra_food","common list size now is : ${commonList.size} and received food is ${food.name}")
             adapter = RecyclerViewAdapter(commonList,this)
             adapter!!.notifyItemInserted(commonList.size-1)
-            initRecAdapter()
+           // initRecAdapter()
+            this.toast("common list size is : ${commonList.size} in line 55")
         }
     }
 
@@ -279,24 +211,36 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        Toast.makeText(this,"onStop",Toast.LENGTH_SHORT).show()
+        this.toast("common list size is : ${commonList.size} in line 207")
     }
 
     override fun onRestart() {
         super.onRestart()
 
-        Toast.makeText(this,"onRestart",Toast.LENGTH_SHORT).show()
+        this.toast("common list size is : ${commonList.size} in line 213")
     }
 
     override fun onResume() {
         super.onResume()
-        Toast.makeText(this,"onResume",Toast.LENGTH_SHORT).show()
-        initRecAdapter()
+        this.toast("common list size is : ${commonList.size} in line 218")
+        initRecAdapter() // dont you date touch this line
         commonList.addAll(tempList)
+        tempList.clear()
+        this.toast("common list size is : ${commonList.size}")
         adapter!!.notifyItemRangeInserted(commonList.size-1, tempList.size)
         calculateCalories()
         calculateBurntCalories()
+        this.toast("common list size is : ${commonList.size} in line 225")
 
+        if (exerciseList.isEmpty()){
+            exerciseLBl.visibility = View.GONE
+        }
+        if (commonList.isEmpty()){
+            foodLbl.visibility = View.GONE
+        }else{
+            foodLbl.visibility = View.VISIBLE
+        }
+        produceBarChartData()
     }
 
     private fun loadStoredData(){
@@ -307,6 +251,8 @@ class HomeActivity : AppCompatActivity() {
                 if (commonList.isEmpty()){
                     Log.d("globalscope","list is empty")
                 }else{
+                    Looper.prepare()
+                    this@HomeActivity.toast("common list size is : ${commonList.size} in line 240")
                     initRecAdapter()
                     produceBarChartData()
 //                    exercise_recycler_view.adapter = RecyclerViewAdapter(commonList,it)
@@ -316,11 +262,13 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+
     private fun initRecAdapter(){
         if (!exerciseList.isEmpty()){
             exerciseLBl.visibility = View.VISIBLE
         }
-        Log.d("recycler","initRecAdapter common list size is: ${commonList.size}")
+        Log.d("recycleer","initRecAdapter common list size is: ${commonList.size}")
+        this.toast("common list size is : ${commonList.size} in line 258")
         adapter = RecyclerViewAdapter(commonList,this@HomeActivity)
         exerAdapter = ExerciseAdapter(exerciseList,this@HomeActivity)
         layoutManager = LinearLayoutManager(this)
@@ -346,6 +294,7 @@ class HomeActivity : AppCompatActivity() {
     private fun updateLASTITEMINDEX(index:Int){
     LAST_ITEM_INDEX = index
 }
+
     private fun updateUI(){
 
     }
@@ -379,28 +328,61 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun produceBarChartData(){
+        var breakfastCalory = 0f
+        var launchCalory = 0f
+        var dinnerCalory = 0f
+        var mealCalory = 0f
         var values: ArrayList<BarEntry> = ArrayList()
-        for (i in 0..3){
-            if (commonList.size == 0){
-                applicationContext.toast("size problem")
-            }else{
-                values.add(BarEntry(i.toFloat(), commonList[i].calory.toFloat()))
+        for (item in commonList){
+            when(item.category){
+                "dinner" -> dinnerCalory = dinnerCalory.plus(item.calory)
+                "breakfast" -> breakfastCalory = breakfastCalory.plus(item.calory)
+                "mianvadeh" -> mealCalory = mealCalory.plus(item.calory)
+                "launch" -> launchCalory = launchCalory.plus(item.calory)
             }
-
         }
-        var breakfastSet: BarDataSet? = null
+
+        values.add(BarEntry(0f,mealCalory))
+        values.add(BarEntry(1f,dinnerCalory))
+        values.add(BarEntry(2f,launchCalory))
+        values.add(BarEntry(3f,breakfastCalory))
+
+
+
+
+//        for (i in 0..3){
+//            if (commonList.size == 0){
+//                applicationContext.toast("size problem")
+//            }else{
+//                values.add(BarEntry(i.toFloat(), commonList[i].calory.toFloat()))
+//            }
+//
+//        }
+        var dataSet: BarDataSet? = null
         val barEntry: ArrayList<BarEntry> = ArrayList()
         if (barChart.data != null && barChart.data.dataSetCount > 0)
         {
             applicationContext.toast("chart data is not empty")
-        }else {
-            breakfastSet = BarDataSet(values, "Data Set")
-            breakfastSet.color = resources.getColor(R.color.white)
-            breakfastSet.setDrawValues(false)
+            dataSet = BarDataSet(values, "Data Set")
+            dataSet.color = resources.getColor(R.color.bmi_below_18_5)
+            dataSet.setDrawValues(false)
 
 
             val dataSets = ArrayList<IBarDataSet>()
-            dataSets.add(breakfastSet)
+            dataSets.add(dataSet)
+
+            val data = BarData(dataSets)
+            barChart.setData(data)
+            barChart.setFitBars(true)
+
+        }else {
+            dataSet = BarDataSet(values, "Data Set")
+            dataSet.color = resources.getColor(R.color.bmi_below_18_5)
+            dataSet.setDrawValues(false)
+
+
+            val dataSets = ArrayList<IBarDataSet>()
+            dataSets.add(dataSet)
 
             val data = BarData(dataSets)
             barChart.setData(data)
@@ -410,5 +392,9 @@ class HomeActivity : AppCompatActivity() {
         barChart.invalidate()
 
     }
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
+    }
+
 
 }
