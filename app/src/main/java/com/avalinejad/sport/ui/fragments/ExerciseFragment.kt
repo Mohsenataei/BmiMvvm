@@ -39,7 +39,7 @@ class ExerciseFragment(context: Context) : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         expandableListDetail = getExerciseData()
 
-        activity!!.toolbar.title = "انتخاب فعالیت ها"
+        //activity!!.toolbar.title = "انتخاب فعالیت ها"
        // expandableListDetail = getExpandableListData()
         expandableListTitle = ArrayList<String>((expandableListDetail as HashMap<String, MutableList<String>>?)!!.keys)
         expandableListAdapter =

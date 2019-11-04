@@ -4,6 +4,9 @@ package com.avalinejad.sport.util
 import com.avalinejad.sport.database.entity.Food
 import com.avalinejad.sport.model.Exercise
 import java.lang.Exception
+import java.time.LocalDateTime
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 // for food unit
@@ -25,6 +28,7 @@ val EXERCISE_BUTTON = "exercise_button"
 var commonList: MutableList<Food> = ArrayList()
 var tempList: MutableList<Food> = ArrayList()
 val exerciseList: MutableList<Exercise> = ArrayList()
+val today = Calendar.getInstance().time
 
 //var ateFoodIds: MutableList<SelectedFood> = ArrayList()
 

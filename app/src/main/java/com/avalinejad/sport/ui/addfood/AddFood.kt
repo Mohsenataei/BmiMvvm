@@ -31,8 +31,15 @@ class AddFood : BaseActivity() {
 
         tabAdapter = TabAdapter(supportFragmentManager,this)
 
-        tabAdapter?.addFragment(CategoryFragment(this),"دسته بندی غذاها",tabIcons[0])
+
         tabAdapter?.addFragment(ExerciseFragment(this),"اضافه کردن ورزش",tabIcons[1])
+        tabAdapter?.addFragment(CategoryFragment(this),"دسته بندی غذاها",tabIcons[0])
+
+        viewpager.adapter = tabAdapter
+        calories_tab.setSelectedTabIndicatorColor(resources.getColor(R.color.bmi_below_18_5))
+        calories_tab.setSelectedTabIndicatorHeight(5)
+
+        calories_tab.setupWithViewPager(viewpager)
 
 
         if (intent.hasExtra("food_button")){
@@ -40,26 +47,31 @@ class AddFood : BaseActivity() {
 //            tabAdapter?.addFragment(PersonalFoodFragment(),"غذاهای شخصی", tabIcons[2])
 //            tabAdapter?.addFragment(FavouriteFoods(),"غذاهای مورد علاقه",tabIcons[1])
 
-            viewpager.setCurrentItem(0)
-            setTitle("اضافه کردن غذا")
+           // viewpager.setCurrentItem(0)
+            //setTitle("اضافه کردن غذا")
+            viewpager.currentItem = 1
             toolbar.title = "اضافه کردن غذا"
+            highLightCurrentTab(1)
         } else if (intent.hasExtra("exercise_button")){
             Log.d("addfood","come from add exercise button")
-            viewpager.setCurrentItem(1)
-            setTitle("اضافه کردن غذا")
+          //  viewpager.setCurrentItem(1)
+           // setTitle("اضافه کردن غذا")
             toolbar.title = "اضافه کردن فعالیت ورزشی"
+            viewpager.currentItem = 0
+            highLightCurrentTab(0)
 
         } else {
             Log.d("addfood","came out of nowhere")
         }
 
 
-        viewpager.adapter = tabAdapter
-        calories_tab.setSelectedTabIndicatorColor(resources.getColor(R.color.bmi_below_18_5))
-        calories_tab.setSelectedTabIndicatorHeight(5)
+//        viewpager.adapter = tabAdapter
+//        calories_tab.setSelectedTabIndicatorColor(resources.getColor(R.color.bmi_below_18_5))
+//        calories_tab.setSelectedTabIndicatorHeight(5)
+//
+//        calories_tab.setupWithViewPager(viewpager)
+//        viewpager.setCurrentItem(0)
 
-        calories_tab.setupWithViewPager(viewpager)
-        viewpager.setCurrentItem(2)
         viewpager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,
@@ -70,12 +82,22 @@ class AddFood : BaseActivity() {
 
             override fun onPageSelected(position: Int) {
                 highLightCurrentTab(position)
+                setFragmentTitle(position)
             }
 
             override fun onPageScrollStateChanged(state: Int) {}
         })
 
 
+    }
+    private fun setFragmentTitle(position: Int){
+        if (position == 0){
+            toolbar.title = "اضافه کردن غذا"
+//            viewpager.currentItem = 0
+        }else{
+            toolbar.title = "اضافه کردن فعالیت ورزشی"
+
+        }
     }
     private fun highLightCurrentTab(position: Int) {
         for (i in 0 until calories_tab.getTabCount()) {

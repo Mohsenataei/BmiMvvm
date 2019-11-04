@@ -59,11 +59,11 @@ class HomeActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        this.toast("common list size is : ${commonList.size} in line 55")
+      //  this.toast("common list size is : ${commonList.size} in line 55")
         initDataBaseShits()
         //loadStoredData()
         addExtraToList()
-        this.toast("common list size is : ${commonList.size} in line 59")
+     //   this.toast("common list size is : ${commonList.size} in line 59")
         barChart.setMaxVisibleValueCount(4)
         barChart.setPinchZoom(false)
         barChart.setDrawBarShadow(false)
@@ -98,16 +98,16 @@ class HomeActivity : BaseActivity() {
                .date(mDate.getDay(), mDate.getMonth(), mDate.getYear())
                 .build { id, calendar, day, month, year ->
                     calendar!!.time.toString()
-                    this.toast("is it working ?"+calendar!!.time.toString())
+                  //  this.toast("is it working ?"+calendar!!.time.toString())
                     //todayDate.text = calendar!!.time.toString().subSequence(4,10)
                     todayDate.text = dateHelper(day, month)
                     mDate.setDate(day, month, year)
 
-                    Log.d("dateTime" ,"$day and $month and $year ")
+                    Log.d("dateTime" ,"$day and $month and $year")
                 }
                 .show(supportFragmentManager,"")
 
-            startActivity(Intent(this@HomeActivity,HomeActivity::class.java))
+//            startActivity(Intent(this@HomeActivity,HomeActivity::class.java))
 
         }
 
@@ -135,15 +135,15 @@ class HomeActivity : BaseActivity() {
 
     private fun addExtraToList(){
         val food = getDialogFood()
-        this.toast("common list size is : ${commonList.size} in line 55")
+       // this.toast("common list size is : ${commonList.size} in line 55")
         if (food != null){
             commonList.add(food)
-            this.toast("common list size is : ${commonList.size} in line 55")
+      //      this.toast("common list size is : ${commonList.size} in line 55")
             Log.d("extra_food","common list size now is : ${commonList.size} and received food is ${food.name}")
             adapter = RecyclerViewAdapter(commonList,this)
             adapter!!.notifyItemInserted(commonList.size-1)
            // initRecAdapter()
-            this.toast("common list size is : ${commonList.size} in line 55")
+         //   this.toast("common list size is : ${commonList.size} in line 55")
         }
     }
 
@@ -157,11 +157,11 @@ class HomeActivity : BaseActivity() {
     override fun onDestroy() {
        super.onDestroy()
         if (tempList.size > 0){
-            Toast.makeText(this,"data has been saved from here",Toast.LENGTH_SHORT).show()
+       //     Toast.makeText(this,"data has been saved from here",Toast.LENGTH_SHORT).show()
             saveOnExit()
 
         }else{
-            Toast.makeText(this,"data has not been saved because list is empty",Toast.LENGTH_SHORT).show()
+   //         Toast.makeText(this,"data has not been saved because list is empty",Toast.LENGTH_SHORT).show()
         }
        // Toast.makeText(this,"onDestroy",Toast.LENGTH_SHORT).show()
     }
@@ -197,7 +197,7 @@ class HomeActivity : BaseActivity() {
 
     override fun onStart() {
         super.onStart()
-         Toast.makeText(this,"onStart",Toast.LENGTH_SHORT).show()
+       //  Toast.makeText(this,"onStart",Toast.LENGTH_SHORT).show()
 //        GlobalScope.launch {
 //            this@HomeActivity.let {
 //                val size = AppDatabase.getDatabase(this@HomeActivity).detailDao().getAll().size
@@ -205,32 +205,32 @@ class HomeActivity : BaseActivity() {
 //            }
 //        }
         if (commonList.isEmpty()){
-            this.toast("still empty outside global scope ()")
+          //  this.toast("still empty outside global scope ()")
         }
     }
 
     override fun onStop() {
         super.onStop()
-        this.toast("common list size is : ${commonList.size} in line 207")
+       // this.toast("common list size is : ${commonList.size} in line 207")
     }
 
     override fun onRestart() {
         super.onRestart()
 
-        this.toast("common list size is : ${commonList.size} in line 213")
+      //  this.toast("common list size is : ${commonList.size} in line 213")
     }
 
     override fun onResume() {
         super.onResume()
-        this.toast("common list size is : ${commonList.size} in line 218")
+     //   this.toast("common list size is : ${commonList.size} in line 218")
         initRecAdapter() // dont you date touch this line
         commonList.addAll(tempList)
         tempList.clear()
-        this.toast("common list size is : ${commonList.size}")
+     //   this.toast("common list size is : ${commonList.size}")
         adapter!!.notifyItemRangeInserted(commonList.size-1, tempList.size)
         calculateCalories()
         calculateBurntCalories()
-        this.toast("common list size is : ${commonList.size} in line 225")
+    //    this.toast("common list size is : ${commonList.size} in line 225")
 
         if (exerciseList.isEmpty()){
             exerciseLBl.visibility = View.GONE
@@ -252,7 +252,7 @@ class HomeActivity : BaseActivity() {
                     Log.d("globalscope","list is empty")
                 }else{
                     Looper.prepare()
-                    this@HomeActivity.toast("common list size is : ${commonList.size} in line 240")
+          //          this@HomeActivity.toast("common list size is : ${commonList.size} in line 240")
                     initRecAdapter()
                     produceBarChartData()
 //                    exercise_recycler_view.adapter = RecyclerViewAdapter(commonList,it)
@@ -268,7 +268,7 @@ class HomeActivity : BaseActivity() {
             exerciseLBl.visibility = View.VISIBLE
         }
         Log.d("recycleer","initRecAdapter common list size is: ${commonList.size}")
-        this.toast("common list size is : ${commonList.size} in line 258")
+     //   this.toast("common list size is : ${commonList.size} in line 258")
         adapter = RecyclerViewAdapter(commonList,this@HomeActivity)
         exerAdapter = ExerciseAdapter(exerciseList,this@HomeActivity)
         layoutManager = LinearLayoutManager(this)
@@ -335,10 +335,10 @@ class HomeActivity : BaseActivity() {
         var values: ArrayList<BarEntry> = ArrayList()
         for (item in commonList){
             when(item.category){
-                "dinner" -> dinnerCalory = dinnerCalory.plus(item.calory)
-                "breakfast" -> breakfastCalory = breakfastCalory.plus(item.calory)
-                "mianvadeh" -> mealCalory = mealCalory.plus(item.calory)
-                "launch" -> launchCalory = launchCalory.plus(item.calory)
+                "dinner" -> dinnerCalory = dinnerCalory.plus(item.ID)
+                "breakfast" -> breakfastCalory = breakfastCalory.plus(item.ID)
+                "mianvadeh" -> mealCalory = mealCalory.plus(item.ID)
+                "launch" -> launchCalory = launchCalory.plus(item.ID)
             }
         }
 
@@ -362,7 +362,7 @@ class HomeActivity : BaseActivity() {
         val barEntry: ArrayList<BarEntry> = ArrayList()
         if (barChart.data != null && barChart.data.dataSetCount > 0)
         {
-            applicationContext.toast("chart data is not empty")
+            //applicationContext.toast("chart data is not empty")
             dataSet = BarDataSet(values, "Data Set")
             dataSet.color = resources.getColor(R.color.bmi_below_18_5)
             dataSet.setDrawValues(false)
@@ -395,6 +395,11 @@ class HomeActivity : BaseActivity() {
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
     }
+    private fun clearData(){
+        barChart.clear()
+        commonList.clear()
+//        adapter!!.notifyItemMoved()
 
+    }
 
 }
