@@ -3,6 +3,7 @@ package com.avalinejad.sport.ui.home
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
@@ -28,6 +29,7 @@ import kotlinx.coroutines.launch
 
 import com.avalinejad.sport.R
 import com.avalinejad.sport.adapters.ExerciseAdapter
+import com.avalinejad.sport.model.UserAteFoods
 import com.avalinejad.sport.ui.BaseActivity
 import com.avalinejad.sport.util.Date
 import com.github.mikephil.charting.components.XAxis
@@ -53,17 +55,26 @@ class HomeActivity : BaseActivity() {
     var detailDao: DetailDao?=null
     var i = 0
     val chartLbls = arrayOf("میان وعده","شام","نهار","صبحانه")
-
+    var isDateChanged = false
+    var userPrefs: SavedSharedPrerefrences?=null
+    var userDay : Int = 0
+    var userMonth: Int = 0
+    var userYear: Int = 0
+    var userSelectedDate = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
       //  this.toast("common list size is : ${commonList.size} in line 55")
+        Log.d("today"," today date is : $today")
+        userPrefs = SavedSharedPrerefrences(this)
+        val typeface = Typeface.createFromAsset(applicationContext.assets,"fonts/iran_sans_normal.ttf")
+        todayDate.text = today_Date
         initDataBaseShits()
         //loadStoredData()
         addExtraToList()
-     //   this.toast("common list size is : ${commonList.size} in line 59")
+        //this.toast("common list size is : ${commonList.size} in line 59")
         barChart.setMaxVisibleValueCount(4)
         barChart.setPinchZoom(false)
         barChart.setDrawBarShadow(false)
@@ -80,9 +91,12 @@ class HomeActivity : BaseActivity() {
         barChart.xAxis.valueFormatter = IndexAxisValueFormatter(chartLbls)
 
         barChart.axisLeft.setDrawGridLines(false)
+        barChart.axisLeft.typeface = typeface
+        barChart.axisLeft.setStartAtZero(true)
+        barChart.axisRight.setStartAtZero(true)
         barChart.animateY(1500)
         barChart.description.isEnabled = false
-
+        //todayDate.text = dateHelper()
         barChart.legend.isEnabled = false
 
 
@@ -93,23 +107,40 @@ class HomeActivity : BaseActivity() {
         todayDate.setOnClickListener {
 
             val mDate = Date()
-           val builder1 = DatePicker.Builder()
+            val builder1 = DatePicker.Builder()
                 .id(1)
                .date(mDate.getDay(), mDate.getMonth(), mDate.getYear())
                 .build { id, calendar, day, month, year ->
                     calendar!!.time.toString()
-                  //  this.toast("is it working ?"+calendar!!.time.toString())
+                    //his.toast("is it working ?"+calendar!!.time.toString())
                     //todayDate.text = calendar!!.time.toString().subSequence(4,10)
                     todayDate.text = dateHelper(day, month)
+                    userDay = day
+                    userMonth = month
+                    userYear = year
+                    userSelectedDate = returnStandardDate(day,month,year)
+                    Log.d("compareDates","user selected date in line 117 is :" + userSelectedDate)
                     mDate.setDate(day, month, year)
-
+                    Log.d("timestamp",returnStandardDate(day,month,year))
+                    userSelectedDate = returnStandardDate(userDay,userMonth,userYear)
+                    isDateChanged = true
                     Log.d("dateTime" ,"$day and $month and $year")
+                    startNewActivity()
                 }
                 .show(supportFragmentManager,"")
-
-//            startActivity(Intent(this@HomeActivity,HomeActivity::class.java))
-
+            Log.d("compareDates","today date is :"+today_Date)
+            Log.d("compareDates","user selected date is :" + userSelectedDate)
+            if (!today_Date.equals(userSelectedDate)){
+                Log.d("timestamp","is it cleared ?")
+                saveUserFoods()
+                commonList.clear()
+                exerciseList.clear()
+            }else{
+                Log.d("compareTimeStamp", "else is executed.")
+                loadUserFood(userSelectedDate)
+            }
         }
+
 
         adFoodButton.setOnClickListener {
             val intent = Intent(this,AddFood::class.java)
@@ -124,6 +155,13 @@ class HomeActivity : BaseActivity() {
         }
         calculateCalories()
     }
+
+    private fun startNewActivity() {
+        Log.d("timestamp","Invoked")
+        saveUserFoods()
+        startActivity(Intent(this,HomeActivity::class.java))
+    }
+
     private fun getDialogFood(): Food? {
         if(intent.hasExtra(EXTRA_FOOD)){
             Log.d(EXTRA_FOOD,"food extra has been found")
@@ -237,8 +275,10 @@ class HomeActivity : BaseActivity() {
         }
         if (commonList.isEmpty()){
             foodLbl.visibility = View.GONE
+           // home_status_text_view.visibility = View.VISIBLE
         }else{
             foodLbl.visibility = View.VISIBLE
+            //home_status_text_view.visibility = View.GONE
         }
         produceBarChartData()
     }
@@ -315,7 +355,7 @@ class HomeActivity : BaseActivity() {
 
     private fun setBurntCaloriestv(txt: String) {
         val tmp = "فعالیت های ورزشی $txt  کالری"
-        exerciseLBl.text = tmp
+        exerciseLBl.text = tmp.fa()
     }
 
     private fun calculateBurntCalories(){
@@ -399,6 +439,20 @@ class HomeActivity : BaseActivity() {
         barChart.clear()
         commonList.clear()
 //        adapter!!.notifyItemMoved()
+
+    }
+
+    private fun isDateChanged(){
+    }
+
+    private fun saveUserFoods(){
+        val userAteFoods = UserAteFoods(today_Date, commonList)
+
+        userPrefs!!.putObject(today_Date,userAteFoods)
+    }
+
+    private fun loadUserFood(timeStamp: String){
+        commonList =  userPrefs!!.getObject(timeStamp,UserAteFoods::class.java)!!.getList(timeStamp)!!
 
     }
 

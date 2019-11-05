@@ -1,6 +1,7 @@
 package com.avalinejad.sport.data
 
 import android.content.Context
+import com.avalinejad.sport.util.fa
 import java.util.ArrayList
 import java.util.HashMap
 
@@ -667,18 +668,18 @@ class ExpandableListDataPump  {
 
 
 
-        expandableListDetail["تنقلات" + "  (" + Ajil.size + ")"] = Ajil
-        expandableListDetail["پلو ها" + " ( "+ polo.size + ")"] = polo
-        expandableListDetail["شیرینی" + " ( "+ sweetness.size + ")"] = sweetness
-        expandableListDetail["خورشت" + "  (" + khoresht.size + ")"] = khoresht
-        expandableListDetail["سبزیجات" + "  (" + vegs.size + ")"] = vegs
-        expandableListDetail["میوه ها"+ "  (" + fruit.size + ")"] = fruit
+        expandableListDetail["تنقلات" + "  (" + Ajil.size.toString().fa() + ")"] = Ajil
+        expandableListDetail["پلو ها" + " ( "+ polo.size.toString().fa() + ")"] = polo
+        expandableListDetail["شیرینی" + " ( "+ sweetness.size.toString().fa() + ")"] = sweetness
+        expandableListDetail["خورشت" + "  (" + khoresht.size.toString().fa() + ")"] = khoresht
+        expandableListDetail["سبزیجات" + "  (" + vegs.size.toString().fa() + ")"] = vegs
+        expandableListDetail["میوه ها"+ "  (" + fruit.size.toString().fa() + ")"] = fruit
        // expandableListDetail["نوشیدنی"] = sweetness
         //expandableListDetail["متفرقه"] = sweetness
-        expandableListDetail["حبوبات و غلات"+ "  (" + hobobat.size + ")"] = hobobat
-        expandableListDetail["گوشت و لبنیات"+ "  (" + meat.size + ")"] = meat
-        expandableListDetail["سالاد"+ "  (" + salad.size + ")"] =salad
-        expandableListDetail["فست فود"+ "  (" + fastFood.size + ")"] =fastFood
+        expandableListDetail["حبوبات و غلات"+ "  (" + hobobat.size.toString().fa() + ")"] = hobobat
+        expandableListDetail["گوشت و لبنیات"+ "  (" + meat.size.toString().fa() + ")"] = meat
+        expandableListDetail["سالاد"+ "  (" + salad.size.toString().fa() + ")"] =salad
+        expandableListDetail["فست فود"+ "  (" + fastFood.size.toString().fa() + ")"] =fastFood
        // expandableListDetail["غذای رژیمی"] = sweetness
 
 

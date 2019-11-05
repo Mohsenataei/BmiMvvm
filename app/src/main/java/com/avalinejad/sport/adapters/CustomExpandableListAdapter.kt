@@ -153,6 +153,11 @@ class CustomExpandableListAdapter(context: Context?, expandableListTitle: List<S
         return titles!!.size
     }
 
+    fun filterData(query: String){
+        val lowerCaseQuery = query.toLowerCase()
+
+    }
+
 
 
 

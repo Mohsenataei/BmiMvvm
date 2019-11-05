@@ -94,3 +94,45 @@ fun dateHelper(day: Int, month: Int) : String?{
     return stringDate.plus(tmp)
 }
 
+fun returnStandardDate(day: Int, month: Int ,year: Int): String{
+    var tmp = ""
+
+    tmp = "$year/"
+    if (month < 10){
+        Log.d("timestamp","$month")
+      tmp =  tmp.plus("0$month/")
+    }
+    else tmp = tmp.plus("$month/")
+
+    if(day < 10){
+        Log.d("timestamp","$day")
+        tmp = tmp.plus("0$day")
+    }
+
+    else
+       tmp =  tmp.plus("$day")
+    Log.d("compareDates","in return standard date fun date is :" + tmp)
+    return tmp
+}
+
+private val persianNumbers = arrayOf("۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹")
+
+fun String.fa() : String {
+    if (this.length == 0) {
+        return ""
+    }
+    var length = this.length
+    var out = ""
+    for (i in 0..(length - 1)) {
+        var c = this[i]
+        if ('0' <= c && c <= '9') {
+            var number = Integer.parseInt(c.toString())
+            out += persianNumbers[number]
+        } else if (c == '٫') {
+            out += '،'
+        } else {
+            out += c
+        }
+    }
+    return out
+}

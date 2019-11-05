@@ -75,5 +75,6 @@ ext {
     multidex_version = "2.0.1"
     calligraphy3Version = "3.1.1"
     viewpumpVersion = "2.0.3"
+    gsonConverterVersion = "2.8.2"
 
 }

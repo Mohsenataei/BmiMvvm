@@ -1,6 +1,7 @@
 package com.avalinejad.sport.util
 
 //import com.mohsen.caculatebmi_mvvm.database.entity.SelectedFood
+import android.content.Context
 import com.avalinejad.sport.database.entity.Food
 import com.avalinejad.sport.model.Exercise
 import java.lang.Exception
@@ -24,11 +25,18 @@ val EXERSICE = 4
 val EXTRA_FOOD = "extra_food"
 val FOOD_BUTTON = "food_button"
 val EXERCISE_BUTTON = "exercise_button"
-
+val persianDateConverter = PersianDateConverter()
 var commonList: MutableList<Food> = ArrayList()
 var tempList: MutableList<Food> = ArrayList()
 val exerciseList: MutableList<Exercise> = ArrayList()
 val today = Calendar.getInstance().time
+val today_Date = PersianDateConverter.getCurrentShamsidate()
+//val prefs = SavedSharedPrerefrences()
+
+
+
+
+
 
 //var ateFoodIds: MutableList<SelectedFood> = ArrayList()
 

@@ -14,6 +14,7 @@ import com.avalinejad.sport.database.entity.Food
 import com.avalinejad.sport.ui.dialogs.AddFoodDialog
 import com.avalinejad.sport.util.TYPE_GLASS
 import com.avalinejad.sport.util.TYPE_GRAM
+import com.avalinejad.sport.util.fa
 import com.avalinejad.sport.util.toast
 import kotlinx.android.synthetic.main.recycler_row_item.view.*
 
@@ -39,8 +40,8 @@ class RecyclerViewAdapter (val list: MutableList<Food>, context: Context) :
 
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
         Log.d("recycler","in adapter size is : ${foodList.size}")
-        holder.foodname.text = foodList[position].name
-        holder.amount.text = foodList[position].calory.toString()
+        holder.foodname.text = foodList[position].name.fa()
+        holder.amount.text = foodList[position].calory.toString().fa()
         if(foodList[position].unit == TYPE_GRAM){
             holder.unit.text = "گرم"
 
@@ -58,19 +59,22 @@ class RecyclerViewAdapter (val list: MutableList<Food>, context: Context) :
             val addFoodDialog = AddFoodDialog(mContext,foodList[position].name,"",onConfirmClick = {
 
                 list.removeAt(position)
-                list.add(position,it)
+                notifyItemRemoved(position)
+                //list.add(position,it)
                 notifyItemInserted(position)
-                holder.foodname.text = it.name
-                holder.amount.text = it.calory.toString()
-
-
-                if(it.unit == TYPE_GLASS){
-                    holder.unit.text = "لیوان"
-                    mContext.toast("لیوان انتخاب شد")
-                }else if (it.unit == TYPE_GRAM){
-                    mContext.toast("گرم انتخاب شد")
-                    holder.unit.text = "گرم"
-                }
+//                notifyItemInserted(position)
+                notifyItemRangeChanged(position,list.size)
+//                holder.foodname.text = it.name
+//                holder.amount.text = it.calory.toString()
+//
+//
+//                if(it.unit == TYPE_GLASS){
+//                    holder.unit.text = "لیوان"
+//                    mContext.toast("لیوان انتخاب شد")
+//                }else if (it.unit == TYPE_GRAM){
+//                    mContext.toast("گرم انتخاب شد")
+//                    holder.unit.text = "گرم"
+//                }
             })
             addFoodDialog.show()
         }

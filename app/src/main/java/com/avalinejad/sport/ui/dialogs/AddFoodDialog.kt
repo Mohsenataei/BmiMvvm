@@ -185,6 +185,7 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
             Log.d("testing",item.name)
         }
         Log.d("testing","End Debugging")
+        onConfirmClick(Food(calories!!,type!!,title,ateCalory!!.toInt(),cat!!))
         dismiss()
     }
     private fun getValues() {

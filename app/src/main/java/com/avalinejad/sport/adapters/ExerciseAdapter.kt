@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.avalinejad.sport.R
 import com.avalinejad.sport.model.Exercise
 import com.avalinejad.sport.ui.dialogs.AddExerciseDialog
+import com.avalinejad.sport.util.fa
 import kotlinx.android.synthetic.main.recycler_row_item.view.*
 
 class ExerciseAdapter (val list: MutableList<Exercise>, context: Context) :
@@ -31,7 +32,7 @@ class ExerciseAdapter (val list: MutableList<Exercise>, context: Context) :
 
     override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
         holder.title.text = list[position].name
-        holder.amount.text = list[position].duration.toString()
+        holder.amount.text = list[position].duration.toString().fa()
         holder.unit.text = "دقیقه"
 
         holder.remove.setOnClickListener {

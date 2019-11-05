@@ -20,8 +20,8 @@ class AddFood : BaseActivity() {
 
     private var tabAdapter: TabAdapter? = null
     private val tabIcons = intArrayOf(
-        R.drawable.ic_add_black_24dp,
-        R.drawable.ic_star_border_black_24dp,
+        R.drawable.ic_list,
+        R.drawable.ic_running,
         R.drawable.ic_person_add_black_24dp
     )
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,7 +56,7 @@ class AddFood : BaseActivity() {
             Log.d("addfood","come from add exercise button")
           //  viewpager.setCurrentItem(1)
            // setTitle("اضافه کردن غذا")
-            toolbar.title = "اضافه کردن فعالیت ورزشی"
+            toolbar.title = "لیست ورزش ها"
             viewpager.currentItem = 0
             highLightCurrentTab(0)
 
@@ -95,7 +95,7 @@ class AddFood : BaseActivity() {
             toolbar.title = "اضافه کردن غذا"
 //            viewpager.currentItem = 0
         }else{
-            toolbar.title = "اضافه کردن فعالیت ورزشی"
+            toolbar.title = "لیست ورزش ها"
 
         }
     }

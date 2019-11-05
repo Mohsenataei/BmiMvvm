@@ -21,4 +21,9 @@
     <color name="thumb_color">#d7d7d7</color>
     <color name="seekbar_background_color">#dfdfdf</color>
     <color name="text_shadow">#26000000</color>
+
+
+    <!-- calories calculator colors -->
+
+
 </resources>
