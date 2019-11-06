@@ -29,6 +29,7 @@ val persianDateConverter = PersianDateConverter()
 var commonList: MutableList<Food> = ArrayList()
 var tempList: MutableList<Food> = ArrayList()
 val exerciseList: MutableList<Exercise> = ArrayList()
+val favouriteFoods: MutableList<String> = ArrayList()
 val today = Calendar.getInstance().time
 val today_Date = PersianDateConverter.getCurrentShamsidate()
 //val prefs = SavedSharedPrerefrences()
