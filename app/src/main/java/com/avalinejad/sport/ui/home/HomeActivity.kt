@@ -30,6 +30,7 @@ import kotlinx.coroutines.launch
 import com.avalinejad.sport.R
 import com.avalinejad.sport.adapters.ExerciseAdapter
 import com.avalinejad.sport.model.UserAteFoods
+import com.avalinejad.sport.ui.BMI.BMIActivity
 import com.avalinejad.sport.ui.BaseActivity
 import com.avalinejad.sport.util.Date
 import com.github.mikephil.charting.components.XAxis
@@ -154,6 +155,10 @@ class HomeActivity : BaseActivity() {
             startActivity(intent)
         }
         calculateCalories()
+
+        calculateBmi.setOnClickListener {
+            startActivity(Intent(this,BMIActivity::class.java))
+        }
     }
 
     private fun startNewActivity() {

@@ -57,21 +57,21 @@ class CustomExpandableListAdapter(context: Context?, expandableListTitle: List<S
     override fun getChildView(groupPosition: Int, childPosition: Int, isLastChild: Boolean, convertView: View?, parent: ViewGroup?): View {
         val selectedPosition = -1
         val selectedPosition_parent = -1
-        if (!flags[groupPosition][childPosition]){
-
-          //  flags[groupPosition][childPosition] = true
-
-            context!!.toast("baba laba dub dub")
-            Log.d("FavBtn","flag[$groupPosition][$childPosition] is false")
-//            favouriteFoods.add(expandedListText)
-//            favBtn.setImageResource(R.drawable.ic_star_filled)
-        }else{
-          //  flags[groupPosition][childPosition] = false
-            context!!.toast("ruby duby hub dub")
-            Log.d("FavBtn","flag[$groupPosition][$childPosition] is true")
-//            favouriteFoods.remove(expandedListText)
-//            favBtn.setImageResource(R.drawable.ic_star_empty)
-        }
+//        if (!flags[groupPosition][childPosition]){
+//
+//          //  flags[groupPosition][childPosition] = true
+//
+//            context!!.toast("baba laba dub dub")
+//            Log.d("FavBtn","flag[$groupPosition][$childPosition] is false")
+////            favouriteFoods.add(expandedListText)
+////            favBtn.setImageResource(R.drawable.ic_star_filled)
+//        }else{
+//          //  flags[groupPosition][childPosition] = false
+//            context!!.toast("ruby duby hub dub")
+//            Log.d("FavBtn","flag[$groupPosition][$childPosition] is true")
+////            favouriteFoods.remove(expandedListText)
+////            favBtn.setImageResource(R.drawable.ic_star_empty)
+//        }
         var convertView = convertView
         val expandedListText = getChild(groupPosition, childPosition) as String
         if (convertView == null) {
@@ -84,23 +84,23 @@ class CustomExpandableListAdapter(context: Context?, expandableListTitle: List<S
         val favBtn = convertView.findViewById<View>(R.id.expandedListFavBtn) as ImageView
         expandedListTextView.text = expandedListText
 
-        favBtn.setOnClickListener {
-            if (!flags[groupPosition][childPosition]){
-
-                flags[groupPosition][childPosition] = true
-
-                Log.d("FavBtn","flag[$groupPosition][$childPosition] is true now")
-                context!!.toast("baba laba dub dub")
-                favouriteFoods.add(expandedListText)
-                favBtn.setImageResource(R.drawable.ic_star_filled)
-            }else{
-                flags[groupPosition][childPosition] = false
-                context!!.toast("ruby duby hub dub")
-                Log.d("FavBtn","flag[$groupPosition][$childPosition] is false again")
-                favouriteFoods.remove(expandedListText)
-                favBtn.setImageResource(R.drawable.ic_star_empty)
-            }
-        }
+//        favBtn.setOnClickListener {
+//            if (!flags[groupPosition][childPosition]){
+//
+//                flags[groupPosition][childPosition] = true
+//
+//                Log.d("FavBtn","flag[$groupPosition][$childPosition] is true now")
+//                context!!.toast("baba laba dub dub")
+//                favouriteFoods.add(expandedListText)
+//                favBtn.setImageResource(R.drawable.ic_star_filled)
+//            }else{
+//                flags[groupPosition][childPosition] = false
+//                context!!.toast("ruby duby hub dub")
+//                Log.d("FavBtn","flag[$groupPosition][$childPosition] is false again")
+//                favouriteFoods.remove(expandedListText)
+//                favBtn.setImageResource(R.drawable.ic_star_empty)
+//            }
+//        }
 
 
 //        convertView.findViewById<ImageView>(R.id.expandedListFavBtn).setOnClickListener {

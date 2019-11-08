@@ -4,12 +4,14 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.ExpandableListAdapter
 import android.widget.ExpandableListView
+import android.widget.ImageView
 import com.avalinejad.sport.R
 import com.avalinejad.sport.adapters.CustomExpandableListAdapter
 import com.avalinejad.sport.database.entity.Food
@@ -19,6 +21,7 @@ import com.avalinejad.sport.util.*
 import kotlinx.android.synthetic.main.app_bar.*
 import java.util.HashMap
 import kotlinx.android.synthetic.main.fragment_food_category.*
+import kotlinx.android.synthetic.main.list_item.*
 
 class CategoryFragment(context: Context): BaseFragment() {
 
@@ -62,6 +65,14 @@ class CategoryFragment(context: Context): BaseFragment() {
                 )!!.get(
                     childPosition
                 )
+
+            expandedListFavBtn.setOnClickListener {
+                Log.d("CatFave","Invoked from Fragment first.")
+            }
+            v.findViewById<ImageView>(R.id.expandedListFavBtn).setOnClickListener {
+                Log.d("CatFave","Invoked from Fragment")
+            }
+
 
             var mFood: Food? = null
 
