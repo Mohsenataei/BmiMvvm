@@ -3,6 +3,7 @@ package com.avalinejad.sport.adapters
 import android.content.Context
 import android.database.DataSetObserver
 import android.graphics.Typeface
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.avalinejad.sport.R
+import com.avalinejad.sport.util.favouriteFoods
 import com.avalinejad.sport.util.toast
 
 
@@ -18,6 +20,7 @@ import com.avalinejad.sport.util.toast
 
 class CustomExpandableListAdapter(context: Context?, expandableListTitle: List<String>?, expandableListDetail: HashMap<String, List<String>>) :
     ExpandableListAdapter {
+    var flags = Array(100) { Array(100) {false} }
     override fun registerDataSetObserver(observer: DataSetObserver?) {
 
     }
@@ -54,7 +57,21 @@ class CustomExpandableListAdapter(context: Context?, expandableListTitle: List<S
     override fun getChildView(groupPosition: Int, childPosition: Int, isLastChild: Boolean, convertView: View?, parent: ViewGroup?): View {
         val selectedPosition = -1
         val selectedPosition_parent = -1
-        var flag = false
+//        if (!flags[groupPosition][childPosition]){
+//
+//          //  flags[groupPosition][childPosition] = true
+//
+//            context!!.toast("baba laba dub dub")
+//            Log.d("FavBtn","flag[$groupPosition][$childPosition] is false")
+////            favouriteFoods.add(expandedListText)
+////            favBtn.setImageResource(R.drawable.ic_star_filled)
+//        }else{
+//          //  flags[groupPosition][childPosition] = false
+//            context!!.toast("ruby duby hub dub")
+//            Log.d("FavBtn","flag[$groupPosition][$childPosition] is true")
+////            favouriteFoods.remove(expandedListText)
+////            favBtn.setImageResource(R.drawable.ic_star_empty)
+//        }
         var convertView = convertView
         val expandedListText = getChild(groupPosition, childPosition) as String
         if (convertView == null) {
@@ -67,18 +84,23 @@ class CustomExpandableListAdapter(context: Context?, expandableListTitle: List<S
         val favBtn = convertView.findViewById<View>(R.id.expandedListFavBtn) as ImageView
         expandedListTextView.text = expandedListText
 
-        favBtn.setOnClickListener {
-            if (!flag){
-                flag = !flag
-
-                context!!.toast("baba laba dub dub")
-                favBtn.setImageResource(R.drawable.ic_star_filled)
-            }else{
-                flag = !flag
-                context!!.toast("ruby duby hub dub")
-                favBtn.setImageResource(R.drawable.ic_star_empty)
-            }
-        }
+//        favBtn.setOnClickListener {
+//            if (!flags[groupPosition][childPosition]){
+//
+//                flags[groupPosition][childPosition] = true
+//
+//                Log.d("FavBtn","flag[$groupPosition][$childPosition] is true now")
+//                context!!.toast("baba laba dub dub")
+//                favouriteFoods.add(expandedListText)
+//                favBtn.setImageResource(R.drawable.ic_star_filled)
+//            }else{
+//                flags[groupPosition][childPosition] = false
+//                context!!.toast("ruby duby hub dub")
+//                Log.d("FavBtn","flag[$groupPosition][$childPosition] is false again")
+//                favouriteFoods.remove(expandedListText)
+//                favBtn.setImageResource(R.drawable.ic_star_empty)
+//            }
+//        }
 
 
 //        convertView.findViewById<ImageView>(R.id.expandedListFavBtn).setOnClickListener {
@@ -122,6 +144,7 @@ class CustomExpandableListAdapter(context: Context?, expandableListTitle: List<S
             .findViewById<View>(R.id.listTitle) as TextView
         listTitleTextView.setTypeface(null, Typeface.BOLD)
         listTitleTextView.text = listTitle
+        listTitleTextView.typeface = Typeface.createFromAsset(context!!.applicationContext.assets,"fonts/iran_sans_normal.ttf")
         return convertView
     }
 
