@@ -8,7 +8,6 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textViewStyle">@style/TextView</item>
         <item name="android:editTextStyle">@style/EditText</item>
-
         <item name="fontFamily">@font/main_font_family</item>
         <item name="android:layoutDirection">ltr</item>
     </style>

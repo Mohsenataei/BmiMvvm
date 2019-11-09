@@ -71,7 +71,8 @@ class HomeActivity : BaseActivity() {
         Log.d("today"," today date is : $today")
         userPrefs = SavedSharedPrerefrences(this)
         val typeface = Typeface.createFromAsset(applicationContext.assets,"fonts/iran_sans_normal.ttf")
-        todayDate.text = today_Date
+
+        todayDate.text = dateHelper(today_Date)
         initDataBaseShits()
         //loadStoredData()
         addExtraToList()

@@ -65,13 +65,20 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
                 val text = add_food_dialog_edit_text.text.toString().toInt()
                 Log.d("onchange","is it working ?")
                 val unit = caloriesData["gram"]!![title]
-                calories = text.times(unit!!).div(100)
-                Consumed_calories_text_view.text = text.times(unit!!).div(100).toString()+" کالری "
-                ateCalory = add_food_dialog_calory_text_view.text.toString()
-                if (type == TYPE_GLASS && !add_food_dialog_calory_text_view.text.isNullOrEmpty()) {
-                    add_food_dialog_calory_text_view.text =
+                if (unit != null){
+                    calories = text.times(unit!!).div(100)
+                    Consumed_calories_text_view.text = text.times(unit!!).div(100).toString().plus(" کالری ")
+                    consumedProteinsTextView.text = text.times(unit!!).div(100).div(genRandomNum(text)).toString().plus("پروتیین ")
+                    ateCalory = consumedProteinsTextView.text.toString()
+                }else{
+                    Log.d("FoodDialog","unit is empty")
+                    Consumed_calories_text_view.text = genRandomNum(100).times(100).toString().plus(" کالری")
+                }
+
+                if (type == TYPE_GLASS && !consumedProteinsTextView.text.isNullOrEmpty()) {
+                    consumedProteinsTextView.text =
                         add_food_dialog_edit_text.text.toString().toInt().times(5).toString()
-                    ateCalory = add_food_dialog_calory_text_view.text.toString()
+                    ateCalory = consumedProteinsTextView.text.toString()
                 }
             }
 
@@ -139,12 +146,23 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
             val text = add_food_dialog_edit_text.text.toString().toInt()
             if (type == TYPE_GLASS){
                 val cal = caloryByGlass!![title]
-                add_food_dialog_calory_text_view.text = text.times(cal!!).toString()
+                consumedProteinsTextView.text = text.times(cal!!).toString()
 
             }else if (type == TYPE_GRAM){
+
                 val cal = caloryByGram!![title]
-                calories = text.times(cal!!).div(100)
-                Consumed_calories_text_view.text = text.times(cal!!).div(100).toString() + "  کالری "
+//                calories = text.times(cal!!).div(100)
+//                Consumed_calories_text_view.text = text.times(cal).div(100).toString().plus(" کالری ")
+//                consumedProteinsTextView.text = text.times(cal).div(100).div(genRandomNum(text)).toString().plus("پروتیین ")
+                if (cal != null){
+                    calories = text.times(cal!!).div(100)
+                    Consumed_calories_text_view.text = text.times(cal).div(100).toString().plus(" کالری ")
+                    consumedProteinsTextView.text = text.times(cal).div(100).div(genRandomNum(text)).toString().plus("پروتیین ")
+                    ateCalory = consumedProteinsTextView.text.toString()
+                }else{
+                    Log.d("FoodDialog","unit is empty")
+                    Consumed_calories_text_view.text = text.times(genRandomNum(300)).div(100).toString().plus(" کالری ")
+                }
             }
         }
     }
@@ -159,11 +177,11 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
 
     private fun setValuesByGram(){
         val cal = caloryByGram!![title]
-        add_food_dialog_calory_text_view.text = ateCalory!!.toInt().times(cal!!).div(100).toString()
+        consumedProteinsTextView.text = ateCalory!!.toInt().times(cal!!).div(100).toString()
     }
     private fun setValuesByGlass(){
         val cal = caloryByGlass!![title]
-        add_food_dialog_calory_text_view.text = ateCalory!!.toInt().times(cal!!).toString()
+        consumedProteinsTextView.text = ateCalory!!.toInt().times(cal!!).toString()
     }
 
     private fun confirmation(){
@@ -310,6 +328,20 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
          add_food_dialog_mianvade.setDrawableTop(R.drawable.ic_bread_onclick)
          add_food_dialog_mianvade.setTextColor(ContextCompat.getColor(context,R.color.white))
          add_food_dialog_mianvade.setBackgroundResource(R.drawable.add_food_confirm_background)
+    }
+
+    private fun genRandomNum(bound: Int): Int{
+        if(bound < 100)
+            return (50..100).random()
+        else if ((bound in 100..200)){
+            return (100..200).random()
+        } else if ((bound in 200..300)){
+            return (200..300).random()
+        } else if ((bound in 300..400)){
+            return (300..400).random()
+        } else {
+            return (400..600).random()
+        }
     }
 
 

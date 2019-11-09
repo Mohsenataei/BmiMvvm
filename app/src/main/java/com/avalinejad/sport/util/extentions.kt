@@ -136,3 +136,12 @@ fun String.fa() : String {
     }
     return out
 }
+fun dateHelper(date: String): String{
+    val tmp = date.subSequence(5,date.length)
+    Log.d("dateHelper", "dateHelper fun: tmp is $tmp")
+    val month = tmp.subSequence(0,2)
+    Log.d("dateHelper", "dateHelper fun: month is ${month.toString().toInt()}")
+    val day = tmp.subSequence(3,5)
+    Log.d("dateHelper", "dateHelper fun: day is $day")
+    return dateHelper(day.toString().toInt(),month.toString().toInt())!!
+}

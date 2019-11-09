@@ -189,7 +189,7 @@
         <TextView
             style="@style/ConsumedAmount"
             android:text="پروتئین: −"
-            android:id="@+id/add_food_dialog_calory_text_view"
+            android:id="@+id/consumedProteinsTextView"
             android:layout_weight="1"
             android:layout_marginStart="10dp"
             android:paddingTop="5dp"

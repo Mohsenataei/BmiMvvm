@@ -287,7 +287,7 @@ class ExpandableListDataPump  {
         val meat = ArrayList<String>()
 
 
-        meat.add("سیه مرغ با پوست(خام)")
+        meat.add("سینه مرغ با پوست(خام)")
         meat.add("گوشت بوقلمون پخته")
         meat.add("آب مرغ")
         meat.add("آبگوشت")
