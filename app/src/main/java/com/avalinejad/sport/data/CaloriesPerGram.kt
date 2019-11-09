@@ -593,7 +593,7 @@ class CaloriesPerGram {
         perGramCalories.put("شاتوت",50)
         perGramCalories.put("طالبی",25)
         perGramCalories.put("غوره",30)
-        perGramCalories.put("کامکوات",71)
+        perGramCalories.put("کامکوات",71)git
         perGramCalories.put("کرنبری",46)
         perGramCalories.put("کیوی",50)
         perGramCalories.put("گرمک",24)
