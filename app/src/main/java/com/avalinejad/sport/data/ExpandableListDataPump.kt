@@ -453,7 +453,9 @@ class ExpandableListDataPump  {
         meat.add("ماهی پخته")
         meat.add("میگو پفکی سرخ شده")
         meat.add("میگو درشت اب پز")
-        meat.add("میگو ریز خام")
+      //  meat.add("میگو ریز خام")
+        meat.add("میگو درشت خام")
+
         meat.add("میگو درشت منجمد خام")
         meat.add("میگو ریز آب پز")
         meat.add("میگو ریز خشک")
