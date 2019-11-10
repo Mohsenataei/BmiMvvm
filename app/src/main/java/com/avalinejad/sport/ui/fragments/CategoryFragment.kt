@@ -66,12 +66,12 @@ class CategoryFragment(context: Context): BaseFragment() {
                     childPosition
                 )
 
-            expandedListFavBtn.setOnClickListener {
-                Log.d("CatFave","Invoked from Fragment first.")
-            }
-            v.findViewById<ImageView>(R.id.expandedListFavBtn).setOnClickListener {
-                Log.d("CatFave","Invoked from Fragment")
-            }
+//            expandedListFavBtn.setOnClickListener {
+//                Log.d("CatFave","Invoked from Fragment first.")
+//            }
+//            v.findViewById<ImageView>(R.id.expandedListFavBtn).setOnClickListener {
+//                Log.d("CatFave","Invoked from Fragment")
+//            }
 
 
             var mFood: Food? = null
@@ -80,7 +80,7 @@ class CategoryFragment(context: Context): BaseFragment() {
                 context?.toast("food received" + it.name)
                 mFood = it
                 val intent = Intent(context,HomeActivity::class.java)
-                intent.putExtra(EXTRA_FOOD,mFood)
+                //intent.putExtra(EXTRA_FOOD,mFood)
                 context!!.startActivity(intent)
             })
             addFoodDialog.show()

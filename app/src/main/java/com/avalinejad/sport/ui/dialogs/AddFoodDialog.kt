@@ -66,10 +66,10 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
                 Log.d("onchange","is it working ?")
                 val unit = caloriesData["gram"]!![title]
                 if (unit != null){
-                    calories = text.times(unit!!).div(100)
-                    Consumed_calories_text_view.text = text.times(unit!!).div(100).toString().plus(" کالری ")
-                    consumedProteinsTextView.text = text.times(unit!!).div(100).div(genRandomNum(text)).toString().plus("پروتیین ")
-                    ateCalory = consumedProteinsTextView.text.toString()
+                    calories = text.times(unit).div(100)
+                    Consumed_calories_text_view.text = text.times(unit).div(100).toString().plus(" کالری ")
+                    consumedProteinsTextView.text = text.times(unit).div(100).div(genRandomNum(text)).toString().plus("پروتیین ")
+                  //  ateCalory = consumedProteinsTextView.text.toString()
                 }else{
                     Log.d("FoodDialog","unit is empty")
                     Consumed_calories_text_view.text = genRandomNum(100).times(100).toString().plus(" کالری")
@@ -78,7 +78,7 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
                 if (type == TYPE_GLASS && !consumedProteinsTextView.text.isNullOrEmpty()) {
                     consumedProteinsTextView.text =
                         add_food_dialog_edit_text.text.toString().toInt().times(5).toString()
-                    ateCalory = consumedProteinsTextView.text.toString()
+                   // ateCalory = consumedProteinsTextView.text.toString()
                 }
             }
 
@@ -158,7 +158,7 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
                     calories = text.times(cal!!).div(100)
                     Consumed_calories_text_view.text = text.times(cal).div(100).toString().plus(" کالری ")
                     consumedProteinsTextView.text = text.times(cal).div(100).div(genRandomNum(text)).toString().plus("پروتیین ")
-                    ateCalory = consumedProteinsTextView.text.toString()
+                   // ateCalory = consumedProteinsTextView.text.toString()
                 }else{
                     Log.d("FoodDialog","unit is empty")
                     Consumed_calories_text_view.text = text.times(genRandomNum(300)).div(100).toString().plus(" کالری ")
@@ -203,7 +203,7 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
             Log.d("testing",item.name)
         }
         Log.d("testing","End Debugging")
-        onConfirmClick(Food(calories!!,type!!,title,ateCalory!!.toInt(),cat!!))
+        onConfirmClick(Food(calories!!,type!!,title,ateCalory!!.toInt(),cat))
         dismiss()
     }
     private fun getValues() {

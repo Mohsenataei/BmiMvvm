@@ -356,12 +356,13 @@ class HomeActivity : BaseActivity() {
     }
 
     private fun setCunsumedCaloriestv(txt: String){
-        consumedCalories.text = txt.plus("  کالری دریافتی")
+        consumedCalories.text = "کالری دریافتی امروز: $txt".fa()
     }
 
     private fun setBurntCaloriestv(txt: String) {
-        val tmp = "فعالیت های ورزشی $txt  کالری"
+        val tmp = "فعالیت های ورزشی"
         exerciseLBl.text = tmp.fa()
+        burntCalories.text = "کالری سوزانده شده:‌ $txt".fa()
     }
 
     private fun calculateBurntCalories(){

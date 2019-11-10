@@ -2,6 +2,7 @@ package com.avalinejad.sport.ui.addfood
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import androidx.viewpager.widget.ViewPager
 import com.avalinejad.sport.R
 import com.avalinejad.sport.adapters.TabAdapter
@@ -87,10 +88,11 @@ class AddFood : BaseActivity() {
     }
     private fun setFragmentTitle(position: Int){
         if (position == 0){
-            toolbar.title = "اضافه کردن غذا"
+            toolbar.title = "لیست ورزش ها"
+
 //            viewpager.currentItem = 0
         }else{
-            toolbar.title = "لیست ورزش ها"
+            toolbar.title = "اضافه کردن غذا"
 
         }
     }
@@ -103,5 +105,12 @@ class AddFood : BaseActivity() {
         val tab = calories_tab.getTabAt(position)!!
         tab!!.setCustomView(null)
         tab!!.setCustomView(tabAdapter?.getSelectedTabView(position))
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+
+
     }
 }

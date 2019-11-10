@@ -81,7 +81,7 @@ class CustomExpandableListAdapter(context: Context?, expandableListTitle: List<S
         }
         val expandedListTextView = convertView!!
             .findViewById<View>(R.id.expandedListItem) as TextView
-        val favBtn = convertView.findViewById<View>(R.id.expandedListFavBtn) as ImageView
+      //  val favBtn = convertView.findViewById<View>(R.id.expandedListFavBtn) as ImageView
         expandedListTextView.text = expandedListText
 
 //        favBtn.setOnClickListener {

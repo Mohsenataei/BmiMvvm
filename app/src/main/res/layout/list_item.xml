@@ -10,15 +10,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_marginTop="8dp"
-        android:textAlignment="center"
-        android:layout_gravity="center"
-        android:layout_marginStart="30dp"
-        android:id="@+id/expandedListFavBtn"
-        android:src="@drawable/ic_star_empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+<!--    <ImageView-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:textAlignment="center"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginStart="30dp"-->
+<!--        android:id="@+id/expandedListFavBtn"-->
+<!--        android:src="@drawable/ic_star_empty"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
 
     <TextView
         android:id="@+id/expandedListItem"
@@ -30,8 +30,8 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp" />
     <View
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/expandedListFavBtn"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/expandedListItem"
         android:background="@color/colorPrimary"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"

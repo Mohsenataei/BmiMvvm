@@ -8,13 +8,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.ExerciseFragment">
 
-    <SearchView
-        android:id="@+id/search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:iconifiedByDefault="false" />
+<!--    <SearchView-->
+<!--        android:id="@+id/search"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:iconifiedByDefault="false" />-->
     <androidx.cardview.widget.CardView
         android:layout_margin="10dp"
         android:layout_width="match_parent"
