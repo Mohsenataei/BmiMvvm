@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
     android:layoutDirection="ltr"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <TextView
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="5dp"
         android:id="@+id/listTitle"
         android:layout_width="match_parent"
@@ -18,13 +23,15 @@
         android:fontFamily="@font/main_font_family"
         android:background="@color/white"
         android:paddingBottom="10dp" />
+
     <View
-        android:layout_marginTop="5dp"
-        android:background="@color/colorPrimary"
         android:id="@+id/divider"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
-</LinearLayout>
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/space_0.5"
+        android:layout_marginBottom="664dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listTitle" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,15 +50,15 @@ class HomeActivity : BaseActivity() {
     var adapter: RecyclerViewAdapter? = null
     var exerAdapter: ExerciseAdapter? = null
     var layoutManager: LinearLayoutManager? = null
-    var database: AppDatabase?= null
-    var ateFoodDao: AteFoodDao?= null
-    var foodDao: FoodDao?= null
-    var detailDao: DetailDao?=null
+    var database: AppDatabase? = null
+    var ateFoodDao: AteFoodDao? = null
+    var foodDao: FoodDao? = null
+    var detailDao: DetailDao? = null
     var i = 0
-    val chartLbls = arrayOf("میان وعده","شام","نهار","صبحانه")
+    val chartLbls = arrayOf("میان وعده", "شام", "نهار", "صبحانه")
     var isDateChanged = false
-    var userPrefs: SavedSharedPrerefrences?=null
-    var userDay : Int = 0
+    var userPrefs: SavedSharedPrerefrences? = null
+    var userDay: Int = 0
     var userMonth: Int = 0
     var userYear: Int = 0
     var userSelectedDate = ""
@@ -67,10 +67,11 @@ class HomeActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-      //  this.toast("common list size is : ${commonList.size} in line 55")
-        Log.d("today"," today date is : $today")
+        //  this.toast("common list size is : ${commonList.size} in line 55")
+        Log.d("today", " today date is : $today")
         userPrefs = SavedSharedPrerefrences(this)
-        val typeface = Typeface.createFromAsset(applicationContext.assets,"fonts/iran_sans_normal.ttf")
+        val typeface =
+            Typeface.createFromAsset(applicationContext.assets, "fonts/iran_sans_normal.ttf")
 
         todayDate.text = dateHelper(today_Date)
         initDataBaseShits()
@@ -103,7 +104,7 @@ class HomeActivity : BaseActivity() {
 
 
 
-        if (exerciseList.isEmpty()){
+        if (exerciseList.isEmpty()) {
             exerciseLBl.visibility = View.GONE
         }
         todayDate.setOnClickListener {
@@ -111,7 +112,7 @@ class HomeActivity : BaseActivity() {
             val mDate = Date()
             val builder1 = DatePicker.Builder()
                 .id(1)
-               .date(mDate.getDay(), mDate.getMonth(), mDate.getYear())
+                .date(mDate.day, mDate.getMonth(), mDate.getYear())
                 .build { id, calendar, day, month, year ->
                     calendar!!.time.toString()
                     //his.toast("is it working ?"+calendar!!.time.toString())
@@ -120,24 +121,25 @@ class HomeActivity : BaseActivity() {
                     userDay = day
                     userMonth = month
                     userYear = year
-                    userSelectedDate = returnStandardDate(day,month,year)
-                    Log.d("compareDates","user selected date in line 117 is :" + userSelectedDate)
+                    userSelectedDate = returnStandardDate(day, month, year)
+                    Log.d("compareDates", "user selected date in line 117 is :" + userSelectedDate)
                     mDate.setDate(day, month, year)
-                    Log.d("timestamp",returnStandardDate(day,month,year))
-                    userSelectedDate = returnStandardDate(userDay,userMonth,userYear)
+                    Log.d("timestamp", returnStandardDate(day, month, year))
+                    userSelectedDate = returnStandardDate(userDay, userMonth, userYear)
                     isDateChanged = true
-                    Log.d("dateTime" ,"$day and $month and $year")
+                    Log.d("dateTime", "$day and $month and $year")
                     startNewActivity()
                 }
-                .show(supportFragmentManager,"")
-            Log.d("compareDates","today date is :"+today_Date)
-            Log.d("compareDates","user selected date is :" + userSelectedDate)
-            if (!today_Date.equals(userSelectedDate)){
-                Log.d("timestamp","is it cleared ?")
+                .show(supportFragmentManager, "")
+
+            Log.d("compareDates", "today date is :" + today_Date)
+            Log.d("compareDates", "user selected date is :" + userSelectedDate)
+            if (!today_Date.equals(userSelectedDate)) {
+                Log.d("timestamp", "is it cleared ?")
                 saveUserFoods()
                 commonList.clear()
                 exerciseList.clear()
-            }else{
+            } else {
                 Log.d("compareTimeStamp", "else is executed.")
                 loadUserFood(userSelectedDate)
             }
@@ -145,52 +147,54 @@ class HomeActivity : BaseActivity() {
 
 
         adFoodButton.setOnClickListener {
-            val intent = Intent(this,AddFood::class.java)
-            intent.putExtra("food_button","120")
+            val intent = Intent(this, AddFood::class.java)
+            intent.putExtra("food_button", "120")
             startActivity(intent)
         }
 
         add_exercise.setOnClickListener {
-            val intent = Intent(this,AddFood::class.java)
-            intent.putExtra("exercise_button","121")
+            val intent = Intent(this, AddFood::class.java)
+            intent.putExtra("exercise_button", "121")
             startActivity(intent)
         }
         calculateCalories()
 
         calculateBmi.setOnClickListener {
-            startActivity(Intent(this,BMIActivity::class.java))
+            startActivity(Intent(this, BMIActivity::class.java))
         }
     }
 
     private fun startNewActivity() {
-        Log.d("timestamp","Invoked")
+        Log.d("timestamp", "Invoked")
         saveUserFoods()
-        startActivity(Intent(this,HomeActivity::class.java))
+        startActivity(Intent(this, HomeActivity::class.java))
     }
 
     private fun getDialogFood(): Food? {
-        if(intent.hasExtra(EXTRA_FOOD)){
-            Log.d(EXTRA_FOOD,"food extra has been found")
+        if (intent.hasExtra(EXTRA_FOOD)) {
+            Log.d(EXTRA_FOOD, "food extra has been found")
             return intent.getSerializableExtra(EXTRA_FOOD) as Food
         }
-        Log.d(EXTRA_FOOD,"returned null")
+        Log.d(EXTRA_FOOD, "returned null")
         return null
     }
 
-    private fun addExtraToList(){
+    private fun addExtraToList() {
         val food = getDialogFood()
-       // this.toast("common list size is : ${commonList.size} in line 55")
-        if (food != null){
+        // this.toast("common list size is : ${commonList.size} in line 55")
+        if (food != null) {
             commonList.add(food)
-      //      this.toast("common list size is : ${commonList.size} in line 55")
-            Log.d("extra_food","common list size now is : ${commonList.size} and received food is ${food.name}")
-            adapter = RecyclerViewAdapter(commonList,this)
-            adapter!!.notifyItemInserted(commonList.size-1)
-           // initRecAdapter()
-         //   this.toast("common list size is : ${commonList.size} in line 55")
+            //      this.toast("common list size is : ${commonList.size} in line 55")
+            Log.d(
+                "extra_food",
+                "common list size now is : ${commonList.size} and received food is ${food.name}"
+            )
+            adapter = RecyclerViewAdapter(commonList, this)
+            adapter!!.notifyItemInserted(commonList.size - 1)
+            // initRecAdapter()
+            //   this.toast("common list size is : ${commonList.size} in line 55")
         }
     }
-
 
 
     override fun onBackPressed() {
@@ -199,22 +203,22 @@ class HomeActivity : BaseActivity() {
     }
 
     override fun onDestroy() {
-       super.onDestroy()
-        if (tempList.size > 0){
-       //     Toast.makeText(this,"data has been saved from here",Toast.LENGTH_SHORT).show()
+        super.onDestroy()
+        if (tempList.size > 0) {
+            //     Toast.makeText(this,"data has been saved from here",Toast.LENGTH_SHORT).show()
             saveOnExit()
 
-        }else{
-   //         Toast.makeText(this,"data has not been saved because list is empty",Toast.LENGTH_SHORT).show()
+        } else {
+            //         Toast.makeText(this,"data has not been saved because list is empty",Toast.LENGTH_SHORT).show()
         }
-       // Toast.makeText(this,"onDestroy",Toast.LENGTH_SHORT).show()
+        // Toast.makeText(this,"onDestroy",Toast.LENGTH_SHORT).show()
     }
 
-    private fun initCommotList(){
+    private fun initCommotList() {
 
     }
 
-    private fun initDataBaseShits(){
+    private fun initDataBaseShits() {
         database = AppDatabase.getDatabase(this)
         ateFoodDao = database!!.ateFoodDao()
         foodDao = database!!.foodDao()
@@ -222,83 +226,82 @@ class HomeActivity : BaseActivity() {
     }
 
 
-
-    private fun saveOnExit(){
-        Log.d("extra_food","saveOnExit list size is : ${tempList.size}"  )
+    private fun saveOnExit() {
+        Log.d("extra_food", "saveOnExit list size is : ${tempList.size}")
         GlobalScope.launch {
             this@HomeActivity.let {
-               for (item in tempList )
-                   detailDao!!.insertAll(item)
-                  // Log.d("extra_food","saveOnExit Saving: ${item.name}"  )
+                for (item in tempList)
+                    detailDao!!.insertAll(item)
+                // Log.d("extra_food","saveOnExit Saving: ${item.name}"  )
             }
         }
         tempList.clear()
     }
 
-    private fun retreiveOnStart(){
+    private fun retreiveOnStart() {
 
     }
 
     override fun onStart() {
         super.onStart()
-       //  Toast.makeText(this,"onStart",Toast.LENGTH_SHORT).show()
+        //  Toast.makeText(this,"onStart",Toast.LENGTH_SHORT).show()
 //        GlobalScope.launch {
 //            this@HomeActivity.let {
 //                val size = AppDatabase.getDatabase(this@HomeActivity).detailDao().getAll().size
 //                Log.d("globalscope","still is not empty and size is $size and second element is : ")
 //            }
 //        }
-        if (commonList.isEmpty()){
-          //  this.toast("still empty outside global scope ()")
+        if (commonList.isEmpty()) {
+            //  this.toast("still empty outside global scope ()")
         }
     }
 
     override fun onStop() {
         super.onStop()
-       // this.toast("common list size is : ${commonList.size} in line 207")
+        // this.toast("common list size is : ${commonList.size} in line 207")
     }
 
     override fun onRestart() {
         super.onRestart()
 
-      //  this.toast("common list size is : ${commonList.size} in line 213")
+        //  this.toast("common list size is : ${commonList.size} in line 213")
     }
 
     override fun onResume() {
         super.onResume()
-     //   this.toast("common list size is : ${commonList.size} in line 218")
+        //   this.toast("common list size is : ${commonList.size} in line 218")
         initRecAdapter() // dont you date touch this line
         commonList.addAll(tempList)
         tempList.clear()
-     //   this.toast("common list size is : ${commonList.size}")
-        adapter!!.notifyItemRangeInserted(commonList.size-1, tempList.size)
+        //   this.toast("common list size is : ${commonList.size}")
+        adapter!!.notifyItemRangeInserted(commonList.size - 1, tempList.size)
         calculateCalories()
         calculateBurntCalories()
-    //    this.toast("common list size is : ${commonList.size} in line 225")
+        //    this.toast("common list size is : ${commonList.size} in line 225")
 
-        if (exerciseList.isEmpty()){
+        if (exerciseList.isEmpty()) {
             exerciseLBl.visibility = View.GONE
         }
-        if (commonList.isEmpty()){
+        if (commonList.isEmpty()) {
             foodLbl.visibility = View.GONE
-           // home_status_text_view.visibility = View.VISIBLE
-        }else{
+            // home_status_text_view.visibility = View.VISIBLE
+        } else {
             foodLbl.visibility = View.VISIBLE
             //home_status_text_view.visibility = View.GONE
         }
         produceBarChartData()
     }
 
-    private fun loadStoredData(){
+    private fun loadStoredData() {
         GlobalScope.launch {
             this@HomeActivity.let {
                 commonList = detailDao!!.getAll()
                 updateLASTITEMINDEX(commonList.size)
-                if (commonList.isEmpty()){
-                    Log.d("globalscope","list is empty")
-                }else{
+                if (commonList.isEmpty()) {
+                    Log.d("globalscope", "list is empty")
+                } else {
                     Looper.prepare()
-          //          this@HomeActivity.toast("common list size is : ${commonList.size} in line 240")
+                    //          this@HomeActivity.toast("common list size is : ${commonList.size} in line 240")
                     initRecAdapter()
                     produceBarChartData()
 //                    exercise_recycler_view.adapter = RecyclerViewAdapter(commonList,it)
@@ -309,45 +312,45 @@ class HomeActivity : BaseActivity() {
     }
 
 
-    private fun initRecAdapter(){
-        if (!exerciseList.isEmpty()){
+    private fun initRecAdapter() {
+        if (!exerciseList.isEmpty()) {
             exerciseLBl.visibility = View.VISIBLE
         }
-        Log.d("recycleer","initRecAdapter common list size is: ${commonList.size}")
-     //   this.toast("common list size is : ${commonList.size} in line 258")
-        adapter = RecyclerViewAdapter(commonList,this@HomeActivity)
-        exerAdapter = ExerciseAdapter(exerciseList,this@HomeActivity)
+        Log.d("recycleer", "initRecAdapter common list size is: ${commonList.size}")
+        //   this.toast("common list size is : ${commonList.size} in line 258")
+        adapter = RecyclerViewAdapter(commonList, this@HomeActivity)
+        exerAdapter = ExerciseAdapter(exerciseList, this@HomeActivity)
         layoutManager = LinearLayoutManager(this)
         consumed_food_recycler_view.layoutManager = layoutManager
         consumed_food_recycler_view.adapter = adapter
-        exercise_recycler_view .layoutManager = LinearLayoutManager(this)
+        exercise_recycler_view.layoutManager = LinearLayoutManager(this)
         exercise_recycler_view.adapter = exerAdapter
         toggleVisibility()
 
     }
 
-    private fun toggleVisibility (){
-        if (home_status_text_view.visibility == View.VISIBLE){
+    private fun toggleVisibility() {
+        if (home_status_text_view.visibility == View.VISIBLE) {
             home_status_text_view.visibility = View.VISIBLE
-            consumed_food_recycler_view.visibility =  View.GONE
+            consumed_food_recycler_view.visibility = View.GONE
 
-        }else {
+        } else {
             home_status_text_view.visibility = View.GONE
             consumed_food_recycler_view.visibility = View.VISIBLE
         }
     }
 
-    private fun updateLASTITEMINDEX(index:Int){
-    LAST_ITEM_INDEX = index
-}
+    private fun updateLASTITEMINDEX(index: Int) {
+        LAST_ITEM_INDEX = index
+    }
 
-    private fun updateUI(){
+    private fun updateUI() {
 
     }
 
-    private fun calculateCalories(){
+    private fun calculateCalories() {
         var total = 0
-        for (item in commonList){
+        for (item in commonList) {
             total = total.plus(item.calory)
         }
 
@@ -355,7 +358,7 @@ class HomeActivity : BaseActivity() {
 
     }
 
-    private fun setCunsumedCaloriestv(txt: String){
+    private fun setCunsumedCaloriestv(txt: String) {
         consumedCalories.text = "کالری دریافتی امروز: $txt".fa()
     }
 
@@ -365,7 +368,7 @@ class HomeActivity : BaseActivity() {
         burntCalories.text = "کالری سوزانده شده:‌ $txt".fa()
     }
 
-    private fun calculateBurntCalories(){
+    private fun calculateBurntCalories() {
         var temp = 0;
         for (item in exerciseList)
             temp = temp.plus(item.unitCal)
@@ -374,14 +377,14 @@ class HomeActivity : BaseActivity() {
 
     }
 
-    private fun produceBarChartData(){
+    private fun produceBarChartData() {
         var breakfastCalory = 0f
         var launchCalory = 0f
         var dinnerCalory = 0f
         var mealCalory = 0f
         var values: ArrayList<BarEntry> = ArrayList()
-        for (item in commonList){
-            when(item.category){
+        for (item in commonList) {
+            when (item.category) {
                 "dinner" -> dinnerCalory = dinnerCalory.plus(item.ID)
                 "breakfast" -> breakfastCalory = breakfastCalory.plus(item.ID)
                 "mianvadeh" -> mealCalory = mealCalory.plus(item.ID)
@@ -389,12 +392,10 @@ class HomeActivity : BaseActivity() {
             }
         }
 
-        values.add(BarEntry(0f,mealCalory))
-        values.add(BarEntry(1f,dinnerCalory))
-        values.add(BarEntry(2f,launchCalory))
-        values.add(BarEntry(3f,breakfastCalory))
-
-
+        values.add(BarEntry(0f, mealCalory))
+        values.add(BarEntry(1f, dinnerCalory))
+        values.add(BarEntry(2f, launchCalory))
+        values.add(BarEntry(3f, breakfastCalory))
 
 
 //        for (i in 0..3){
@@ -407,8 +408,7 @@ class HomeActivity : BaseActivity() {
 //        }
         var dataSet: BarDataSet? = null
         val barEntry: ArrayList<BarEntry> = ArrayList()
-        if (barChart.data != null && barChart.data.dataSetCount > 0)
-        {
+        if (barChart.data != null && barChart.data.dataSetCount > 0) {
             //applicationContext.toast("chart data is not empty")
             dataSet = BarDataSet(values, "Data Set")
             dataSet.color = resources.getColor(R.color.bmi_below_18_5)
@@ -422,7 +422,7 @@ class HomeActivity : BaseActivity() {
             barChart.setData(data)
             barChart.setFitBars(true)
 
-        }else {
+        } else {
             dataSet = BarDataSet(values, "Data Set")
             dataSet.color = resources.getColor(R.color.bmi_below_18_5)
             dataSet.setDrawValues(false)
@@ -439,27 +439,30 @@ class HomeActivity : BaseActivity() {
         barChart.invalidate()
 
     }
+
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
     }
-    private fun clearData(){
+
+    private fun clearData() {
         barChart.clear()
         commonList.clear()
 //        adapter!!.notifyItemMoved()
 
     }
 
-    private fun isDateChanged(){
+    private fun isDateChanged() {
     }
 
-    private fun saveUserFoods(){
+    private fun saveUserFoods() {
         val userAteFoods = UserAteFoods(today_Date, commonList)
 
-        userPrefs!!.putObject(today_Date,userAteFoods)
+        userPrefs!!.putObject(today_Date, userAteFoods)
     }
 
-    private fun loadUserFood(timeStamp: String){
-        commonList =  userPrefs!!.getObject(timeStamp,UserAteFoods::class.java)!!.getList(timeStamp)!!
+    private fun loadUserFood(timeStamp: String) {
+        commonList =
+            userPrefs!!.getObject(timeStamp, UserAteFoods::class.java)!!.getList(timeStamp)!!
 
     }
 

@@ -44,9 +44,9 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
         food_name.text = title
         if (caloryByGlass!![title] == null){
             add_food_dialog_glass_text_view.visibility = View.GONE
-            var params = add_food_dialog_glass_text_view.layoutParams as LinearLayout.LayoutParams
-            params.setMargins(0, 10,0,  0); //substitute parameters for left, top, right, bottom
-            add_food_dialog_glass_text_view.layoutParams = params
+//            var params = add_food_dialog_glass_text_view.layoutParams as LinearLayout.LayoutParams
+//            params.setMargins(0, 10,0,  0); //substitute parameters for left, top, right, bottom
+//            add_food_dialog_glass_text_view.layoutParams = params
         }
         getMeal()
         getType()
@@ -249,7 +249,7 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
     }
     private fun checkValues(): Boolean{
         if (!checkCalories()){
-            context.toast("لطفا میزان مصرفییییی را وارد کنید: ")
+            context.toast("لطفا میزان مصرفی را وارد کنید: ")
             getCalories()
             return false
         }else if (!checkMeal()){

@@ -1,215 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:background="@drawable/dot"
+        app:layout_constraintBottom_toBottomOf="@+id/meal_text_view"
+        app:layout_constraintEnd_toStartOf="@id/meal_text_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/meal_text_view" />
+
+    <View
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:background="@drawable/dot"
+        app:layout_constraintBottom_toBottomOf="@id/consumed_amount_txt_view"
+        app:layout_constraintEnd_toStartOf="@id/consumed_amount_txt_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/consumed_amount_txt_view" />
+
+    <View
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:background="@drawable/dot"
+        app:layout_constraintBottom_toBottomOf="@id/textView"
+        app:layout_constraintEnd_toStartOf="@id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
     <TextView
-        android:text="قورمه سبزی"
-        android:textSize="16sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
         android:id="@+id/food_name"
-        android:textColor="@color/bmi_30_to_40"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/space_2"
+        android:textColor="@color/bmi_30_to_40"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="قورمه سبزی" />
 
     <TextView
         android:id="@+id/meal_text_view"
-        android:text="وعده غذایی"
-        android:textSize="16sp"
-        android:layout_gravity="end"
-        android:layout_marginEnd="30dp"
-        android:textColor="@color/bmi_30_to_40"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_3"
+        android:layout_marginTop="@dimen/space_3"
+        android:text="@string/meal"
+        android:textColor="@color/bmi_30_to_40"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/food_name" />
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/meals"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:background="@drawable/add_food_dialog_items_background"
-            android:id="@+id/add_food_dialog_dinner"
-            android:text="شام"
-            android:layout_marginStart="10dp"
-            android:textAlignment="center"
-            android:drawableTop="@drawable/ic_dinner"
-            android:drawablePadding="5dp"
-            android:textColor="@color/grey"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:background="@drawable/add_food_dialog_items_background"
-            android:id="@+id/add_food_dialog_mianvade"
-            android:layout_marginStart="10dp"
-            android:text="میان وعده"
-            android:textAlignment="center"
-            android:layout_weight="1"
-            android:textColor="@color/grey"
-            android:drawableTop="@drawable/ic_bread"
-            android:drawablePadding="5dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:background="@drawable/add_food_dialog_items_background"
-            android:layout_marginStart="10dp"
-            android:id="@+id/add_food_dialog_launch"
-            android:text="نهار" android:textAlignment="center"
-            android:layout_weight="1"  android:drawableTop="@drawable/ic_utensils_alt"
-            android:drawablePadding="5dp"
-            android:textColor="@color/grey"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/meal_text_view">
 
         <TextView
             android:id="@+id/add_food_dialog_breakfast"
+            style="@style/mealsStyle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@drawable/add_food_dialog_items_background"
-            android:layout_marginStart="10dp"
-            android:text="صبحانه"
-            android:textAlignment="center"
-            android:layout_weight="1"
-            android:textColor="@color/grey"
             android:drawableTop="@drawable/ic_breakfast"
             android:drawablePadding="5dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+            android:text="@string/breakfast"
+            android:textAlignment="center"
+            android:textColor="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@+id/add_food_dialog_dinner"
+            app:layout_constraintEnd_toStartOf="@+id/add_food_dialog_dinner"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/add_food_dialog_dinner" />
+
+        <TextView
+            android:id="@+id/add_food_dialog_dinner"
+            style="@style/mealsStyle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/add_food_dialog_items_background"
+            android:drawableTop="@drawable/ic_dinner"
+            android:drawablePadding="5dp"
+            android:text="@string/dinner"
+            android:textAlignment="center"
+            android:textColor="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@+id/add_food_dialog_launch"
+            app:layout_constraintEnd_toStartOf="@+id/add_food_dialog_launch"
+            app:layout_constraintStart_toEndOf="@+id/add_food_dialog_breakfast"
+            app:layout_constraintTop_toTopOf="@+id/add_food_dialog_launch" />
+
+        <TextView
+            android:id="@+id/add_food_dialog_launch"
+            style="@style/mealsStyle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/add_food_dialog_items_background"
+            android:drawableTop="@drawable/ic_utensils_alt"
+            android:drawablePadding="5dp"
+            android:text="@string/launch"
+            android:textAlignment="center"
+            android:textColor="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@+id/add_food_dialog_mianvade"
+            app:layout_constraintEnd_toStartOf="@+id/add_food_dialog_mianvade"
+            app:layout_constraintStart_toEndOf="@+id/add_food_dialog_dinner"
+            app:layout_constraintTop_toTopOf="@+id/add_food_dialog_mianvade" />
+
+        <TextView
+            android:id="@+id/add_food_dialog_mianvade"
+            style="@style/mealsStyle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/add_food_dialog_items_background"
+            android:drawableTop="@drawable/ic_bread"
+            android:drawablePadding="5dp"
+            android:text="@string/snack"
+            android:textAlignment="center"
+            android:textColor="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/add_food_dialog_launch"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/consumed_amount_txt_view"
-        android:text="میزان مصرف"
-        android:textSize="16sp"
-        android:layout_gravity="end"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/bmi_30_to_40"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_2"
+        android:layout_marginTop="@dimen/space_3"
+        android:text="@string/amount"
+        android:textColor="@color/bmi_30_to_40"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meals" />
 
-    <LinearLayout
-        android:layout_marginBottom="5dp"
-        android:weightSum="5"
-        android:orientation="horizontal"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <!--        <Button-->
-        <!--            android:id="@+id/confirm"-->
-        <!--            android:text="تایید"-->
-        <!--            style="?attr/borderlessButtonStyle"-->
-        <!--            android:layout_weight="1"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="match_parent"/>-->
-
-        <LinearLayout
-            android:layout_marginStart="10dp"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_marginStart="4dp"
-                android:textColor="@color/bmi_30_to_40"
-                android:textColorHint="@color/bmi_20_to_25"
-                android:textAlignment="center"
-                android:id="@+id/add_food_dialog_glass_text_view"
-                android:textSize="12sp"
-                android:background="@drawable/amount_background"
-                android:hint="لیوان"
-                android:layout_width="50dp"
-                android:layout_height="22dp"/>
-
-            <TextView
-                android:layout_marginStart="4dp"
-                android:textColor="@color/bmi_30_to_40"
-                android:textColorHint="@color/bmi_20_to_25"
-                android:textAlignment="center"
-                android:id="@+id/add_food_dialog_gram_text_view"
-                android:textSize="12sp"
-                android:hint="گرم"
-                android:background="@drawable/amount_background"
-                android:layout_width="50dp"
-                android:layout_height="22dp"/>
-
-        </LinearLayout>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/consumed_amount_txt_view">
 
         <EditText
-            android:layout_weight="4"
-            android:textAlignment="center"
+            android:id="@+id/add_food_dialog_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_2"
+            android:layout_marginTop="@dimen/space_4"
+            android:layout_marginBottom="@dimen/space_4"
+            android:autofillHints="auto fill hint"
+            android:background="@drawable/amount_background"
+            android:hint="@string/enter_amount"
+            android:inputType="number"
             android:padding="5dp"
-            android:layout_marginBottom="2dp"
-            android:layout_marginEnd="4dp"
+            android:textAlignment="center"
             android:textColor="@color/bmi_30_to_40"
             android:textColorHint="@color/bmi_20_to_25"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/add_food_dialog_glass_text_view"
+            android:layout_width="50dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/amount_background"
-            android:hint="میزان مصرف را وارد کنید"
-            android:autofillHints="auto fill hint"
-            android:textSize="22sp"
-            android:id="@+id/add_food_dialog_edit_text"
-            android:inputType="number"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:text="@string/glass"
+            android:textAlignment="center"
+            android:textColor="@color/bmi_30_to_40"
+            android:textColorHint="@color/bmi_20_to_25"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toEndOf="@+id/add_food_dialog_edit_text"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/add_food_dialog_gram_text_view"
+            android:layout_width="50dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/amount_background"
+            android:hint="@string/grams"
+            android:textAlignment="center"
+            android:textColor="@color/bmi_30_to_40"
+            android:textColorHint="@color/bmi_20_to_25"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/add_food_dialog_glass_text_view"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/add_food_dialog_edit_text"
+            app:layout_constraintTop_toBottomOf="@+id/add_food_dialog_glass_text_view" />
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     <TextView
+        android:id="@+id/textView"
         style="@style/FoodDialogTextViews"
-        android:text="ارزش غذایی"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_3"
+        android:layout_marginTop="@dimen/space_3"
+        android:text="@string/nutritional_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout" />
 
     <LinearLayout
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:padding="8dp"
-        android:layout_marginTop="16dp"
-        android:weightSum="2"
-        android:orientation="horizontal"
+        android:id="@+id/amountHolder"
+        android:layout_marginTop="@dimen/space_1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@id/textView">
         <TextView
-            style="@style/ConsumedAmount"
-            android:text="کالری : −"
             android:id="@+id/Consumed_calories_text_view"
+            style="@style/ConsumedAmount"
+            android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_1"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:text="@string/calory"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
-            style="@style/ConsumedAmount"
-            android:text="پروتئین: −"
             android:id="@+id/consumedProteinsTextView"
+            style="@style/ConsumedAmount"
+            android:layout_width="0dp"
+            android:layout_margin="@dimen/space_1"
             android:layout_weight="1"
-            android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
-
+            android:text="@string/proteins"
+            app:layout_constraintBottom_toBottomOf="@+id/Consumed_calories_text_view"
+            app:layout_constraintEnd_toStartOf="@+id/Consumed_calories_text_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/Consumed_calories_text_view" />
     </LinearLayout>
-
     <Button
-        android:text="ثبت"
-        android:background="@drawable/add_food_confirm_background"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        android:layout_margin="12dp"
         android:id="@+id/add_food_confirm_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_2"
+        android:layout_marginBottom="@dimen/space_4"
+        android:background="@drawable/add_food_confirm_background"
+        android:text="@string/confirm"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/amountHolder" />
 
 
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

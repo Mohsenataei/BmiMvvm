@@ -1,43 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_marginBottom="10dp"
     android:paddingTop="8dp"
     android:paddingBottom="8dp"
-    android:weightSum="10"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-<!--    <ImageView-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:textAlignment="center"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_marginStart="30dp"-->
-<!--        android:id="@+id/expandedListFavBtn"-->
-<!--        android:src="@drawable/ic_star_empty"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"/>-->
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
+        tools:text="@string/earned_calories"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/expandedListItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingEnd="20dp"
-        style="@style/TextView"
         android:textColor="@color/bmi_more_than_40"
         android:paddingTop="10dp"
         android:paddingBottom="10dp" />
     <View
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/expandedListItem"
         android:background="@color/colorPrimary"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:id="@+id/divider"
         android:layout_width="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expandedListItem"
         android:layout_height="1dp"/>
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

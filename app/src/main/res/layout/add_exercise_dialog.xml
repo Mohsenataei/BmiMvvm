@@ -1,103 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
 
     <TextView
-    android:text="دوچرخه سواری"
-    android:textSize="16sp"
-    android:layout_gravity="center"
-    android:layout_marginTop="10dp"
-    android:id="@+id/addExercisedialogTitle"
-    android:textColor="@color/bmi_30_to_40"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+        android:id="@+id/addExercisedialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/space_3"
+        android:text="دوچرخه سواری"
+        android:textColor="@color/bmi_30_to_40"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-
+    <View
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:background="@drawable/dot"
+        app:layout_constraintBottom_toBottomOf="@id/meal_text_view"
+        app:layout_constraintEnd_toStartOf="@id/meal_text_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/meal_text_view" />
 
     <TextView
         android:id="@+id/meal_text_view"
-        android:text="میزان ورزش"
-        android:textSize="16sp"
-        android:layout_marginTop="16dp"
-        android:layout_gravity="end"
-        android:layout_marginEnd="30dp"
-        android:textColor="@color/bmi_30_to_40"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"/>
-
+        android:layout_marginStart="@dimen/space_3"
+        android:layout_marginTop="@dimen/space_3"
+        android:text="@string/activity_duration"
+        android:textColor="@color/bmi_30_to_40"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addExercisedialogTitle" />
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:id="@+id/meals"
-        android:weightSum="2"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="10dp"
+        android:id="@+id/holder"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@+id/add_exercise_burned_calories_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/meal_text_view">
 
         <TextView
-            android:text="دقیقه"
-            android:textSize="20dp"
-            android:textColor="@color/bmi_more_than_40"
-            android:textAlignment="center"
-            android:gravity="center"
-            android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/minute"
+            android:textAlignment="center"
+            android:textColor="@color/bmi_more_than_40"
+            android:textSize="20dp" />
 
         <com.shawnlin.numberpicker.NumberPicker
             android:id="@+id/number_picker"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_centerInParent="true"
-            app:np_width="64dp"
-            app:np_height="150dp"
-            app:np_max="300"
+            android:layout_weight="1"
             android:dividerPadding="8dp"
             app:np_dividerColor="@color/white"
-            app:np_textColor="@color/bmi_25_to_30"
-            app:np_selectedTextColor="@color/bmi_more_than_40"
+            app:np_height="150dp"
+            app:np_max="300"
             app:np_min="1"
+            app:np_selectedTextColor="@color/bmi_more_than_40"
+            app:np_textColor="@color/bmi_25_to_30"
             app:np_textSize="18sp"
-            />
+            app:np_width="64dp" />
 
     </LinearLayout>
 
     <TextView
-        style="@style/FoodDialogTextViews"
-        android:text="میزان کالری"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
         android:id="@+id/add_exercise_burned_calories_text_view"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="میزان کالری"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calory"
         android:textAlignment="center"
         android:textColor="@color/bmi_25_to_30"
         android:textSize="18sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/holder"
+         />
 
     <Button
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/add_food_confirm_background"
-        android:textColor="@color/white"
-        android:text="ثبت"
-        android:textSize="24sp"
-        android:textAlignment="center"
         android:id="@+id/addExerciseConfirm"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/add_food_confirm_background"
+        android:text="@string/confirm"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/add_exercise_burned_calories_text_view"
+        />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,8 +7,8 @@ class CaloriesPerGram {
         val perUnitCalories = HashMap<String, Int>()
         val perGlassCalories = HashMap<String, Int>()
 
-        perGramCalories.put("آدامس",100)
-        perGramCalories.put("آرد گندم",360)
+        perGramCalories["آدامس"] = 100
+        perGramCalories["آرد گندم"] = 360
         perGramCalories.put("آرد ذرت",370)
         perGramCalories.put("آرد سویا",420)
         perGramCalories.put("آلبالو ( کمپوت )",90)
@@ -19,7 +19,7 @@ class CaloriesPerGram {
         perGramCalories.put("آناناس",45)
         perGramCalories.put("آناناس ( کمپوت )",75)
         perGramCalories.put("انبه هندی",60)
-        perGramCalories.put("اسفناج خامی",25)
+        perGramCalories["اسفناج خامی"] = 25
         perGramCalories.put("استیک ( کم چربی )",200)
         perGramCalories.put("استیک ( پر چربی )",400)
         perGramCalories.put("انار تازه ( دانه )",60)

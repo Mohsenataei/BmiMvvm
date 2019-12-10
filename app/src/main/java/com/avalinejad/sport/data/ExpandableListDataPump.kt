@@ -1,11 +1,14 @@
 package com.avalinejad.sport.data
 
 import android.content.Context
+import android.content.res.Resources
+import com.avalinejad.sport.App
+import com.avalinejad.sport.R
 import com.avalinejad.sport.util.fa
 import java.util.ArrayList
 import java.util.HashMap
 
-class ExpandableListDataPump  {
+class ExpandableListDataPump {
     private val context: Context? = null
 //    private val database = AppDatabase.Companion.getDatabase(context)
 //    private val foodDao: FoodDao? = null
@@ -15,6 +18,9 @@ class ExpandableListDataPump  {
 //    }
 
     //public HashMap<String, >
+    private val array: Array<String> = App.instance.resources.getStringArray(R.array.nuts)
+    private val res = App.instance.resources
+
     fun getData(): HashMap<String, List<String>> {
         val expandableListDetail = HashMap<String, List<String>>()
 
@@ -23,11 +29,15 @@ class ExpandableListDataPump  {
 
 
         val Ajil = ArrayList<String>()
-        Ajil.add("آجیل سویا")
-        Ajil.add("آجیل مخلوط")
-        Ajil.add("آجیل مغز")
-        Ajil.add("انجیر (تازه )")
-        Ajil.add("انجیر (خشک )")
+
+        //Ajil.add("آجیل سویا")
+        //Ajil.add("آجیل مخلوط")
+        Ajil.add(array[0])
+        Ajil.add(array[1])
+        Ajil.add(res.getString(R.string.nuts))
+        Ajil.add(res.getString(R.string.fig_fresh))
+        Ajil.add(res.getString(R.string.fig_dried))
+//        Ajil.add("انجیر (خشک )")
         Ajil.add("آدامس")
         Ajil.add("اوتمیل")
         Ajil.add("بادام درختی")
@@ -453,7 +463,7 @@ class ExpandableListDataPump  {
         meat.add("ماهی پخته")
         meat.add("میگو پفکی سرخ شده")
         meat.add("میگو درشت اب پز")
-      //  meat.add("میگو ریز خام")
+        //  meat.add("میگو ریز خام")
         meat.add("میگو درشت خام")
 
         meat.add("میگو درشت منجمد خام")
@@ -671,18 +681,18 @@ class ExpandableListDataPump  {
 
 
         expandableListDetail["تنقلات" + "  (" + Ajil.size.toString().fa() + ")"] = Ajil
-        expandableListDetail["پلو ها" + " ( "+ polo.size.toString().fa() + ")"] = polo
-        expandableListDetail["شیرینی" + " ( "+ sweetness.size.toString().fa() + ")"] = sweetness
+        expandableListDetail["پلو ها" + " ( " + polo.size.toString().fa() + ")"] = polo
+        expandableListDetail["شیرینی" + " ( " + sweetness.size.toString().fa() + ")"] = sweetness
         expandableListDetail["خورشت" + "  (" + khoresht.size.toString().fa() + ")"] = khoresht
         expandableListDetail["سبزیجات" + "  (" + vegs.size.toString().fa() + ")"] = vegs
-        expandableListDetail["میوه ها"+ "  (" + fruit.size.toString().fa() + ")"] = fruit
-       // expandableListDetail["نوشیدنی"] = sweetness
+        expandableListDetail["میوه ها" + "  (" + fruit.size.toString().fa() + ")"] = fruit
+        // expandableListDetail["نوشیدنی"] = sweetness
         //expandableListDetail["متفرقه"] = sweetness
-        expandableListDetail["حبوبات و غلات"+ "  (" + hobobat.size.toString().fa() + ")"] = hobobat
-        expandableListDetail["گوشت و لبنیات"+ "  (" + meat.size.toString().fa() + ")"] = meat
-        expandableListDetail["سالاد"+ "  (" + salad.size.toString().fa() + ")"] =salad
-        expandableListDetail["فست فود"+ "  (" + fastFood.size.toString().fa() + ")"] =fastFood
-       // expandableListDetail["غذای رژیمی"] = sweetness
+        expandableListDetail["حبوبات و غلات" + "  (" + hobobat.size.toString().fa() + ")"] = hobobat
+        expandableListDetail["گوشت و لبنیات" + "  (" + meat.size.toString().fa() + ")"] = meat
+        expandableListDetail["سالاد" + "  (" + salad.size.toString().fa() + ")"] = salad
+        expandableListDetail["فست فود" + "  (" + fastFood.size.toString().fa() + ")"] = fastFood
+        // expandableListDetail["غذای رژیمی"] = sweetness
 
 
         return expandableListDetail
