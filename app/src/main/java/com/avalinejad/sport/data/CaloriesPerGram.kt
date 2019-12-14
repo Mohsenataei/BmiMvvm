@@ -52,7 +52,7 @@ class CaloriesPerGram {
         perGramCalories[res.getString(R.string.cheese_puffs)] = 100
         perGramCalories[res.getString(R.string.garden_radish)] = 30
         //perGramCalories[res.getString(R.string.tarragon)] = 45
-        //perGramCalories[res.getString(R.string.sunflower_seed)] = 580
+        perGramCalories[res.getString(R.string.sunflower_seed)] = 580
         perGramCalories[res.getString(R.string.pumpkin_seeds)] = 600
         perGramCalories[res.getString(R.string.watermelo_seeds)] = 590
         perGramCalories[res.getString(R.string.japanese_seeds)] = 570
@@ -172,142 +172,99 @@ class CaloriesPerGram {
         perGramCalories[res.getString(R.string.Pita)] = 275
         perGramCalories[res.getString(R.string.Taftan)] = 279
         perGramCalories[res.getString(R.string.jam)] = 300
+        perGramCalories[res.getString(R.string.garden_asparagus)] = 20
+        perGramCalories[res.getString(R.string.Cowpea)] = 80
+        perGramCalories[res.getString(R.string.red_bean)] = 110
+        perGramCalories[res.getString(R.string.cabbage)] = 20
+        perGramCalories[res.getString(R.string.red_cabbage)] = 28
+        perGramCalories[res.getString(R.string.Pumpkin)] = 35
+        perGramCalories[res.getString(R.string.cocoa)] = 200
 
-
-        perGramCalories.put("مربا",300)
-        perGramCalories.put("نارگیل تازه",156)
-        perGramCalories.put("نارگیل ( مغز )",345)
-        perGramCalories.put("نارنج",20)
-        perGramCalories.put("نارنگی",34)
-        perGramCalories.put("ماکارونی",150)
-        perGramCalories.put("مارچوبه",20)
-        perGramCalories.put("مغز گردو",650)
-        perGramCalories.put("مایونز",720)
-        perGramCalories.put("ماست کیسه ای",155)
-        perGramCalories.put("لیمو شیرین",40)
-        perGramCalories.put("لیمو ترش ( آب لیمو )",26)
-        perGramCalories.put("لیمو ترش",30)
-        perGramCalories.put("لپه پخته 115",500)
-        perGramCalories.put("لوبیا قرمز پخته",110)
-        perGramCalories.put("لوبیا چشم بلبلی خام",130)
-        perGramCalories.put("لوبیا چشم بلبلی پخته",80)
-        perGramCalories.put("لوبیا سفید",340)
-        perGramCalories.put("کیکی اسفنجی",300)
-        perGramCalories.put("کیک شکلاتی",400)
-        perGramCalories.put("کلم پیچ خام",20)
-        perGramCalories.put("کلم قرمز",28)
-        perGramCalories.put("کلم پیشخوان",22)
-        perGramCalories.put("کلم فندقی",24)
-        perGramCalories.put("کره حیوانی",750)
-        perGramCalories.put("کدو حلوایی",35)
-        perGramCalories.put("کدو خورشتی",28)
-        perGramCalories.put("کاکائو ( پودر )",220)
         
         // karafs refrence
 
-        perGramCalories.put("آجیل سویا",471)
-        perGramCalories.put("آجیل مخلوط",594)
-        perGramCalories.put("آجیل مغز",600)
-        perGramCalories.put("آدامس",150)
-        perGramCalories.put("اوتمیل",68)
-        perGramCalories.put("بادام درختی",576)
-        perGramCalories.put("بادام زمینی",585)
-        perGramCalories.put("بادام هندی",553)
-        perGramCalories.put("برگه زرد آلو",240)
-        perGramCalories.put("برگه هلو",240)
-        perGramCalories.put("بیسکوییت ویفر",534)
-        perGramCalories.put("پاپ کورن",390)
-        perGramCalories.put("پسته",560)
-        perGramCalories.put("پودر نارگیل",500)
-        perGramCalories.put("تخمه آفتابگردان",582)
-        perGramCalories.put("پفک",500)
-        perGramCalories.put("چیپس",500)
-        perGramCalories.put("چیپس و پنیر",380)
-        perGramCalories.put("سنجد",130)
-        perGramCalories.put("ذرت مکزیکی با پنیر",300)
-        perGramCalories.put("ذرت مکزیکی بدون پنیر",150)
-        perGramCalories.put("تخمه ژاپنی",560)
-        perGramCalories.put("تخمه کدو",574)
-        perGramCalories.put("تخمه هندوانه",560)
-//        perGramCalories.put("بادام زمینی بدون پوست")
-        perGramCalories.put("سمبوسه سیب زمینی",150)
-        perGramCalories.put("سمبوسه گوشت",140)
-        perGramCalories.put("سمنو",100)
-        perGramCalories.put("سنجد",130)
-        perGramCalories.put("شاهدانه",553)
-        perGramCalories.put("شربت افرا",261)
-        perGramCalories.put("شکلات سفید",539)
-        perGramCalories.put("شکلات شیری",535)
-        perGramCalories.put("عناب",80)
-        perGramCalories.put("فندق",628)
-        perGramCalories.put("قیصی",320)
-        perGramCalories.put("کشک خشک",98)
-        perGramCalories.put("کشک مایع",49)
-        perGramCalories.put("کشمش",300)
-        perGramCalories.put("کنجد",570)
-        perGramCalories.put("کوکی کشمشی",435)
-        perGramCalories.put("گردو",654)
-        perGramCalories.put("لواشک",180)
-        perGramCalories.put("مویز",283)
-        perGramCalories.put("نارگیل خشک",660)
-
-        perGramCalories.put("آلبالو پلو",155)
-        perGramCalories.put("استانبولی پلو",137)
-        perGramCalories.put("برنج سفید پخته",155)
-        perGramCalories.put("برنج قهوه ای پخته",130)
-        perGramCalories.put("برنج قهوه ای",112)
-        perGramCalories.put("پلو ساده با روغن",170)
-        perGramCalories.put("پلو ساده بدون روغن",130)
-        perGramCalories.put("کته با روغن",137)
-        perGramCalories.put("کته بدون روغن",97)
-        perGramCalories.put("ته چین بادمجان",137)
-        perGramCalories.put("ته چین گوشت",145)
-        perGramCalories.put("ته چین مرغ",137)
-        perGramCalories.put("ته دیگ برنج",300)
-        perGramCalories.put("ته دیگ سیب زمینی",350)
-        perGramCalories.put("ته دیگ نان",500)
-        perGramCalories.put("دمپخت گوجه",120)
-        perGramCalories.put("دمپختک",155)
-        perGramCalories.put("رشته پلو",155)
-        perGramCalories.put("زرشک پلو",137)
-        perGramCalories.put("سبزی پلو",137)
-        perGramCalories.put("سیرین پلو",155)
-        perGramCalories.put("عدس پلو",137)
-        perGramCalories.put("کلم پلو",137)
-        perGramCalories.put("کوفته شوید باقالی",150)
-        perGramCalories.put("باقالی پلو",155)
-        perGramCalories.put("لوبیا پلو",137)
-        perGramCalories.put("ماش پلو",130)
-        perGramCalories.put("مرصع پلو",155)
-        perGramCalories.put("میگو پلو",137)
-        perGramCalories.put("نخود پلو",130)
-        perGramCalories.put("هویج پلو",130)
-
-        perGramCalories.put("باقلا قاتوق",140)
-        perGramCalories.put("تاس کباب",150)
-        perGramCalories.put("ترشی تره",135)
-        perGramCalories.put("خورشت تره",140)
-        perGramCalories.put("خورشت لوبیا سبز",180)
-        perGramCalories.put("خورشت آلو",140)
-        perGramCalories.put("خورشت آلو اسفناج",140)
-        perGramCalories.put("خورشت بادمجان",125)
-        perGramCalories.put("خورشت بامیه",140)
-        perGramCalories.put("خورشت به",150)
-        perGramCalories.put("خورشت خلال بادام",120)
-        perGramCalories.put("خورشت سیب",150)
-        perGramCalories.put("خورشت فسنجان",180)
-        perGramCalories.put("خورشت قورمه سبزی",140)
-        perGramCalories.put("خورشت قیمه بادمجان",150)
-        perGramCalories.put("خورشت قیمه سیب زمینی",150)
-        perGramCalories.put("خورشت کدو",140)
-        perGramCalories.put("خورشت کرفس",140)
-        perGramCalories.put("خورشت کنگر",140)
-        perGramCalories.put("خورشت نخود سبز",140)
-        perGramCalories.put("خورشت هویج",100)
-        perGramCalories.put("قلیه ماهی",135)
-        perGramCalories.put("قلیه میگو",145)
-        perGramCalories.put("مرغ ترش",135)
-        perGramCalories.put("واویشکا",300)
+        perGramCalories[res.getString(R.string.soy_nuts)] = 471
+        perGramCalories[res.getString(R.string.mixed_nuts)] = 594
+        perGramCalories[res.getString(R.string.mixed_brains)] = 600
+        perGramCalories[res.getString(R.string.wafers)] = 534
+        perGramCalories[res.getString(R.string.popcorn)] = 390
+        perGramCalories[res.getString(R.string.pistachio_with_skin)] = 560
+        perGramCalories[res.getString(R.string.pistachio_without_skin)] = 650
+        perGramCalories[res.getString(R.string.russian_olive)] = 130
+        perGramCalories[res.getString(R.string.esquites_with_cheese)] = 300
+        perGramCalories[res.getString(R.string.esquites_without_cheese)] = 150
+        perGramCalories[res.getString(R.string.japanese_seeds)] = 560
+        perGramCalories[res.getString(R.string.pumpkin_seeds)] = 574
+        perGramCalories[res.getString(R.string.watermelo_seeds)] = 560
+        perGramCalories[res.getString(R.string.peanut_without_skin)] = 540
+        perGramCalories[res.getString(R.string.potato_samosa)] = 150
+        perGramCalories[res.getString(R.string.beaf_samosa)] = 140
+        perGramCalories[res.getString(R.string.samanu)] = 100
+        perGramCalories[res.getString(R.string.russian_olive)] = 130
+        perGramCalories[res.getString(R.string.hemp)] = 553
+        perGramCalories[res.getString(R.string.maple_juice)] = 261
+        perGramCalories[res.getString(R.string.white_chocolate)] = 539
+        perGramCalories[res.getString(R.string.milk_chocolate)] = 535
+        perGramCalories[res.getString(R.string.gheysi)] = 320
+        perGramCalories[res.getString(R.string.dried_curd)] = 98
+        perGramCalories[res.getString(R.string.liquid_curd)] = 49
+        perGramCalories[res.getString(R.string.raisin)] = 300
+        perGramCalories[res.getString(R.string.fruit_leather)] = 180
+        perGramCalories[res.getString(R.string.walnut)] = 654
+        perGramCalories[res.getString(R.string.zante_currant)] = 283
+        perGramCalories[res.getString(R.string.dried_coconut)] = 660
+        perGramCalories[res.getString(R.string.cherry_pilaw)] = 155
+        perGramCalories[res.getString(R.string.spanish_rice)] = 137
+        perGramCalories[res.getString(R.string.white_cooked_rice)] = 155
+        perGramCalories[res.getString(R.string.brown_cooked_rice)] = 130
+        perGramCalories[res.getString(R.string.pilaf_with_oil)] = 170
+        perGramCalories[res.getString(R.string.pilaf_without_oil)] = 130
+        perGramCalories[res.getString(R.string.kateh_with_oil)] = 137
+        perGramCalories[res.getString(R.string.kateh_without_oil)] = 97
+        perGramCalories[res.getString(R.string.eggplant_tahchin)] = 137
+        perGramCalories[res.getString(R.string.meat_tahchin)] = 145
+        perGramCalories[res.getString(R.string.chiken_tahchin)] = 137
+        perGramCalories[res.getString(R.string.rice_tahchin)] = 300
+        perGramCalories[res.getString(R.string.potato_tahchin)] = 350
+        perGramCalories[res.getString(R.string.bread_tahchin)] = 500
+        perGramCalories[res.getString(R.string.dum_pukht)] = 120
+        perGramCalories[res.getString(R.string.reshte_pilaf)] = 155
+        perGramCalories[res.getString(R.string.barberry_pilaf)] = 137
+        perGramCalories[res.getString(R.string.vegtables_pilaf)] = 137
+        perGramCalories[res.getString(R.string.sweet_pilaf)] = 155
+        perGramCalories[res.getString(R.string.sweet_pilaf)] = 137
+        perGramCalories[res.getString(R.string.cabbage_pilaf)] = 137
+        perGramCalories[res.getString(R.string.broad_bean_pilaf)] = 155
+        perGramCalories[res.getString(R.string.bean_pilaf)] = 137
+        perGramCalories[res.getString(R.string.bean_pilaf)] = 130
+        perGramCalories[res.getString(R.string.marsa_pilaf)] = 155
+        perGramCalories[res.getString(R.string.shrimp_pilaf)] = 137
+        perGramCalories[res.getString(R.string.chickpea_pilaf)] = 130
+        perGramCalories[res.getString(R.string.carrot_pilaf)] = 130
+        perGramCalories[res.getString(R.string.baghala_ghatogh)] = 140
+        perGramCalories[res.getString(R.string.tas_kebab)] = 150
+        perGramCalories[res.getString(R.string.torshi_tare)] = 135
+        perGramCalories[res.getString(R.string.khoresh_tare)] = 140
+        perGramCalories[res.getString(R.string.green_bean_Khoresh)] = 180
+        perGramCalories[res.getString(R.string.aloo_Khoresh)] = 140
+        perGramCalories[res.getString(R.string.Spinach_Khoresh)] = 140
+        perGramCalories[res.getString(R.string.eggplant_Khoresh)] = 125
+        perGramCalories[res.getString(R.string.Okra_Khoresh)] = 140
+        perGramCalories[res.getString(R.string.Quince_Khoresh)] = 150
+        perGramCalories[res.getString(R.string.apple_Khoresh)] = 150
+        perGramCalories[res.getString(R.string.Almond_cuts_Khoresh)] = 120
+        perGramCalories[res.getString(R.string.Ghormeh_sabzi)] = 140
+        perGramCalories[res.getString(R.string.Gheimeh)] = 150
+        perGramCalories[res.getString(R.string.Fesenjān)] = 180
+        perGramCalories[res.getString(R.string.eggplant_Gheimeh)] = 150
+        perGramCalories[res.getString(R.string.pumpkin_khoresh)] = 140
+        perGramCalories[res.getString(R.string.Celery_khoresh)] = 140
+        perGramCalories[res.getString(R.string.spear_thistle_khoresh)] = 140
+        perGramCalories[res.getString(R.string.carrot_khoresh)] = 100
+        perGramCalories[res.getString(R.string.ghalie_mahi_khoresh)] = 135
+        perGramCalories[res.getString(R.string.ghalie_meigoo_khoresh)] = 145
+        perGramCalories[res.getString(R.string.morghe_torsh)] = 135
+        perGramCalories[res.getString(R.string.vavishka)] = 300
 
 
         perGramCalories[res.getString(R.string.caesar_alad)] = 170
@@ -318,14 +275,6 @@ class CaloriesPerGram {
         perGramCalories[res.getString(R.string.salad_without_Sauce)] = 17
         perGramCalories[res.getString(R.string.pasta_salad)] = 221
         perGramCalories[res.getString(R.string.greed_salad)] = 101
-        perGramCalories.put("سالاد سزار",170)
-        perGramCalories.put("سالاد سزار با مرغ",185)
-        perGramCalories.put("سالاد سیب زمینی",155)
-        perGramCalories.put("سالاد شیرازی",14)
-        perGramCalories.put("سالاد فصل با سس",80)
-        perGramCalories.put("سالاد فصل بدون سس",17)
-        perGramCalories.put("سالاد ماکارونی",221)
-        perGramCalories.put("سالاد یونانی",101)
 
         perGramCalories.put("اسنک ژامبون و پنیر",200)
         perGramCalories.put("بوریتو گوشت کوچک",300)
@@ -554,94 +503,73 @@ class CaloriesPerGram {
         //perGramCalories
 
 
-        perGramCalories.put("آبنبات ساده",200)
-        perGramCalories.put("آدامس",120)
-        perGramCalories.put("ارده",450)
-        perGramCalories.put("باقلوا",500)
-        perGramCalories.put("بامیه (شیرینی)",400)
-        perGramCalories.put("براونی",380)
-        perGramCalories.put("ساقه طلایی",440)
-        perGramCalories.put("ساقه طلایی شکلاتی",474)
-        perGramCalories.put("بیسکوییت کرم دار",480)
-        perGramCalories.put("پای سیب",450)
-        perGramCalories.put("پاستیل",300)
-        perGramCalories.put("پشمک",380)
-        perGramCalories.put("پن کیک",230)
-        perGramCalories.put("پولکی",400)
-        perGramCalories.put("پیراشکی شیرین",250)
-        perGramCalories.put("تیرامیسو",450)
-        perGramCalories.put("تخم کتان",534)
-        perGramCalories.put("چیز کیک",321)
-        perGramCalories.put("حلوا",400)
-        perGramCalories.put("حلوا ارده",500)
-        perGramCalories.put("خمیر کنجد",595)
-        perGramCalories.put("دونات",425)
-        perGramCalories.put("زولبیا",400)
-        perGramCalories.put("ژله",60)
-        perGramCalories.put("سوهان",500)
-        perGramCalories.put("شکر",400)
-        perGramCalories.put("شکر قهوه ای",380)
-        perGramCalories.put("شکلات اسنیکرز",488)
-        perGramCalories.put("شکلات تلخ ۷۵٪",533)
-        perGramCalories.put("شکلات تلخ ۸۰٪",533)
-        perGramCalories.put("شکلات تلخ ۸۵٪",566)
-        perGramCalories.put("شکلات تلخ ۹۰٪",600)
-        perGramCalories.put("شکلات تلخ ۹۹٪",550)
-        perGramCalories.put("شکلات ساده",350)
-        perGramCalories.put("شکلات صبحانه",500)
-        perGramCalories.put("شکلات نارگیلی",488)
-        perGramCalories.put("شله زرد",100)
-        perGramCalories.put("شیر برنج",100)
-        perGramCalories.put("شیره انگور",250)
-        perGramCalories.put("شیره خرما",250)
-        perGramCalories.put("شیرینی خامه ای",500)
-        perGramCalories.put("شیرینی خشک",450)
-        perGramCalories.put("شیرینی دانمارکی",400)
-        perGramCalories.put("شیرینی زبان",310)
-        perGramCalories.put("شیرینی کشمشی",404)
-        perGramCalories.put("شیرینی لطیفه",297)
-        perGramCalories.put("شیرینی ناپلعونی",440)
-        perGramCalories.put("شیرینی نارگیلی",374)
-        perGramCalories.put("عسل",300)
-        perGramCalories.put("فالوده",150)
-        perGramCalories.put("فرنی",100)
-        perGramCalories.put("قطاب",470)
-        perGramCalories.put("قند",400)
-        perGramCalories.put("کاپ کیک",369)
-        perGramCalories.put("کاچی",400)
-        perGramCalories.put("کاکاعو",228)
-        perGramCalories.put("کراسان",406)
-        perGramCalories.put("کراسان پنیری",414)
-        perGramCalories.put("کراسان سیب",254)
-        perGramCalories.put("کرم کارامل",360)
-        perGramCalories.put("کلوچه",500)
-        perGramCalories.put("کورن فلکس",370)
-        perGramCalories.put("کوکی",486)
-        perGramCalories.put("کیک خامه ای",370)
-        perGramCalories.put("کیک ردولوت",422)
-        perGramCalories.put("کیک ساده",300)
-        perGramCalories.put("کیک شکلاتی",410)
-        perGramCalories.put("کیک گردویی",397)
-        perGramCalories.put("کیک هویج",410)
-        perGramCalories.put("کیک یزدی",300)
-        perGramCalories.put("گز",500)
-        perGramCalories.put("مربا",280)
-        perGramCalories.put("مربا آلبالو",260)
-        perGramCalories.put("مربا بالنگ",280)
-        perGramCalories.put("مربا به",290)
-        perGramCalories.put("مربا توت فرنگی",270)
-        perGramCalories.put("مربا هویج",250)
-        perGramCalories.put("مسقطی",135)
-        perGramCalories.put("نان برنجی",243)
-        perGramCalories.put("نان پنجره ای",357)
-        perGramCalories.put("نان خامه ای",500)
-        perGramCalories.put("نان نخودچی",508)
-        perGramCalories.put("نبات",400)
-        perGramCalories.put("نقل",412)
-        perGramCalories.put("نوتلا",526)
-        perGramCalories.put("وانیل",288)
-
-
+        perGramCalories.newPut(R.string.candy,200)
+        perGramCalories.newPut(R.string.tahini,450)
+        perGramCalories.newPut(R.string.Chocolate_brownie,380)
+        perGramCalories.newPut(R.string.saghe_talaee_biscuite,440)
+        perGramCalories.newPut(R.string.saghe_talaee_biscuite_chocolate,474)
+        perGramCalories.newPut(R.string.biscuit_with_cream,480)
+        perGramCalories.newPut(R.string.apple_pie,450)
+        perGramCalories.newPut(R.string.Gummy_candy,300)
+        perGramCalories.newPut(R.string.Cotton_candy,380)
+        perGramCalories.newPut(R.string.pancake,230)
+        perGramCalories.newPut(R.string.Poolaki,400)
+        perGramCalories.newPut(R.string.Pirozhki,250)
+        perGramCalories.newPut(R.string.Tiramisu,450)
+        perGramCalories.newPut(R.string.flax,534)
+        perGramCalories.newPut(R.string.cheese_cake,321)
+        perGramCalories.newPut(R.string.halva,400)
+        perGramCalories.newPut(R.string.Sesame_Dough,595)
+        perGramCalories.newPut(R.string.Doughnut,425)
+        perGramCalories.newPut(R.string.Jalebi,400)
+        perGramCalories.newPut(R.string.Gelatin,60)
+        perGramCalories.newPut(R.string.Sohan,500)
+        perGramCalories.newPut(R.string.suger,400)
+        perGramCalories.newPut(R.string.brown_suger,380)
+        perGramCalories.newPut(R.string.snickers,488)
+        perGramCalories.newPut(R.string.Dark_chocolate_75,533)
+        perGramCalories.newPut(R.string.Dark_chocolate_80,533)
+        perGramCalories.newPut(R.string.Dark_chocolate_85,566)
+        perGramCalories.newPut(R.string.Dark_chocolate_90,600)
+        perGramCalories.newPut(R.string.Dark_chocolate_99,660)
+        perGramCalories.newPut(R.string.simple_chocolate,350)
+        perGramCalories.newPut(R.string.coconut_chocolate,488)
+        perGramCalories.newPut(R.string.breakfast_chocolate,500)
+        perGramCalories.newPut(R.string.Sholezard,100)
+        perGramCalories.newPut(R.string.rice_pudding,100)
+        perGramCalories.newPut(R.string.grape_syrup,250)
+        perGramCalories.newPut(R.string.Date_palm_syrup,250)
+        perGramCalories.newPut(R.string.puff_pastry,310)
+        perGramCalories.newPut(R.string.latife_pastry,297)
+        perGramCalories.newPut(R.string.Mille_feuille,440)
+        perGramCalories.newPut(R.string.coconut_pastry,374)
+        perGramCalories.newPut(R.string.honey,300)
+        perGramCalories.newPut(R.string.faloodeh,150)
+        perGramCalories.newPut(R.string.kheer,100)
+        perGramCalories.newPut(R.string.qottab,470)
+        perGramCalories.newPut(R.string.sugar_cube,400)
+        perGramCalories.newPut(R.string.Cupcake,369)
+        perGramCalories.newPut(R.string.Kuymak,400)
+        perGramCalories.newPut(R.string.cocoa,228)
+        perGramCalories.newPut(R.string.Croissant,406)
+        perGramCalories.newPut(R.string.Croissant_with_cheese,414)
+        perGramCalories.newPut(R.string.Croissant_with_cheese,414)
+        perGramCalories.newPut(R.string.potato_Croissant,254)
+        perGramCalories.newPut(R.string.Crème_caramel,360)
+        perGramCalories.newPut(R.string.cookie,500)
+        perGramCalories.newPut(R.string.Citron_jam,280)
+        perGramCalories.newPut(R.string.Quince_jam,290)
+        perGramCalories.newPut(R.string.Strawberry_jam,270)
+        perGramCalories.newPut(R.string.carrot_jam,250)
+        perGramCalories.newPut(R.string.Masghati,250)
+        perGramCalories.newPut(R.string.rice_bread,243)
+        perGramCalories.newPut(R.string.Rosette,357)
+        perGramCalories.newPut(R.string.cream_bread,500)
+        perGramCalories.newPut(R.string.Leblebi_bread,508)
+        perGramCalories.newPut(R.string.rock_candy,400)
+        perGramCalories.newPut(R.string.noghl,412)
+        perGramCalories.newPut(R.string.Nutella,526)
+        perGramCalories.newPut(R.string.Vanilla,288)
 
         perGramCalories[res.getString(R.string.raw_chicken_breast)] = 172
         perGramCalories[res.getString(R.string.Turkey)] = 220

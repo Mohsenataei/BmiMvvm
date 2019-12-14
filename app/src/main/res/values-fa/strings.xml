@@ -109,9 +109,9 @@
     <string name="eggplant_tahchin">ته چین بادمجان</string>
     <string name="meat_tahchin">ته چین گوشت</string>
     <string name="chiken_tahchin">ته چین مرغ</string>
-    <string name="rice_tahchin">ته چین برنج</string>
-    <string name="potato_tahchin">ته چین سیب زمینی</string>
-    <string name="bread_tahchin">ته چین برنج</string>
+    <string name="rice_tahchin">ته دیگ برنج</string>
+    <string name="potato_tahchin">ته دیگ سیب زمینی</string>
+    <string name="bread_tahchin">ته دیگ نان</string>
     <string name="dum_pukht">دم پخت</string>
     <string name="potato_dum_pukht">دم پخت سیب زمینی</string>
     <string name="reshte_pilaf">رشته پلو</string>
