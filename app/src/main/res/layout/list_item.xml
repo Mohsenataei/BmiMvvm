@@ -12,7 +12,11 @@
     <TextView
         tools:text="@string/earned_calories"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:textAlignment="viewStart"
+        android:paddingStart="@dimen/space_3"
+        android:paddingEnd="@dimen/space_2"
         android:id="@+id/expandedListItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

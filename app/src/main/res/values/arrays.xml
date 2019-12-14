@@ -3,6 +3,10 @@
     <string-array name="nuts">
         <item >@string/meal</item>
         <item>@string/start</item>
+    </string-array>
+
+    <string-array name="headers">
 
     </string-array>
+
 </resources>

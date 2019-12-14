@@ -33,7 +33,8 @@
     <string name="activities">فعالیت های ورزشی</string>
     <string name="start">شروع</string>
     <string name="app_description">محاسبه BMI و میزان کالری مصرفی و سوزانده شده در روز</string>
-    <string name="nuts">آجیل</string>
+    <string name="soy_nuts">آجیل سویا</string>
+    <string name="mixed_nuts">آجیل مخلوط</string>
     <string name="meal">وعده غذایی</string>
     <string name="dinner">شام</string>
     <string name="launch">نهار</string>
@@ -51,7 +52,7 @@
     <string name="confirm">تایید</string>
     <string name="earned_calories">کالری مصرفی امروز:</string>
     <string name="gam">آدامس</string>
-    <string name="mixed_nuts">آجیل مغز</string>
+    <string name="mixed_brains">آجیل مغز</string>
     <string name="cashew">بادام هندی</string>
     <string name="peanut">بادام زمینی</string>
     <string name="almond">بادام درختی</string>
@@ -60,16 +61,20 @@
     <string name="otmil">اتمیل</string>
     <string name="Apricot"> زردآلو</string>
     <string name="wafers">بیسکوییت ویفر</string>
-    <string name="popcorn">پاپ کورن</string>
-    <string name="pistachio">پسته</string>
+    <string name="popcorn">ذرت بو داده</string>
+    <string name="pistachio_with_skin">پسته با پوست</string>
+    <string name="pistachio_without_skin">پسته بدون پوست</string>
     <string name="dried_peach">برگه هلو</string>
     <string name="dried_coconut">نارگیل خشک</string>
     <string name="zante_currant">مویز</string>
     <string name="fruit_leather">لواشک</string>
     <string name="walnut">گردو</string>
+    <string name="cake">کیک</string>
     <string name="raisin_cake">کیک کشمشی</string>
+    <string name="raisin">کشمش</string>
     <string name="sesame">کنجد</string>
-    <string name="curd">کشک</string>
+    <string name="dried_curd">کشک خشک</string>
+    <string name="liquid_curd">کشک مایع</string>
     <string name="gheysi">قیصی</string>
     <string name="hazelnut">فندق</string>
     <string name="jujube">عناب</string>
@@ -79,7 +84,7 @@
     <string name="hemp">شاهدانه</string>
     <string name="russian_olive">سنجد</string>
     <string name="samanu">سمنو</string>
-    <string name="beaf_samosa">سمبوسه گوست</string>
+    <string name="beaf_samosa">سمبوسه گوشت</string>
     <string name="potato_samosa">سمبوسه سیب زمینی</string>
     <string name="peanut_without_skin">بادام زمینی بدون پوست</string>
     <string name="watermelo_seeds">تخمه هندوانه</string>
@@ -125,7 +130,7 @@
     <string name="carrot_pilaf">هویج پلو</string>
 
     <string name="candy">آبنبات ساده</string>
-<!--    <string name="gam">gam</string>-->
+    <!--    <string name="gam">gam</string>-->
     <string name="tahini">ارده</string>
     <string name="Baklava">باقلوا</string>
     <string name="Okra">بامیه</string>
@@ -156,11 +161,11 @@
     <string name="Dark_chocolate_85">شکلات تلخ %85</string>
     <string name="Dark_chocolate_90">شکلات تلخ %90</string>
     <string name="Dark_chocolate_99">شکلات تلخ %99</string>
-    <string name="simple_chocolate">شکلات ساده %99</string>
-    <string name="coconut_chocolate">شکلات تلخ %99</string>
+    <string name="simple_chocolate">شکلات ساده</string>
+    <string name="coconut_chocolate">شکلات نارگیلی</string>
     <string name="breakfast_chocolate">شکلات صبحانه</string>
     <string name="Sholezard">شله زرد</string>
-    <string name="rice_pudding">شیر برنجه</string>
+    <string name="rice_pudding">شیر برنج</string>
     <string name="grape_syrup">شیره انگور</string>
     <string name="Date_palm_syrup">شیره خرما</string>
     <string name="cream_cookie">شیرینی خشک</string>
@@ -185,7 +190,6 @@
     <string name="Croissant_without_cheese">کراسانت بدون پنیر</string>
     <string name="corn_flakes">کورن فلکس</string>
     <string name="cookie">کلوچه</string>
-    <string name="cream_cake">کیک شکلاتی</string>
     <string name="red_velvet_cake">کیک ردولوت</string>
     <string name="simple_cake">کیک ساده</string>
     <string name="chocolate_cake">کیک شکلاتی</string>
@@ -194,7 +198,7 @@
     <string name="yazd_cake">کیک یزدی</string>
     <string name="gaz">گز</string>
     <string name="jam">مربا</string>
-    <string name="cherry_jam">یمربای آلبالو</string>
+    <string name="cherry_jam">مربای آلبالو</string>
     <string name="Citron_jam">مربای بالنگ</string>
     <string name="Quince_jam">مربای به</string>
     <string name="Strawberry_jam">مربای توت فرنگی</string>
@@ -228,17 +232,16 @@
     <string name="pumpkin_khoresh">خورشت کدو</string>
     <string name="Celery_khoresh">خورشت کرفس</string>
     <string name="spear_thistle_khoresh">خورشت کنگر</string>
-    <string name="green_pea_khoresh">خورشت لوبیا سبز</string>
     <string name="carrot_khoresh">خورشت هویج</string>
     <string name="ghalie_mahi_khoresh">خورشت قلیه ماهی</string>
     <string name="ghalie_meigoo_khoresh">خورشت قلیه میگو</string>
     <string name="morghe_torsh">مرغ ترش</string>
     <string name="vavishka">واویشکا</string>
 
-<!--    میوه ها-->
+    <!--    میوه ها-->
     <string name="sour_cherry">آلبالو</string>
     <string name="armenian_plum">آلو زرد</string>
-    <string name="damson"></string>
+    <string name="damson">الو قرمز</string>
     <string name="aloe_vera">آلو ورا</string>
     <string name="pineapple">آناناس</string>
     <string name="avocado">آووکادو</string>
@@ -280,7 +283,7 @@
     <string name="cherry">آلبالو</string>
     <string name="sweet_lemon">لیمو شیرین</string>
     <string name="banana">موز</string>
-    <string name="coconut"></string>
+    <string name="coconut">نارگیل</string>
     <string name="bitter_orange">نارنج</string>
     <string name="tangerine">نارنگی</string>
     <string name="peach">هلو</string>
@@ -294,6 +297,9 @@
     <string name="duck">اردک پخته</string>
     <string name="raw_duck">اردک خام</string>
     <string name="steak">استیک</string>
+    <string name="low_fat_steak">استیک</string>
+    <string name="high_fat_steak">استیک</string>
+
     <string name="turkey_steak">استیک بوقلمون</string>
     <string name="fat_steak">استیک پر چرب</string>
     <string name="pork_steak">استیک خوک</string>
@@ -313,12 +319,12 @@
     <string name="low_fat_cheese">پنیر کم چرب</string>
     <string name="cottage_cheese">پنیر کاتیج</string>
     <string name="camembert">پنیر کممبر</string>
-    <string name="kibi">پنیر کیری</string>
+    <string name="kibi">پنیر کیبی</string>
     <string name="gouda_cheese">پنیر گودا</string>
     <string name="Gorgonzola_cheese">پنیر گورگونزولا</string>
     <string name="cheese">پنیر گوسفندی</string>
     <string name="lighvan_cheese">پنیر لیقوان</string>
-    <string name="Mozzarella">پمیر موتزاالرلا</string>
+    <string name="Mozzarella">پنیر موتزاالرلا</string>
     <string name="low_fat_Mozzarella">پنیر موتزالرلا کم چرب</string>
     <string name="high_fat_Mozzarella">پنیر موتزالرلا پر چرب</string>
     <string name="medium_fat_Mozzarella">پنیر موتزالرلا معمولی</string>
@@ -347,6 +353,7 @@
     <string name="too_fried_Chicken_Thighs">ران مرغ سوخاری</string>
     <string name="Chicken_Thighs_with_skin">ران مرغ با پوست</string>
     <string name="cooked_Chicken_Thighs_with_skin">ران مرغ پخته با پوست</string>
+    <string name="cooked_Chicken_Thighs_without_skin">ران مرغ پخته بدون پوست</string>
     <string name="rested_in_oven_Chicken_Thighs_with_skin">ران مرغ رست شده در فر</string>
     <string name="Chicken_Thighs_without_skin">ران مرغ بدون پوست</string>
     <string name="Chicken_breasts">خوراک سینه مرغ</string>
@@ -355,7 +362,7 @@
     <string name="tail_fat">دنبه</string>
     <string name="dizi">دیزی</string>
     <string name="Calf_Tongue">زبان گوساله</string>
-    <string name="sheep_Tongue">ربان گوسفند</string>
+    <string name="sheep_Tongue">زبان گوسفند</string>
     <string name="meat_shawarma_sandwich">ساندویچ شاوراما گوشت</string>
     <string name="chicken_shawarma_sandwich">ساندویچ شاوراما مرغ</string>
     <string name="qaimaq">سرشیر</string>
@@ -379,8 +386,6 @@
     <string name="Schnitzel_fish">شنیسل ماهی</string>
     <string name="milk0">شیر ۰ درصد چرب</string>
     <string name="milk1">شیر ۱ درصد چرب</string>
-    <string name="milk3.25">شیر ۳٫۲۵ درصد چرب</string>
-    <string name="milk3.7">شیر ۳٫۷ درصد چرب</string>
     <string name="human_milk">شیر انسان</string>
     <string name="infant_formula">شیر خشک</string>
     <string name="chocolate_milk">شیر کاکایو</string>
@@ -394,7 +399,7 @@
     <string name="sheep_kidney">قلوه گوسفند</string>
     <string name="lunch_meat">کالباس</string>
     <string name="turkey_lunch_meat">کالباس بوقلمون</string>
-    <string name="large_kebab">کباب بزرگ</string>
+    <string name="large_kebab">کباب برگ</string>
     <string name="pan_kebab">کباب تابه ای</string>
     <string name="sour_kebab">کباب ترش</string>
     <string name="meat_turkey_kebab">کباب ترکی گوشت</string>
@@ -444,9 +449,211 @@
     <string name="grilled_fish">ماهی گریل</string>
     <string name="cooked_fish">ماهی پخته</string>
     <string name="cooked_Shrimp">میگو درشت آب پز</string>
-    <string name="fried_Shrimp">میگو پفگی سرخ شده</string>
+    <string name="friedd_Shrimp">میگو پفگی سرخ شده</string>
     <string name="raw_Shrimp">میگو درشت خام</string>
-    <string name="large_Shrimp">large Shrimp</string>
+    <string name="large_Shrimp">میگو درشت</string>
+    <string name="small_Shrimp">میگو ریز</string>
+    <string name="small_dried_Shrimp">میگو ریز خشک</string>
+    <string name="small_friezed_Shrimp">میگو ریز منجمد</string>
+    <string name="fried_Shrimp">میگو سوخاری</string>
+    <string name="roasted_Shrimp">میگو کبابی</string>
+    <string name="chicken_nougat">ناگت مرغ</string>
+    <string name="burger_without_bread">همبرگر ذغالی بدون نان</string>
+    <!--    سالاد ها-->
+    <string name="caesar_alad">سالاد سزار</string>
+    <string name="chicken_caesar_alad">سالاد سزار با مرغ</string>
+    <string name="potato_alad">سالاد سیب زمینی</string>
+    <string name="shirazi_alad">سالاد شیرازی</string>
+    <string name="salad_with_Sauce">سالاد فصل با سس</string>
+    <string name="salad_without_Sauce">سالاد فصل بدون سس</string>
+    <string name="pasta_salad">سالاد ماکارونی</string>
+    <string name="greed_salad">سالاد یونانی</string>
+
+    <!-- fastfood -->
+    <string name="snack_with_cheese">اسنک ژامبون و پنیر</string>
+    <string name="small_burrito">بوریتو گوشت کوچک</string>
+    <string name="medium_burrito_with_meat">بوریتو گوشت متوسط</string>
+    <string name="small_burrito_with_chicken">بوریتو مرغ کوچک</string>
+    <string name="medium_burrito_with_chicken">بوریتو مرغ متوسط</string>
+    <string name="onnion">پیاز حلقه ای</string>
+    <string name="steak_pizza">پیتزا استیک</string>
+    <string name="Pepperoni">پیتزا پپرونی</string>
+    <string name="small_vegetable_pizza">پیتزا سیزیجات کوچک</string>
+    <string name="medium_vegetable_pizza">پیتزا سبزیجات متوسط</string>
+    <string name="small_pizza">پیتزا کوچک</string>
+    <string name="medium_pizza">پیتزا متوسط</string>
+    <string name="meat_mushroom_pizza">پیتزا قارچ و گوشت</string>
+    <string name="chicken_mushroom_pizza">پیتزا مرغ و گوشت</string>
+    <string name="chicken_tacos">تاکو مرغ</string>
+    <string name="meat_tacos">تاکو گوشت</string>
+    <string name="meat_tostada">توستادا گوشت</string>
+    <string name="chicken_tostada">توستادا مرغ</string>
+    <string name="large_cheese_burger">چیزبرگر برزگ</string>
+    <string name="medium_cheese_burger">چیزبرگر متوسط</string>
+    <string name="small_cheese_burger">چیزبرگر کوچک</string>
+    <string name="rest_beef_sandwich">ساندویچ رست بیف</string>
+    <string name="ham_sandwich">ساندویچ ژامبون</string>
+    <string name="club_sandwich">ساندویچ کلاب</string>
+    <string name="hot_dog_sandwich">ساندویچ هات داگ</string>
+    <string name="burger_sandwich">ساندویچ برگر</string>
+    <string name="fried_potato">سیب زمینی سرخ کرده</string>
+    <string name="meat_fahito">فاهیتو گوشت</string>
+    <string name="chicken_fahito">فاهیتو مرغ</string>
+    <string name="falafel">فلافل</string>
+    <string name="lasagne">لازانیا</string>
+    <string name="roasted_burger">همبرگر ذغالی</string>
+
+    <string name="rice_flour">آرد برنج</string>
+    <string name="high_fat_soy_flour">آرد سویا کم چرب</string>
+    <string name="low_fat_soy_flour">آرد سویا پر چرب</string>
+    <string name="barley_flour">آرد جو</string>
+    <string name="Oat_flour">آرد جو</string>
+    <string name="white_rice_flour">ارد برنج سفید</string>
+    <string name="cornmeal">آرد ذرت</string>
+    <string name="wheat_flour">آرد گندم</string>
+    <string name="brown_wheat_flour">آرد گندم قهوه ای</string>
+    <string name="dried_broad_bean">باقلا خشک</string>
+    <string name="raw_rice">برنج خام</string>
+    <string name="oatmeal">بلغور جو</string>
+    <string name="Wheatmeal">بلغور گندم</string>
+    <string name="cooked_Wheatmeal">بلغور گندم پخته</string>
+    <string name="barley">barley</string>
+    <string name="rolled_oats">جو پرک</string>
+    <string name="Oat">جو</string>
+    <string name="Wheatgrass">جوانه گندم</string>
+    <string name="munggrass">جوانه ماش</string>
+    <string name="Lentil">عدس</string>
+    <string name="raw_Lentil">عدس خام</string>
+    <string name="cooked_Lentil">عدس پخته</string>
+    <string name="bean">خوراک لوبیا</string>
+    <string name="Chickpea">خوراک نخود</string>
+    <string name="raw_flour_Bran">سبوس گندم خام</string>
+    <string name="flour_Bran">سبوس گندم</string>
+    <string name="cooked_oat_bran">سبوس دو سر پخته</string>
+    <string name="raw_oat_bran">سبوس دو سر خام</string>
+    <string name="cerelac">سرلاک</string>
+    <string name="Quinoa">کینوا</string>
+    <string name="raw_quinoa">کینوا خام</string>
+    <string name="Wheat">گندم</string>
+    <string name="black_Wheat">گندم سیاه</string>
+    <string name="split_pea">لپه</string>
+    <string name="Cowpea">لوبیا چشم بلبلی</string>
+    <string name="Pinto_bean">لوبیا چیتی</string>
+    <string name="cooked_Pinto_bean">لوبیا چیتی پخته</string>
+    <string name="red_bean">لوبیا قرمز</string>
+    <string name="cooked_red_bean">لوبیا قرمز پخته</string>
+    <string name="boiled_Macaroni">ماکارونی آب پز</string>
+    <string name="macaroni_with_soy">ماکارونی با سویا</string>
+    <string name="raw_macaroni">ماکارونی خام</string>
+    <string name="raw_macaroni_with_bran">ماکارونی سبوس دار خام</string>
+    <string name="cooked_macaroni_with_bran">ماکارونی سبوس دار پخته</string>
+    <string name="barbari">نان بربری</string>
+    <string name="Pita">نان پیتا</string>
+    <string name="Taftan">نان تافتون</string>
+    <string name="white_toast_bread">نان تست سفید</string>
+    <string name="oat_bread">نان جو</string>
+    <string name="rye_bread">نان چاودار</string>
+    <string name="dried_bread">نان خشک</string>
+    <string name="roggen_bread">نان روگن</string>
+    <string name="branny_bread">نان سبوس دار</string>
+    <string name="Sangak">نان سنگک</string>
+    <string name="Rusk">نان سوخاری</string>
+    <string name="Sheermal">نان شیرمال</string>
+    <string name="wheat_bread">نان گندم</string>
+    <string name="Lavash">نان لواش</string>
+    <string name="Baguette">نان همبرگر</string>
+    <string name="Noodle">نودل</string>
+
+
+    <string name="broad_bean">باقلا</string>
+    <string name="Common_beet_leaf">برگ چغندر</string>
+    <string name="grapes_leaf">برگ مو</string>
+    <string name="onion">پیاز</string>
+    <string name="onion_from_mountains">پیاز کوهی</string>
+    <string name="Scallion">پیازچه</string>
+    <string name="garden_radish">تربچه</string>
+    <string name="dried_tarragon">ترخون خشک</string>
+    <string name="chives">تره</string>
+    <string name="garden_leek">تره فرنگی</string>
+    <string name="parsley">جعفری</string>
+    <string name="pickled_cucumber">خیار شور</string>
+    <string name="roasted_Maize">ذرت بلال</string>
+    <string name="Can_Maize">کنسرو ذرت</string>
+    <string name="fennel">رازیانه</string>
+    <string name="rosemary">رزماری</string>
+    <string name="basil">ریحان</string>
+    <string name="ginger">زنجبیل</string>
+    <string name="black_Olive">زیتون سیاه</string>
+    <string name="green_Olive">زیتون سبز</string>
+    <string name="Aush_veg">سبزی أشی تازه</string>
+    <string name="Pilaf_veg">سبزی پلویی تازه</string>
+    <string name="vegetables">سبزی خوردن</string>
+    <string name="Dolma_veg">سبزی دلمه تازه</string>
+    <string name="ghorme_veg">سبزی قورمه تازه</string>
+    <string name="Kuku_veg">سبزی کوکو تازه</string>
+    <string name="steamed_veg">سبزیجات بخار پز</string>
+    <string name="grilled_veg">سبزیجات گریل</string>
+    <string name="potato">سیب زمینی</string>
+    <string name="boiled_potato">سیب زمینی آب پز</string>
+    <string name="steamed_potato">سیب زمینی بخار پز</string>
+    <string name="sweet_potato">سیب زمینی شیرین</string>
+    <string name="garden_cress">شاهی</string>
+    <string name="turnip">شلغم</string>
+    <string name="fenugreek">شنبلیله</string>
+    <string name="fresh_Dill">شوید تازه</string>
+    <string name="dried_Dill">شوید خشک شده</string>
+    <string name="roasted_bell_pepper">فلفل دلمه کبابی</string>
+    <string name="bell_pepper">فلفل دلمه ای</string>
+    <string name="cooked_mushroom">قارچ پخته</string>
+    <string name="raw_mushroom">قارچ خام</string>
+    <string name="roasted_mushroom">قارچ سوخاری</string>
+    <string name="Lettuce">کاهو</string>
+    <string name="Pumpkin">کدو حلوایی</string>
+    <string name="celery">کرفس</string>
+    <string name="brussels_sprout">کلم بروکسل</string>
+    <string name="sprouting_broccoli">کلم بروکلی</string>
+    <string name="cabbage">کلم پیچ</string>
+    <string name="white_cabbage">کلم سفید</string>
+    <string name="red_cabbage">کلم قرمز</string>
+    <string name="chinese_cabbage">کلم چینی</string>
+    <string name="kale">کیل</string>
+    <string name="Coriander">گشنیز</string>
+    <string name="Cauliflower">گل کلم</string>
+    <string name="tomato">گوجه فرنگی</string>
+    <string name="dried_tomato">گوجه فرنگی خشک شده</string>
+    <string name="common_beet">لبو</string>
+    <string name="garden_asparagus">مارچوبه</string>
+    <string name="Savory">مرزه</string>
+    <string name="allium_stipitatum">موسیر</string>
+    <string name="green_Chickpea">نخود سبز</string>
+    <string name="dried_Mint">نعنا خشک</string>
+    <string name="Mint">نعناع</string>
+    <string name="carrot">هویج</string>
+    <!--  expandable list heades -->
+    <string name="vegetables1">سبزیجات</string>
+    <string name="laban">گوشت و لبنیات</string>
+    <string name="fruits">میوه جات</string>
+    <string name="sweetness">شیرینی ها</string>
+    <string name="pilafs">پلو ها</string>
+    <string name="salads">سالاد ها</string>
+    <string name="Cereals">حبوبات و غلات</string>
+    <string name="confections">تنقلات</string>
+    <string name="fastfoods">فست فود</string>
+    <string name="khoresh">خورش ها</string>
+
+    <!--fragment headers-->
+    <string name="exercise_cat">دسته بندی ورزش ها</string>
+    <string name="food_cat">دسته بندی غذا ها</string>
+
+    <!--    missed values -->
+    <string name="eggplant">بادمجان</string>
+    <string name="tarragon">ترخون</string>
+    <string name="milk15">شیر ۱٫۵ درصد چرب</string>
+    <string name="milk325">شیر ۳٫۲۵ درصد چرب</string>
+    <string name="milk37">شیر ۳٫۷ درصد چرب</string>
+
+
+
 
 </resources>
 

@@ -118,8 +118,10 @@
     <string name="fruit_leather">Fruit leather</string>
     <string name="walnut">Walnut</string>
     <string name="raisin_cake">Raisin cake</string>
+    <string name="raisin">raisin</string>
     <string name="sesame">Sesame</string>
-    <string name="curd">Curd</string>
+    <string name="dried_curd">dried curd</string>
+    <string name="liquid_curd">liquid curd</string>
     <string name="gheysi">Gheysi</string>
     <string name="hazelnut">Hazelnut</string>
     <string name="jujube">Jujube</string>
@@ -388,7 +390,6 @@
     <string name="jujeh_kabab">Jujeh kabab</string>
     <string name="chicken_stroganoff">chicken stroganoff</string>
     <string name="cream">cream</string>
-    <string name="greek_yogurt">greek yogurt</string>
     <string name="chocolate_cream">chocolate cream</string>
     <string name="honey_cream">honey cream</string>
     <string name="Caviar">Caviar</string>
@@ -429,8 +430,6 @@
     <string name="Schnitzel_fish">Schnitzel fish</string>
     <string name="milk0">milk %0</string>
     <string name="milk1">milk %1</string>
-    <string name="milk3.25">milk %3.25</string>
-    <string name="milk3.7">milk %3.7</string>
     <string name="human_milk">human milk</string>
     <string name="infant_formula">Infant formula</string>
     <string name="chocolate_milk">Chocolate milk</string>
@@ -480,7 +479,7 @@
     <string name="iceland_Yogurt">iceland Yogurt</string>
     <string name="low_fat_Yogurt">low fat Yogurt</string>
     <string name="boorani_yogurt">boorani yogurt</string>
-    <string name="summury_yogurt">summury yogurt</string>
+    <string name="greek_yogurt">greek yogurt</string>
     <string name="soy_yogurt">soy yogurt %7</string>
     <string name="allium_stipitatum_yogurt">allium stipitatum yogurt</string>
     <string name="fruit_yogurt">fruit yogurt</string>
@@ -494,8 +493,225 @@
     <string name="grilled_fish">grilled fish</string>
     <string name="cooked_fish">cooked fish</string>
     <string name="cooked_Shrimp">cooked Shrimp</string>
-    <string name="fried_Shrimp">fried Shrimp</string>
+    <string name="friedd_Shrimp">fried Shrimp</string>
     <string name="raw_Shrimp">raw Shrimp</string>
     <string name="large_Shrimp">large Shrimp</string>
+    <string name="small_Shrimp">small Shrimp</string>
+    <string name="small_dried_Shrimp">small dried Shrimp</string>
+    <string name="small_friezed_Shrimp">small friezed Shrimp</string>
+    <string name="fried_Shrimp">fried Shrimp</string>
+    <string name="roasted_Shrimp">roasted Shrimp</string>
+    <string name="chicken_nougat">roasted Shrimp</string>
+    <string name="burger_without_bread">burger without bread</string>
+
+    <!--salads-->
+    <string name="caesar_alad">caesar salad</string>
+    <string name="chicken_caesar_alad">chicken caesar salad</string>
+    <string name="potato_alad">potato salad</string>
+    <string name="shirazi_alad">shirazi salad</string>
+    <string name="salad_with_Sauce">salad with Sauce</string>
+    <string name="salad_without_Sauce">salad without Sauce</string>
+    <string name="pasta_salad">pasta salad</string>
+    <string name="greed_salad">greed salad</string>
+    
+    <!-- fast foods -->
+    <string name="snack_with_cheese">snack with cheese</string>
+    <string name="small_burrito">small burrito</string>
+    <string name="medium_burrito_with_meat">medium burrito with meat</string>
+    <string name="small_burrito_with_chicken">small burrito with meat</string>
+    <string name="medium_burrito_with_chicken">medium burrito with meat</string>
+    <string name="onnion">onion</string>
+    <string name="steak_pizza">Steak pizza</string>
+    <string name="Pepperoni">Pepperoni</string>
+    <string name="small_vegetable_pizza">small vegetable pizza</string>
+    <string name="medium_vegetable_pizza">medium vegetable pizza</string>
+    <string name="small_pizza">small pizza</string>
+    <string name="medium_pizza">medium pizza</string>
+    <string name="meat_mushroom_pizza">meat mushroom pizza</string>
+    <string name="chicken_mushroom_pizza">chicken mushroom pizza</string>
+    <string name="chicken_tacos">chicken tacos</string>
+    <string name="meat_tacos">meat tacos</string>
+    <string name="meat_tostada">meat Tostada</string>
+    <string name="chicken_tostada">chicken Tostada</string>
+    <string name="large_cheese_burger">large cheese burger</string>
+    <string name="medium_cheese_burger">medium cheese burger</string>
+    <string name="small_cheese_burger">small cheese burger</string>
+    <string name="rest_beef_sandwich">rest beef sandwich</string>
+    <string name="ham_sandwich">ham sandwich</string>
+    <string name="club_sandwich">club sandwich</string>
+    <string name="hot_dog_sandwich">hot dog sandwich</string>
+    <string name="burger_sandwich">burger sandwich</string>
+    <string name="fried_potato">fried potato</string>
+    <string name="meat_fahito">meat fahito</string>
+    <string name="chicken_fahito">chicken fahito</string>
+    <string name="falafel">falafel</string>
+    <string name="lasagne">lasagne</string>
+    <string name="roasted_burger">roasted burger</string>
+
+
+    <string name="rice_flour">Rice flour</string>
+    <string name="high_fat_soy_flour">low fat soy flour</string>
+    <string name="low_fat_soy_flour">high fat soy flour</string>
+    <string name="barley_flour">barley flour</string>
+    <string name="Oat_flour">Oat flour</string>
+    <string name="white_rice_flour">white Rice flour</string>
+    <string name="cornmeal">Cornmeal</string>
+    <string name="wheat_flour">Wheat flour</string>
+    <string name="brown_wheat_flour">Wheat flour</string>
+    <string name="dried_broad_bean">dried broad bean</string>
+    <string name="raw_rice">raw rice</string>
+    <string name="oatmeal">Oatmeal</string>
+    <string name="Wheatmeal">Wheatmeal</string>
+    <string name="cooked_Wheatmeal">cooked Wheatmeal</string>
+    <string name="barley">barley</string>
+    <string name="rolled_oats">rolled oats</string>
+    <string name="Oat">oats</string>
+    <string name="Wheatgrass">Wheatgrass</string>
+    <string name="munggrass">munggrass</string>
+    <string name="Lentil">Lentil</string>
+    <string name="cooked_Lentil">cooked Lentil</string>
+    <string name="bean">bean</string>
+    <string name="Chickpea">Chickpea</string>
+    <string name="raw_flour_Bran">raw flour Bran</string>
+    <string name="flour_Bran">flour Bran</string>
+    <string name="cooked_oat_bran">cooked oat bran</string>
+    <string name="raw_oat_bran">cooked oat bran</string>
+    <string name="cerelac">Cerelac</string>
+    <string name="Quinoa">Quinoa</string>
+    <string name="raw_quinoa">raw Quinoa</string>
+    <string name="Wheat">Wheat</string>
+    <string name="black_Wheat">black Wheat</string>
+    <string name="split_pea">Split pea</string>
+    <string name="Cowpea">Cowpea</string>
+    <string name="Pinto_bean">Pinto bean</string>
+    <string name="cooked_Pinto_bean">Pinto bean</string>
+    <string name="red_bean">red bean</string>
+    <string name="cooked_red_bean">red bean</string>
+    <string name="boiled_Macaroni">boiled Macaroni</string>
+    <string name="macaroni_with_soy">Macaroni with soy</string>
+    <string name="raw_macaroni">raw Macaroni</string>
+    <string name="oat_bread">oat bread</string>
+    <string name="raw_macaroni_with_bran">raw macaroni with bran</string>
+    <string name="cooked_macaroni_with_bran">cooked macaroni with bran</string>
+    <string name="barbari">barbari</string>
+    <string name="Pita">Pita</string>
+    <string name="Taftan">Taftan</string>
+    <string name="white_toast_bread">white toast bread</string>
+    <string name="rye_bread">rye bread</string>
+    <string name="dried_bread">dried bread</string>
+    <string name="roggen_bread">roggen bread</string>
+    <string name="branny_bread">branny bread</string>
+    <string name="Sangak">Sangak</string>
+    <string name="Rusk">Rusk</string>
+    <string name="Sheermal">Sheermal</string>
+    <string name="wheat_bread">wheat bread</string>
+    <string name="Lavash">Lavash</string>
+    <string name="Baguette">Baguette</string>
+    <string name="Noodle">Noodle</string>
+    <string name="raw_Lentil">raw Lentil</string>
+
+    <string name="broad_bean">Broad bean</string>
+
+    <string name="Common_beet_leaf">Common beet leaf</string>
+    <string name="grapes_leaf">grapes leaf</string>
+    <string name="onion">onion</string>
+    <string name="onion_from_mountains">onion from mountains</string>
+    <string name="Scallion">Scallion</string>
+    <string name="garden_radish">Garden radish</string>
+    <string name="dried_tarragon">dried Tarragon</string>
+    <string name="chives">Chives</string>
+    <string name="garden_leek">Garden leek</string>
+    <string name="parsley">Parsley</string>
+    <string name="pickled_cucumber">Pickled cucumber</string>
+    <string name="roasted_Maize">roasted Maize</string>
+    <string name="Can_Maize">Can Maize</string>
+    <string name="fennel">Fennel</string>
+    <string name="rosemary">Rosemary</string>
+    <string name="basil">Basil</string>
+    <string name="ginger">Ginger</string>
+    <string name="black_Olive">black Olive</string>
+    <string name="green_Olive">green Olive</string>
+    <string name="Aush_veg">Aush vegetables</string>
+    <string name="Pilaf_veg">Pilaf vegetables</string>
+    <string name="vegetables">vegetables</string>
+    <string name="Dolma_veg">Dolma vegetables</string>
+    <string name="ghorme_veg">ghorme vegetables</string>
+    <string name="Kuku_veg">Kuku vegetables</string>
+    <string name="steamed_veg">steamed vegetables</string>
+    <string name="grilled_veg">grilled vegetables</string>
+    <string name="potato">potato</string>
+    <string name="boiled_potato">boiled potato</string>
+    <string name="steamed_potato">steamed potato</string>
+    <string name="sweet_potato">sweet potato</string>
+    <string name="garden_cress">garden cress</string>
+    <string name="turnip">Turnip</string>
+    <string name="fenugreek">Fenugreek</string>
+    <string name="fresh_Dill">fresh Dill</string>
+    <string name="dried_Dill">fresh Dill</string>
+    <string name="roasted_bell_pepper">roasted bell pepper</string>
+    <string name="bell_pepper">bell pepper</string>
+    <string name="cooked_mushroom">cooked mushroom</string>
+    <string name="raw_mushroom">raw mushroom</string>
+    <string name="roasted_mushroom">roasted mushroom</string>
+    <string name="Lettuce">Lettuce</string>
+    <string name="Pumpkin">Pumpkin</string>
+    <string name="celery">Celery</string>
+    <string name="brussels_sprout">brussels sprout</string>
+    <string name="sprouting_broccoli">Sprouting broccoli</string>
+    <string name="cabbage">Cabbage</string>
+    <string name="white_cabbage">white Cabbage</string>
+    <string name="red_cabbage">red Cabbage</string>
+    <string name="chinese_cabbage">Chinese cabbage</string>
+    <string name="kale">kale</string>
+    <string name="Coriander">Coriander</string>
+    <string name="Cauliflower">Cauliflower</string>
+    <string name="tomato">tomato</string>
+    <string name="dried_tomato">dried tomato</string>
+    <string name="common_beet">Common beet</string>
+    <string name="garden_asparagus">Garden asparagus</string>
+    <string name="Savory">Savory</string>
+    <string name="allium_stipitatum">Allium stipitatum</string>
+    <string name="green_Chickpea">green Chickpea</string>
+    <string name="dried_Mint">dried Mint</string>
+    <string name="Mint">Mint</string>
+    <string name="carrot">carrot</string>
+    <string name="soy_nuts">soy nuts</string>
+
+
+    <!--  expandable list heades -->
+    <string name="vegetables1">vegetables</string>
+    <string name="laban">milks and meats</string>
+    <string name="fruits">fruits</string>
+    <string name="sweetness">sweetness</string>
+    <string name="pilafs">pilafs</string>
+    <string name="salads">salads</string>
+    <string name="Cereals">Cereals</string>
+    <string name="confections">confections</string>
+    <string name="fastfoods">fastfoods</string>
+    <string name="khoresh">khoresh</string>
+
+    <!--fragment headers-->
+    <string name="exercise_cat">Add exercise</string>
+    <string name="food_cat">Add Food</string>
+
+    <!--    missed values -->
+    <string name="eggplant">eggplant</string>
+    <string name="tarragon">tarragon</string>
+    <string name="milk15">milk %1.5 fat</string>
+    <string name="milk325">milk 3.25 fat</string>
+    <string name="milk37">milk 3.7 fat</string>
+    <string name="cooked_Chicken_Thighs_without_skin">cooked Chicken Thighs without skin</string>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </resources>

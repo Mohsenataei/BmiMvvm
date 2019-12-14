@@ -145,3 +145,4 @@ fun dateHelper(date: String): String{
     Log.d("dateHelper", "dateHelper fun: day is $day")
     return dateHelper(day.toString().toInt(),month.toString().toInt())!!
 }
+

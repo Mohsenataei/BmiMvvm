@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import androidx.viewpager.widget.ViewPager
+import com.avalinejad.sport.App
 import com.avalinejad.sport.R
 import com.avalinejad.sport.adapters.TabAdapter
 import com.avalinejad.sport.ui.BaseActivity
@@ -20,6 +21,7 @@ class AddFood : BaseActivity() {
         R.drawable.ic_running,
         R.drawable.ic_person_add_black_24dp
     )
+    private val res = App.instance.resources
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_food)
@@ -28,8 +30,8 @@ class AddFood : BaseActivity() {
         tabAdapter = TabAdapter(supportFragmentManager,this)
 
 
-        tabAdapter?.addFragment(ExerciseFragment(this),"اضافه کردن ورزش",tabIcons[1])
-        tabAdapter?.addFragment(CategoryFragment(this),"دسته بندی غذاها",tabIcons[0])
+        tabAdapter?.addFragment(ExerciseFragment(this),res.getString(R.string.exercise_cat),tabIcons[1])
+        tabAdapter?.addFragment(CategoryFragment(this),res.getString(R.string.food_cat),tabIcons[0])
 
         viewpager.adapter = tabAdapter
         calories_tab.setSelectedTabIndicatorColor(resources.getColor(R.color.bmi_below_18_5))
@@ -46,13 +48,13 @@ class AddFood : BaseActivity() {
            // viewpager.setCurrentItem(0)
             //setTitle("اضافه کردن غذا")
             viewpager.currentItem = 1
-            toolbar.title = "اضافه کردن غذا"
+            toolbar.title = res.getString(R.string.add_food)
             highLightCurrentTab(1)
         } else if (intent.hasExtra("exercise_button")){
             Log.d("addfood","come from add exercise button")
           //  viewpager.setCurrentItem(1)
            // setTitle("اضافه کردن غذا")
-            toolbar.title = "لیست ورزش ها"
+            toolbar.title = res.getString(R.string.add_exercise)
             viewpager.currentItem = 0
             highLightCurrentTab(0)
 
@@ -88,11 +90,11 @@ class AddFood : BaseActivity() {
     }
     private fun setFragmentTitle(position: Int){
         if (position == 0){
-            toolbar.title = "لیست ورزش ها"
+            toolbar.title = res.getString(R.string.add_exercise)
 
 //            viewpager.currentItem = 0
         }else{
-            toolbar.title = "اضافه کردن غذا"
+            toolbar.title = res.getString(R.string.add_food)
 
         }
     }
