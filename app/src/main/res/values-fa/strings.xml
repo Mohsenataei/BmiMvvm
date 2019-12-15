@@ -28,8 +28,8 @@
     <string name="calculate_bmi">محاسبه BMI</string>
     <string name="add_exercise">افزودن ورزش</string>
     <string name="add_food">افزودن غذا</string>
-    <string name="consumed_calories">کالری مصرفی امروز :</string>
-    <string name="burned_calories">کالری سوزانده شده :</string>
+    <string name="consumed_calories">کالری مصرفی امروز</string>
+    <string name="burned_calories">کالری سوزانده شده</string>
     <string name="activities">فعالیت های ورزشی</string>
     <string name="start">شروع</string>
     <string name="app_description">محاسبه BMI و میزان کالری مصرفی و سوزانده شده در روز</string>
@@ -504,10 +504,10 @@
     <string name="roasted_burger">همبرگر ذغالی</string>
 
     <string name="rice_flour">آرد برنج</string>
-    <string name="high_fat_soy_flour">آرد سویا کم چرب</string>
-    <string name="low_fat_soy_flour">آرد سویا پر چرب</string>
+    <string name="high_fat_soy_flour">آرد سویا پر چرب</string>
+    <string name="low_fat_soy_flour">آرد سویا کم چرب</string>
     <string name="barley_flour">آرد جو</string>
-    <string name="Oat_flour">آرد جو</string>
+    <string name="Oat_flour">آرد جو دو سر</string>
     <string name="white_rice_flour">ارد برنج سفید</string>
     <string name="cornmeal">آرد ذرت</string>
     <string name="wheat_flour">آرد گندم</string>
@@ -517,9 +517,9 @@
     <string name="oatmeal">بلغور جو</string>
     <string name="Wheatmeal">بلغور گندم</string>
     <string name="cooked_Wheatmeal">بلغور گندم پخته</string>
-    <string name="barley">barley</string>
+    <string name="barley">جو</string>
     <string name="rolled_oats">جو پرک</string>
-    <string name="Oat">جو</string>
+    <string name="Oat">جو دو سر</string>
     <string name="Wheatgrass">جوانه گندم</string>
     <string name="munggrass">جوانه ماش</string>
     <string name="Lentil">عدس</string>
@@ -529,8 +529,8 @@
     <string name="Chickpea">خوراک نخود</string>
     <string name="raw_flour_Bran">سبوس گندم خام</string>
     <string name="flour_Bran">سبوس گندم</string>
-    <string name="cooked_oat_bran">سبوس دو سر پخته</string>
-    <string name="raw_oat_bran">سبوس دو سر خام</string>
+    <string name="cooked_oat_bran">سبوس جو دو سر پخته</string>
+    <string name="raw_oat_bran">سبوس جو دو سر خام</string>
     <string name="cerelac">سرلاک</string>
     <string name="Quinoa">کینوا</string>
     <string name="raw_quinoa">کینوا خام</string>
@@ -641,6 +641,10 @@
     <string name="fastfoods">فست فود</string>
     <string name="khoresh">خورش ها</string>
 
+    <string name="today_proteins">پروتیین دریافتی امروز</string>
+    <string name="today_calories">کالری دریافتی امروز</string>
+
+
     <!--fragment headers-->
     <string name="exercise_cat">دسته بندی ورزش ها</string>
     <string name="food_cat">دسته بندی غذا ها</string>
@@ -652,7 +656,214 @@
     <string name="milk325">شیر ۳٫۲۵ درصد چرب</string>
     <string name="milk37">شیر ۳٫۷ درصد چرب</string>
 
+    <!--exercises -->
 
+    <string name="going_up_steirs_fast">بالارفتن از پله ها با سرعت بالا</string>
+    <string name="going_up_steirs_slow">بالارفتن از پله ها با سرعت پایین</string>
+    <string name="going_up_mountains_5_to_10">تپه نوردی با بار ۵ تا ۱۰ کیلو</string>
+    <string name="going_up_mountains_4">تپه نوردی با بار ۴ کیلو</string>
+    <string name="going_up_mountains">تپه نوردی بدون بار</string>
+    <string name="walking_slow">راه رفتن آهسته (کمتر از ۳ کیلو متر در ساعت)</string>
+    <string name="walking_slow_in_water">راه رفتن آهسته در آب</string>
+    <string name="walking_medium_in_water">راه رفتن متوسط در آب</string>
+    <string name="spinning_ex">ورزش های چرخشی شامل چندین حرکت هوازی با کمترین استراحت</string>
+    <string name="walking_and_running">آهسته دویدن و راه رفتن به صورت ترکیبی</string>
+    <string name="walking_3">راه رفتن روی سطح صاف ( ۳ کیلو متر در ساعت)</string>
+    <string name="walking_5_5">راه رفتن تند روی سطح صاف ( ۵/۵ کیلو متر در ساعت)</string>
+    <string name="walking_7">راه رفتن تند روی سطح صاف ( ۷ کیلو متر در ساعت)</string>
+    <string name="walking_on_grass">راه رفتن روی چمن</string>
+    <string name="walking_on_sand">راه رفتن روی شن</string>
+    <string name="hill_climbing">پیاده روی با سرعت متوسط در سربالایی یا بالا رفتن از تپه</string>
+    <string name="walking_to_work_medium">پیاده روی تا محل کار با سرعت متوسط بدون حمل چیزی</string>
+    <string name="walking_to_work_fast">پیاده روی تا محل کار با سرعت زیاد بدون حمل چیزی</string>
+    <string name="walking_to_work_slow">پیاده روی تا محل کار با سرعت کم بدون حمل چیزی</string>
+    <string name="going_down_steirs_11_22">پایین رفتن از پله و حمل جسمی با وزن 11 تا 22 کیلو</string>
+    <string name="going_down_steirs_23_33">پایین رفتن از پله و حمل جسمی با وزن 23 تا 33 کیلو</string>
+    <string name="going_down_steirs_34_45">پایین رفتن از پله و حمل جسمی با وزن 34 تا 45 کیلو</string>
+    <string name="walking_slow_less_than_11">پیاده روی با سرعت کم و حمل جسمی با وزن کمتر از 11 کیلو</string>
+    <string name="walking_medium_less_than_11">پیاده روی با سرعت متوسط و حمل جسمی با وزن کمتر از 11 کیلو</string>
+    <string name="walking_fast_fast_than_11">پیاده روی با سرعت بالا و حمل جسمی با وزن کمتر از 11 کیلو</string>
+    <string name="walking_wheelchair">راه رفتن و هل دادن صندلی چرخ دار</string>
+    <string name="running_so_fast">دویدن با سرعت بسیار بالا</string>
+    <string name="running_fast">دویدن با سرعت بالا</string>
+    <string name="running_medium">دویدن با سرعت متوسطا</string>
+    <string name="running_slow">دویدن أهسته</string>
+    <string name="roping_fast">طناب زدن سریع</string>
+    <string name="roping_slow">طناب زدن آهسته</string>
+
+
+    <!--running -->
+    <string name="running_slow_6_5">دویدن آرام (۶٫۵ کیلومتر بر ساعت)</string>
+    <string name="running_so_fast_14_5">دویدن آرام (۱۴٫۵ کیلومتر بر ساعت)</string>
+    <string name="running_so_fast_16">دویدن آرام (۱۶ کیلومتر بر ساعت)</string>
+    <string name="running_fast_12">دویدن آرام (۱۲ کیلومتر بر ساعت)</string>
+    <string name="running_fast_13">دویدن آرام (۱۳ کیلومتر بر ساعت)</string>
+    <string name="running_fast_14">دویدن آرام (۱۴ کیلومتر بر ساعت)</string>
+    <string name="running_fast_7">دویدن آرام (۷ کیلومتر بر ساعت)</string>
+    <string name="running_fast_10">دویدن آرام (۱۰ کیلومتر بر ساعت)</string>
+    <string name="running_fast_8">دویدن آرام (۸ کیلومتر بر ساعت)</string>
+    <string name="running_marathon">دویدن ماراتن</string>
+
+
+    <string name="RPM">آر پی ام</string>
+    <string name="spinning">اسپینینگ</string>
+    <string name="slow_fixed_bike_35_50">دوچرخه ثابت آهسته‌(۵۰−۳۵ وات)</string>
+    <string name="so_so_fast_fixed_bike_201_270">دوچرخه ثابت خیلی خیلی سریع (۲۰۱−۲۷۰ وات)</string>
+    <string name="so_fast_fixed_bike_161_200">دوچرخه ثابت خیلی سریع (۱۶۱−۲۰۰ وات)</string>
+    <string name="fast_fixed_bike_101_160">دوچرخه ثابت سریع (۱۰۱−۱۶۰ وات)</string>
+    <string name="medium_fixed_bike_51_89">دوچرخه ثابت معمولی (۵۱−۸۹ وات)</string>
+    <string name="medium_fixed_bike_90_100">دوچرخه ثابت معمولی (۵۱−۸۹ وات)</string>
+    <string name="bycycling">دوچرخه سواری تفریحی</string>
+    <string name="so_slow_bycycling">دوچرخه سواری خیلی آهسته</string>
+    <string name="so_slow_bycycling_24_to_30">دوچرخه سواری خیلی سریع (۲۴ تا ۳۰ کیلومتر بر ساعت)</string>
+    <string name="bycycling_in_mountains">دوچرخه سواری در کوهستان</string>
+    <string name="bycycling_23_25">دوچرخه سواری سریع (سرعت ۲۳−۲۵۰۵ کیلومتر بر ساعت)</string>
+    <string name="bycycling_more_than_32">دوچرخه سواری مسابقاتی(سرعت بالاتر از ۳۲ کیلومتر بر ساعت)</string>
+
+
+    <string name="basketball">بسکتبال (غیر حرفه ای)</string>
+    <string name="football">فوتبال (غیر حرفه ای)</string>
+    <string name="vollyball">والیبال (غیر حرفه ای)</string>
+    <string name="rogbey">راگبی</string>
+    <string name="football_pro">فوتبال حرفه ای</string>
+    <string name="handball">هندبال</string>
+
+
+    <string name="squash">اسکواش</string>
+    <string name="ski">اسکی</string>
+    <string name="skate">اسکیت</string>
+    <string name="body_atack">بادی اتک</string>
+    <string name="body_pump">بادی پمپ</string>
+    <string name="body_kombat">بادی کمبت</string>
+    <string name="badminton">بدمینتون</string>
+    <string name="bodybuilding">بدنسازی</string>
+    <string name="ping_pong">پینگ پونگ</string>
+    <string name="tae_bo">تای بو</string>
+    <string name="tae_chi">تای چی</string>
+    <string name="tennis">تنیس</string>
+    <string name="TRX">تی آر ایکس</string>
+    <string name="jujitsu">جوجیتسو</string>
+    <string name="judo">جودو</string>
+    <string name="sit_up">دراز و نشست</string>
+    <string name="persian_dance">رقص ایرانی</string>
+    <string name="ballet">رقص باله</string>
+    <string name="tango">رقص تانگو</string>
+    <string name="disco">رقص دیسکو</string>
+    <string name="salsa">رقص سالسا</string>
+    <string name="arabian_dance">رقص عربی</string>
+    <string name="gymnastic">ژیمناستیک</string>
+    <string name="rock_climbing">صخره نوردی</string>
+    <string name="jump_rope">طناب زدن</string>
+    <string name="karate">کاراته</string>
+    <string name="wrestling">کشتی</string>
+    <string name="kick_boxing">کیک بوکس</string>
+    <string name="golf">گلف</string>
+    <string name="muay_thai">موآی تای</string>
+    <string name="weight_lifting">وزنه برداری</string>
+    <string name="yoga">یوگا</string>
+
+    <string name="aerobics_in_water">ایروبیک در آب</string>
+    <string name="slow_swimming">شنا آهسته</string>
+    <string name="butterfly_stroke">شنا پروانه</string>
+    <string name="fast_swimming">شنا سریع</string>
+    <string name="Breaststroke">شنا قورباغه</string>
+    <string name="Backstroke">شنا کرال پشت</string>
+    <string name="front_crawl">شنا کرال سینه</string>
+    <string name="underwater_diving">غواصی</string>
+    <string name="waterpolo">واترپلو</string>
+
+
+    <string name="alpine_skiing">آلپاین</string>
+    <string name="riding">اسب سواری</string>
+    <string name="ice_skiing">اسکی روی یخ</string>
+    <string name="space_skiing">اسکی فضایی</string>
+    <string name="ice_skating">اسکیت روی یخ</string>
+    <string name="snow_board">اسنو برد</string>
+    <string name="elliptical">الیپتیکال</string>
+    <string name="aerobics">ایروبیک</string>
+    <string name="gardening">باغبانی</string>
+    <string name="bootcamp">بوت کمپ</string>
+    <string name="bowling">بولینگ</string>
+    <string name="pool">بیلیارد</string>
+    <string name="pilates">پیلاتس</string>
+
+
+    <string name="swimming_contest">شنا، حالت آزاد، سرعت بالا، شدت بالا</string>
+    <string name="wrestling_contest">کشتی ( یک مسابقه = 5 دقیقه )</string>
+    <string name="zomba">زومبا</string>
+    <string name="medidation">مدیتیشن</string>
+    <string name="beach_vollyball">والیبال ساحلی</string>
+    <string name="fencing">شمشیر بازی</string>
+    <string name="dart">دارت</string>
+    <string name="boxing_contest">بوکس (مبارزه)</string>
+    <string name="boxing_training">بوکس (ضربه به کیسه بوکس)</string>
+    <string name="boxing_in_the_ring">بوکس (داخل رینگ)</string>
+
+
+    <string name="cleaning">نظافت</string>
+    <string name="carpentry">نجاری</string>
+    <string name="welding">جوشکاری</string>
+    <string name="Shoemaking">کفاشی</string>
+    <string name="bathing">دوش گرفتن</string>
+    <string name="Bathing">دوش گرفتن</string>
+    <string name="makingup">آرایش مو</string>
+    <string name="eating">غذا خوردن</string>
+    <string name="putting_clothes_on_and_off">لباس پوشیدن و درآوردن</string>
+    <string name="typing">تایپ کردن و کار با کامپیوتر</string>
+    <string name="Sewing">خیاطی</string>
+    <string name="Sewing_machine">خیاطی با ماشین</string>
+    <string name="Sewing_hand">خیاطی با دست</string>
+    <string name="Sewing_cutting">خیاطی، برش</string>
+    <string name="standing_and_lifting_more_than_22">ایستادن و بلند کردن اجسامی با وزن 22 کیلو</string>
+    <string name="car_fixing">جوشکاری، تعمیر خودرو، بسته بندی و غیره</string>
+    <string name="fixing_heavy_parts">ایستادن و تعمیر قطعات سنگین</string>
+    <string name="speaking_and_standing_in_work">ایستادن و صحبت کردن در محل کار</string>
+    <string name="sitting">نشستن و انجام کارهای اداری سبک</string>
+    <string name="shovelling_5_7">بیل زدن با شدت متوسط 5 تا 7 کیلو در دقیقه</string>
+    <string name="shovelling_4">بیل زدن کمتر از ۴ کیلو بر دقیقه</string>
+    <string name="shovelling_7">بیل زدن با شدت بالا بیشتر از ۴ کیلو بر دقیقه</string>
+    <string name="shovelling">بیل زدن</string>
+    <string name="pulling">کشیدن و جا به جایی اجسام سنگین 35 کیلو یا بیشتر</string>
+    <string name="massaging">ماساژ دادن</string>
+    <string name="stone_carving">سنگ تراشی</string>
+    <string name="pressing_or_punching">ماشین ابزار، پرس پانچ</string>
+    <string name="cutting_machine">ماشین ابزار، کار با ماشین تراش</string>
+    <string name="metal_paper">ماشین ابزار، کار با ورق فلز</string>
+    <string name="building_locks">قفل سازی</string>
+    <string name="hours_cleaning">نظافت اسب</string>
+    <string name="keeping_jungle">نجنگلداری</string>
+    <string name="fireman">آتش نشانی</string>
+    <string name="farming">کشاورزی</string>
+    <string name="plumber">لوله کش</string>
+    <string name="mining_drilling">کار در معدن/ حفاری </string>
+    <string name="house_keeping">خانه داری</string>
+    <string name="napping">خوابیدن</string>
+
+
+    <!--means-->
+
+    <string name="fixed_bike_100_low">دوچرخه ثابت، 100 وات، شدت کم</string>
+    <string name="fixed_bike_150_medium">دوچرخه ثابت، 150 وات، شدت معمولی</string>
+    <string name="fixed_bike_200_high">دوچرخه ثابت، 200 وات، شدت بالا</string>
+    <string name="fixed_bike_250_too_high">دوچرخه ثابت، 250 وات، شدت بسیار بالا</string>
+    <string name="fixed_bike_50_too_low">دوچرخه ثابت، 50 وات، شدت بسیار کم)</string>
+    <string name="fixed_boat_100_medium">قایقرانی ثابت، 100 وات، شدت متوسط</string>
+    <string name="fixed_boat_150_high">قایقرانی ثابت، 150 وات، شدت بالا</string>
+    <string name="fixed_boat_200_too_high">دوچرخه ثابت، 100 وات، شدت کم</string>
+    <string name="fixed_boat_50_too_low">قایقرانی ثابت، 50 وات، شدت بسیار کم</string>
+
+
+    <!--exercise list headers-->
+
+    <string name="power">ورزش های قدرتی</string>
+    <string name="solo">انفرادی</string>
+    <string name="running">دویدن</string>
+    <string name="other_activities">سایر فعالیت ها</string>
+    <string name="walking">راه رفتن</string>
+    <string name="daily_activities">فعالیت های روزانه</string>
+    <string name="swimming">شنا</string>
+    <string name="contests">مسابقات</string>
+    <string name="bike_riding">دوچرخه سواری</string>
 
 
 </resources>

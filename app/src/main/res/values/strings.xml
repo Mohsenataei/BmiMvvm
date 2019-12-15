@@ -38,8 +38,8 @@
     <string name="calculate_bmi">Calculate BMI</string>
     <string name="add_exercise">Add Exercise</string>
     <string name="add_food">Add Food</string>
-    <string name="consumed_calories">consumed calories ؛‌</string>
-    <string name="burned_calories">consumed calories ؛‌</string>
+    <string name="consumed_calories">consumed calories‌</string>
+    <string name="burned_calories">consumed calories‌</string>
     <string name="activities">Activities during day</string>
     <string name="start">start</string>
     <string name="app_description">calculate your body BMI and how much calories you earned and consumed during the day</string>
@@ -110,8 +110,10 @@
     <string name="otmil">otmil</string>
     <string name="Apricot">Apricot</string>
     <string name="wafers">Wafers</string>
+    <string name="mixed_brains">mixed brains</string>
     <string name="popcorn">popcorn</string>
-    <string name="pistachio">Pistachio</string>
+    <string name="pistachio_with_skin">pistachio with skin</string>
+    <string name="pistachio_without_skin">pistachio without skin</string>
     <string name="dried_peach">برگه هلو</string>
     <string name="dried_coconut">Dried Coconut</string>
     <string name="zante_currant">Zante currant</string>
@@ -513,7 +515,7 @@
     <string name="salad_without_Sauce">salad without Sauce</string>
     <string name="pasta_salad">pasta salad</string>
     <string name="greed_salad">greed salad</string>
-    
+
     <!-- fast foods -->
     <string name="snack_with_cheese">snack with cheese</string>
     <string name="small_burrito">small burrito</string>
@@ -678,6 +680,12 @@
     <string name="soy_nuts">soy nuts</string>
 
 
+    <string name="today_proteins">today proteins</string>
+    <string name="today_calories">today calories</string>
+
+
+
+
     <!--  expandable list heades -->
     <string name="vegetables1">vegetables</string>
     <string name="laban">milks and meats</string>
@@ -701,6 +709,219 @@
     <string name="milk325">milk 3.25 fat</string>
     <string name="milk37">milk 3.7 fat</string>
     <string name="cooked_Chicken_Thighs_without_skin">cooked Chicken Thighs without skin</string>
+
+
+    <string name="going_up_steirs_fast">going up stairs fast</string>
+    <string name="going_up_steirs_slow">going up stairs slow"</string>
+    <string name="going_up_mountains_5_to_10">going up mountains 5 to 10</string>
+    <string name="going_up_mountains_4">going up mountains whit 4 kg burden</string>
+    <string name="going_up_mountains">going up mountains without any burden</string>
+    <string name="walking_slow">walking slow</string>
+    <string name="walking_slow_in_water">walking slow in water</string>
+    <string name="walking_medium_in_water">walking medium in water</string>
+    <string name="spinning_ex">spinning exercise</string>
+    <string name="walking_and_running">walking and running</string>
+    <string name="walking_3">walking 3 km/h</string>
+    <string name="walking_5_5">walking 5.5 km/h</string>
+    <string name="walking_7">walking 7 km/h</string>
+    <string name="walking_on_grass">walking on grass</string>
+    <string name="walking_on_sand">walking on sand</string>
+    <string name="hill_climbing">hill climbing</string>
+    <string name="walking_to_work_medium">walking to work medium</string>
+    <string name="walking_to_work_fast">walking to work fast</string>
+    <string name="walking_to_work_slow">walking to work slow</string>
+    <string name="going_down_steirs_11_22">going down stairs 11 to 22 km/h</string>
+    <string name="going_down_steirs_23_33">going down stairs 23 to 33 km/h</string>
+    <string name="going_down_steirs_34_45">going down stairs 34 to 45 km/h</string>
+    <string name="walking_slow_less_than_11">walking slow less than 11 kg burden</string>
+    <string name="walking_medium_less_than_11">walking medium less than 11 kg burden</string>
+    <string name="walking_fast_fast_than_11">walking fast more than 11 kg burden</string>
+    <string name="walking_wheelchair">walking and pushing wheel chair</string>
+    <string name="running_so_fast">running so fast</string>
+    <string name="running_fast">running fast</string>
+    <string name="running_medium">running medium</string>
+    <string name="running_slow">running slow</string>
+    <string name="roping_fast">roping fast</string>
+    <string name="roping_slow">roping slow</string>
+
+
+    <!--running -->
+    <string name="running_slow_6_5">running slow 6.5 km/h</string>
+    <string name="running_so_fast_14_5">running so fast 14.5 km/h</string>
+    <string name="running_so_fast_16">running so fast 16 km/h</string>
+    <string name="running_fast_12">running fast 12 km/h</string>
+    <string name="running_fast_13">running fast 13 km/h</string>
+    <string name="running_fast_14">running fast 14 km/h</string>
+    <string name="running_fast_7">running fast 7 km/h</string>
+    <string name="running_fast_10">running fast 10 km/h</string>
+    <string name="running_fast_8">running fast 8 km/h</string>
+    <string name="running_marathon">running marathon</string>
+
+
+
+
+    <string name="RPM">آر پی ام</string>
+    <string name="spinning">اسپینینگ</string>
+    <string name="slow_fixed_bike_35_50">slow fixed bike 35 50 W</string>
+    <string name="so_so_fast_fixed_bike_201_270">so so fast fixed bike 201 270 W</string>
+    <string name="so_fast_fixed_bike_161_200">so_fast fixed bike 161 200 W</string>
+    <string name="fast_fixed_bike_101_160">ast fixed bike 101 160 W</string>
+    <string name="medium_fixed_bike_51_89">medium fixed bike 51 89 W</string>
+    <string name="medium_fixed_bike_90_100">medium fixed bike 90 100</string>
+    <string name="bycycling">دوچرخه سواری تفریحی</string>
+    <string name="so_slow_bycycling">so slow bycycling</string>
+    <string name="so_slow_bycycling_24_to_30">"so slow bycycling 24 to 30</string>
+    <string name="bycycling_in_mountains">bycycling in mountains</string>
+    <string name="bycycling_23_25">bycycling 23 25</string>
+    <string name="bycycling_more_than_32">bycycling more than 32</string>
+
+
+
+    <string name="basketball">basketball</string>
+    <string name="football">football</string>
+    <string name="vollyball"> volleyball </string>
+    <string name="rogbey">rogbey</string>
+    <string name="football_pro">football (pro)</string>
+    <string name="handball">handball</string>
+
+
+    <string name="squash">squash</string>
+    <string name="ski">ski</string>
+    <string name="skate">skate</string>
+    <string name="body_atack">body atack</string>
+    <string name="body_pump">body pump</string>
+    <string name="body_kombat">body_kombat</string>
+    <string name="badminton">badminton</string>
+    <string name="bodybuilding">bodybuilding</string>
+    <string name="ping_pong">ping_pong</string>
+    <string name="tae_bo">tae bo</string>
+    <string name="tae_chi">tae_chi</string>
+    <string name="tennis">tae_chi</string>
+    <string name="TRX">TRX</string>
+    <string name="jujitsu">jujitsu</string>
+    <string name="judo">judo</string>
+    <string name="sit_up">sit up</string>
+    <string name="persian_dance">persian dance</string>
+    <string name="ballet">ballet</string>
+    <string name="tango">tango</string>
+    <string name="disco">disco</string>
+    <string name="salsa">salsa</string>
+    <string name="arabian_dance">arabian dance</string>
+    <string name="gymnastic">gymnastic</string>
+    <string name="rock_climbing">rock climbing</string>
+    <string name="jump_rope">jump rope</string>
+    <string name="karate">karate</string>
+    <string name="wrestling">wrestling</string>
+    <string name="kick_boxing">kick boxing</string>
+    <string name="golf">golf</string>
+    <string name="muay_thai">muay thai</string>
+    <string name="weight_lifting">weight lifting</string>
+    <string name="yoga">yoga</string>
+
+    <string name="aerobics_in_water">aerobics in water</string>
+    <string name="slow_swimming">slow swimming</string>
+    <string name="butterfly_stroke">butterfly stroke</string>
+    <string name="fast_swimming">fast swimming</string>
+    <string name="Breaststroke">Breaststroke</string>
+    <string name="Backstroke">Backstroke</string>
+    <string name="front_crawl">front crawl</string>
+    <string name="underwater_diving">underwater diving</string>
+    <string name="waterpolo">waterpolo</string>
+
+
+    <string name="alpine_skiing">alpine skiing</string>
+    <string name="riding">riding</string>
+    <string name="ice_skiing">ice skiing</string>
+    <string name="space_skiing">space skiing</string>
+    <string name="ice_skating">ice skating</string>
+    <string name="snow_board">snow board</string>
+    <string name="elliptical">elliptical</string>
+    <string name="aerobics">aerobics</string>
+    <string name="gardening">gardening</string>
+    <string name="bootcamp">bootcamp</string>
+    <string name="bowling">boling</string>
+    <string name="pool">pool</string>
+    <string name="pilates">pilates</string>
+
+
+
+    <string name="swimming_contest">swimming contest</string>
+    <string name="wrestling_contest">wrestling contest</string>
+    <string name="zomba">zomba</string>
+    <string name="medidation">medidation</string>
+    <string name="beach_vollyball">beach vollyball</string>
+    <string name="fencing">fencing</string>
+    <string name="dart">dart</string>
+    <string name="boxing_contest">boxing contest</string>
+    <string name="boxing_training">boxing training</string>
+    <string name="boxing_in_the_ring">boxing_in_the_ring</string>
+
+
+
+    <string name="cleaning">cleaning</string>
+    <string name="carpentry">carpentry</string>
+    <string name="welding">welding</string>
+    <string name="Shoemaking">Shoemaking</string>
+    <string name="bathing">bathing</string>
+    <string name="Bathing">Bathing</string>
+    <string name="makingup">makingup</string>
+    <string name="eating">eating</string>
+    <string name="putting_clothes_on_and_off">putting clothes on and off</string>
+    <string name="typing">typing</string>
+    <string name="Sewing">Sewing</string>
+    <string name="Sewing_machine">Sewing machine</string>
+    <string name="Sewing_hand">Sewing hand</string>
+    <string name="Sewing_cutting">Sewing cutting</string>
+    <string name="standing_and_lifting_more_than_22">standing and lifting more than 22</string>
+    <string name="car_fixing">car fixing</string>
+    <string name="fixing_heavy_parts">fixing heavy parts</string>
+    <string name="speaking_and_standing_in_work">speaking and standing in work</string>
+    <string name="sitting">sitting</string>
+    <string name="shovelling_5_7">shovelling 5 to 7 kg per min</string>
+    <string name="shovelling_4">shovelling 4 kg per min</string>
+    <string name="shovelling_7">shovelling more than 7 kg per min</string>
+    <string name="shovelling">shovelling</string>
+    <string name="pulling">pulling items heavier than 35 kg</string>
+    <string name="massaging"> massaging</string>
+    <string name="stone_carving">stone carving</string>
+    <string name="pressing_or_punching">pressing or punching</string>
+    <string name="cutting_machine">cutting machine</string>
+    <string name="metal_paper">metal paper</string>
+    <string name="building_locks">building locks</string>
+    <string name="hours_cleaning">hours cleaning</string>
+    <string name="keeping_jungle">keeping jungle</string>
+    <string name="fireman">fireman</string>
+    <string name="farming">farming</string>
+    <string name="plumber">plumber</string>
+    <string name="mining_drilling">mining and drilling</string>
+    <string name="house_keeping">house keeping</string>
+    <string name="napping">خوابیدن</string>
+
+
+    <string name="fixed_bike_100_low">fixed bike 100 watts low</string>
+    <string name="fixed_bike_150_medium">fixed bike 150 watts medium</string>
+    <string name="fixed_bike_200_high">fixed bike 200 watts high</string>
+    <string name="fixed_bike_250_too_high">fixed bike 250 watts too high</string>
+    <string name="fixed_bike_50_too_low">fixed bike 50 watts too low</string>
+    <string name="fixed_boat_100_medium">fixed boat 100 medium</string>
+    <string name="fixed_boat_150_high">fixed boat 150 high</string>
+    <string name="fixed_boat_200_too_high">fixed boat 200 watts too high</string>
+    <string name="fixed_boat_50_too_low">fixed boat 50 watts too low</string>
+
+
+
+
+
+    <string name="power">Power</string>
+    <string name="solo">Solo</string>
+    <string name="running">Running</string>
+    <string name="other_activities">Other Activities</string>
+    <string name="walking">Walking</string>
+    <string name="daily_activities">Daily Activities</string>
+    <string name="swimming">Swimming</string>
+    <string name="contests">Contests</string>
+    <string name="bike_riding">Bike Riding</string>
+
 
 
 

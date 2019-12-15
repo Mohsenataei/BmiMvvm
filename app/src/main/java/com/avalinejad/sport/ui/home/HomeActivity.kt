@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
@@ -13,6 +14,7 @@ import android.widget.Adapter
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alirezaafkar.sundatepicker.DatePicker
+import com.avalinejad.sport.App
 
 
 import com.avalinejad.sport.adapters.RecyclerViewAdapter
@@ -55,7 +57,13 @@ class HomeActivity : BaseActivity() {
     var foodDao: FoodDao? = null
     var detailDao: DetailDao? = null
     var i = 0
-    val chartLbls = arrayOf("میان وعده", "شام", "نهار", "صبحانه")
+    private val res = App.instance.resources
+    val chartLbls = arrayOf(
+        res.getString(R.string.snack),
+        res.getString(R.string.dinner),
+        res.getString(R.string.launch),
+        res.getString(R.string.breakfast)
+    )
     var isDateChanged = false
     var userPrefs: SavedSharedPrerefrences? = null
     var userDay: Int = 0
@@ -162,6 +170,13 @@ class HomeActivity : BaseActivity() {
         calculateBmi.setOnClickListener {
             startActivity(Intent(this, BMIActivity::class.java))
         }
+
+        val local = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            App.instance.resources.configuration.locales
+        } else {
+            TODO("VERSION.SDK_INT < N")
+        }
+        Log.d("locale",local.toString() )
     }
 
     private fun startNewActivity() {
@@ -359,13 +374,16 @@ class HomeActivity : BaseActivity() {
     }
 
     private fun setCunsumedCaloriestv(txt: String) {
-        consumedCalories.text = "کالری دریافتی امروز: $txt".fa()
+        //consumedCalories.text = "کالری دریافتی امروز: $txt".fa()
+        consumedCalories.text = res.getString(R.string.today_calories).plus(": $txt")
+
     }
 
     private fun setBurntCaloriestv(txt: String) {
-        val tmp = "فعالیت های ورزشی"
-        exerciseLBl.text = tmp.fa()
-        burntCalories.text = "کالری سوزانده شده:‌ $txt".fa()
+        //val tmp = "فعالیت های ورزشی"
+        exerciseLBl.text = res.getString(R.string.activities)
+        //burntCalories.text = "کالری سوزانده شده:‌ $txt".fa()
+        burntCalories.text = res.getString(R.string.burned_calories).plus(": $txt")
     }
 
     private fun calculateBurntCalories() {

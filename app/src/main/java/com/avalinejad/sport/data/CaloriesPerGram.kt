@@ -276,137 +276,154 @@ class CaloriesPerGram {
         perGramCalories[res.getString(R.string.pasta_salad)] = 221
         perGramCalories[res.getString(R.string.greed_salad)] = 101
 
-        perGramCalories.put("اسنک ژامبون و پنیر",200)
-        perGramCalories.put("بوریتو گوشت کوچک",300)
-        perGramCalories.put("بوریتو گوشت معمولی",300)
-        perGramCalories.put("بوریتو مرغ کوچک",200)
-        perGramCalories.put("بوریتو مرغ معمولی",200)
-        perGramCalories.put("پیاز حلقه ای",330)
-        perGramCalories.put("پیتزا استیک",257)
-        perGramCalories.put("پیتزا پپرونی",284)
-        perGramCalories.put("پنیر پیتزا",264)
-        perGramCalories.put("پیتزا سبزیجات کوچک",250)
-        perGramCalories.put("پیتزا سبزیجات متوسط",250)
-        perGramCalories.put("پیتزا کوچک",250)
-        perGramCalories.put("پیتزا گوشت و قارچ",276)
-        perGramCalories.put("پیتزا متوسط (تک نفره)",300)
-        perGramCalories.put("پیتزا مرغ و قارچ",255)
-        perGramCalories.put("تاکو مرغ",180)
-        perGramCalories.put("تاکو گوشت",280)
-        perGramCalories.put("توستادا گوشت",280)
-        perGramCalories.put("توستادا مرغ",180)
-        perGramCalories.put("چیز برگر بزرگ",350)
-        perGramCalories.put("چیز برگر کوچک",350)
-        perGramCalories.put("چیز برگر متوسط",350)
-        perGramCalories.put("ساندویج رست بیف",250)
-        perGramCalories.put("ساندویج ژامبون",151)
-        perGramCalories.put("ساندویج کلاب",220)
-        perGramCalories.put("ساندویج هات داگ",200)
-        perGramCalories.put("ساندویج همبرگر بزرگ",300)
-        perGramCalories.put("ساندویج همبرگر کوچک",300)
-        perGramCalories.put("ساندویج همبرگر متوسط",300)
-        perGramCalories.put("سیب زمینی سرخ کرده",320)
-        perGramCalories.put("فاهیتا گوشت",170)
-        perGramCalories.put("فاهیتا مرغ",160)
-        perGramCalories.put("فلافل",230)
-        perGramCalories.put("لازانیا",300)
-        perGramCalories.put("همبرگر ذغالی",222)
 
-        perGramCalories.put("باقالا",100)
-        perGramCalories.put("بامیه",40)
-        perGramCalories.put("برگ چغندر",19)
-        perGramCalories.put("برگ مو",70)
-        perGramCalories.put("پیاز",40)
-        perGramCalories.put("پیاز کوهی",30)
-        perGramCalories.put("پیازچه",23)
-        perGramCalories.put("تربچه",12)
-        perGramCalories.put("ترخون خشک",295)
-        perGramCalories.put("تره",20)
-        perGramCalories.put("تره فرنگی",61)
-        perGramCalories.put("جعفری",25)
-        perGramCalories.put("خوراک لوبیا سبز",31)
-        perGramCalories.put("خیار شور",5)
-        perGramCalories.put("ذرت بلال",80)
-        perGramCalories.put("ذرت (کنسرو)",95)
-        perGramCalories.put("رازیانه",337)
-        perGramCalories.put("رزماری تازه",131)
-        perGramCalories.put("ریحان",25)
-        perGramCalories.put("زنجبیل تازه",80)
-        perGramCalories.put("زیتون سبز",150)
-        perGramCalories.put("زیتون سیاه",200)
-        perGramCalories.put("سبزی آش تازه",40)
-        perGramCalories.put("سبزی پلویی تازه",40)
-        perGramCalories.put("سبزی خوردن",30)
-        perGramCalories.put("سبزی دلمه تازه",40)
-        perGramCalories.put("سبزی قرمه تازه",40)
-        perGramCalories.put("سبزی کوکو تازه",40)
-        perGramCalories.put("سبزیجات بخار پز",71)
-        perGramCalories.put("سبزیجات گریل",50)
-        perGramCalories.put("سیب زمینی",75)
-        perGramCalories.put("سیب زمینی آب پز",87)
-        perGramCalories.put("سیب زمینی پخته در فر",93)
-        perGramCalories.put("سیب زمینی پخته در مایکروفر",105)
-        perGramCalories.put("سیب زمینی شیرین",86)
-        perGramCalories.put("سیر",40)
-        perGramCalories.put("شاهی",20)
-        perGramCalories.put("شلغم",28)
-        perGramCalories.put("شنبلیله",23)
-        perGramCalories.put("شوید تازه",43)
-        perGramCalories.put("شوید خشک",305)
-        perGramCalories.put("فلفل دلمه کبابی",33)
-        perGramCalories.put("فلفل دلمه ای",20)
-        perGramCalories.put("فلفل سبز تند",40)
-        perGramCalories.put("قارچ پخته",28)
-        perGramCalories.put("قارچ خام",22)
-        perGramCalories.put("قارچ سوخاری",60)
-        perGramCalories.put("کاپری",23)
-        perGramCalories.put("کاسنی",23)
-        perGramCalories.put("کاهو",20)
-        perGramCalories.put("کدو حلوایی",35)
-        perGramCalories.put("کدو گریل",41)
-        perGramCalories.put("کرفس",15)
-        perGramCalories.put("کلم بروکسل",25)
-        perGramCalories.put("کلم بروکلی",25)
-        perGramCalories.put("کلم پیچ",25)
-        perGramCalories.put("کلم چینی خام",12)
-        perGramCalories.put("کلم سفید",25)
-        perGramCalories.put("کلم قرمز",25)
-        perGramCalories.put("کیل",50)
-        perGramCalories.put("گشنیز",23)
-        perGramCalories.put("گل کلم",25)
-        perGramCalories.put("گوجه فرنگی",20)
-        perGramCalories.put("گوجه فرنگی خشک شده",258)
-        perGramCalories.put("لبو",40)
-        perGramCalories.put("لوبیا سبز",30)
-        perGramCalories.put("مارچوبه",20)
-        perGramCalories.put("مرزه",272)
-        perGramCalories.put("موسیر",72)
-        perGramCalories.put("نخود سبز",50)
-        perGramCalories.put("نعنا خشک",200)
-        perGramCalories.put("نعناع",40)
-        perGramCalories.put("هویج",35)
 
-        perGramCalories.put("آرد برنج",366)
-        perGramCalories.put("آرد برنج سفید",366)
-        perGramCalories.put("آرد جو",360)
-        perGramCalories.put("آرد جو دو سر",400)
-        perGramCalories.put("آرد ذرت",381)
-        perGramCalories.put("آرد سویا پر چرب",447)
-        perGramCalories.put("آرد سویا کم چرب",352)
-        perGramCalories.put("آرد گندم",360)
-        perGramCalories.put("آرد گندم قهوه ای",323)
-        perGramCalories.put("باقلا خشک",350)
-        perGramCalories.put("برنج خام",380)
-        perGramCalories.put("بلغور جو",331)
-        perGramCalories.put("بلغور گندم",342)
-        perGramCalories.put("بلغور گندم پخته",83)
-        perGramCalories.put("جو",350)
-        perGramCalories.put("جو پرک",360)
-        perGramCalories.put("جو دو سر",355)
-        perGramCalories.put("جوانه گندم",50)
-        perGramCalories.put("جوانه ماش",45)
-        perGramCalories.put("خوراک عدس",75)
-        perGramCalories.put("خوراک لوبیا",80)
+
+        perGramCalories[res.getString(R.string.snack_with_cheese)] = 200
+        perGramCalories[res.getString(R.string.small_burrito)] = 300
+        perGramCalories[res.getString(R.string.medium_burrito_with_meat)] = 300
+        perGramCalories[res.getString(R.string.small_burrito_with_chicken)] = 200
+        perGramCalories[res.getString(R.string.medium_burrito_with_chicken)] = 200
+        perGramCalories[res.getString(R.string.onnion)] = 330
+        perGramCalories[res.getString(R.string.steak_pizza)] = 257
+        perGramCalories[res.getString(R.string.Pepperoni)] = 284
+        perGramCalories[res.getString(R.string.small_vegetable_pizza)] = 250
+        perGramCalories[res.getString(R.string.medium_vegetable_pizza)] = 250
+        perGramCalories[res.getString(R.string.small_pizza)] = 250
+        perGramCalories[res.getString(R.string.medium_pizza)] = 250
+        perGramCalories[res.getString(R.string.meat_mushroom_pizza)] = 276
+        perGramCalories[res.getString(R.string.chicken_mushroom_pizza)] = 289
+        perGramCalories[res.getString(R.string.chicken_tacos)] = 289
+        perGramCalories[res.getString(R.string.meat_tacos)] = 280
+        perGramCalories[res.getString(R.string.chicken_tostada)] = 180
+        perGramCalories[res.getString(R.string.large_cheese_burger)] = 350
+        perGramCalories[res.getString(R.string.medium_cheese_burger)] = 350
+        perGramCalories[res.getString(R.string.small_cheese_burger)] = 350
+        perGramCalories[res.getString(R.string.rest_beef_sandwich)] = 250
+        perGramCalories[res.getString(R.string.ham_sandwich)] = 151
+        perGramCalories[res.getString(R.string.club_sandwich)] = 220
+        perGramCalories[res.getString(R.string.hot_dog_sandwich)] = 200
+        perGramCalories[res.getString(R.string.burger_sandwich)] = 300
+        perGramCalories[res.getString(R.string.fried_potato)] = 320
+        perGramCalories[res.getString(R.string.meat_fahito)] = 170
+        perGramCalories[res.getString(R.string.chicken_fahito)] = 160
+        perGramCalories[res.getString(R.string.falafel)] = 230
+        perGramCalories[res.getString(R.string.lasagne)] = 300
+        perGramCalories[res.getString(R.string.roasted_burger)] = 222
+        perGramCalories[res.getString(R.string.medium_pizza)] = 300
+
+
+
+
+
+
+
+        perGramCalories[res.getString(R.string.onion_from_mountains)] = 30
+        perGramCalories[res.getString(R.string.medium_pizza)] = 300
+        perGramCalories[res.getString(R.string.Scallion)] = 23
+        perGramCalories[res.getString(R.string.garden_radish)] = 12
+        perGramCalories[res.getString(R.string.dried_tarragon)] = 295
+        perGramCalories[res.getString(R.string.chives)] = 20
+        perGramCalories[res.getString(R.string.garden_leek)] = 61
+        perGramCalories[res.getString(R.string.parsley)] = 25
+        perGramCalories[res.getString(R.string.roasted_Maize)] = 80
+        perGramCalories[res.getString(R.string.Can_Maize)] = 95
+        perGramCalories[res.getString(R.string.fennel)] = 337
+        perGramCalories[res.getString(R.string.rosemary)] = 131
+        perGramCalories[res.getString(R.string.basil)] = 25
+        perGramCalories[res.getString(R.string.ginger)] = 80
+        perGramCalories[res.getString(R.string.Aush_veg)] = 40
+        perGramCalories[res.getString(R.string.Aush_veg)] = 40
+        perGramCalories[res.getString(R.string.vegetables)] = 30
+        perGramCalories[res.getString(R.string.Dolma_veg)] = 40
+        perGramCalories[res.getString(R.string.ghorme_veg)] = 40
+        perGramCalories[res.getString(R.string.Kuku_veg)] = 40
+        perGramCalories[res.getString(R.string.steamed_veg)] = 71
+        perGramCalories[res.getString(R.string.grilled_veg)] = 50
+        perGramCalories[res.getString(R.string.potato)] = 75
+        perGramCalories[res.getString(R.string.potato)] = 87
+        perGramCalories[res.getString(R.string.steamed_potato)] = 87
+        perGramCalories[res.getString(R.string.sweet_potato)] = 86
+        perGramCalories[res.getString(R.string.garden_cress)] = 20
+        perGramCalories[res.getString(R.string.turnip)] = 28
+        perGramCalories[res.getString(R.string.fenugreek)] = 23
+        perGramCalories[res.getString(R.string.fresh_Dill)] = 43
+        perGramCalories[res.getString(R.string.dried_Dill)] = 305
+        perGramCalories[res.getString(R.string.roasted_bell_pepper)] = 33
+        perGramCalories[res.getString(R.string.bell_pepper)] = 20
+        perGramCalories[res.getString(R.string.cooked_mushroom)] = 28
+        perGramCalories[res.getString(R.string.raw_mushroom)] = 22
+        perGramCalories[res.getString(R.string.roasted_mushroom)] = 60
+        perGramCalories[res.getString(R.string.Lettuce)] = 20
+        perGramCalories[res.getString(R.string.Pumpkin)] = 35
+        perGramCalories[res.getString(R.string.celery)] = 15
+        perGramCalories[res.getString(R.string.brussels_sprout)] = 25
+        perGramCalories[res.getString(R.string.sprouting_broccoli)] = 25
+        perGramCalories[res.getString(R.string.cabbage)] = 25
+        perGramCalories[res.getString(R.string.white_cabbage)] = 25
+        perGramCalories[res.getString(R.string.red_cabbage)] = 25
+        perGramCalories[res.getString(R.string.chinese_cabbage)] = 12
+        perGramCalories[res.getString(R.string.kale)] = 50
+        perGramCalories[res.getString(R.string.Coriander)] = 23
+        perGramCalories[res.getString(R.string.Cauliflower)] = 25
+        perGramCalories[res.getString(R.string.tomato)] = 20
+        perGramCalories[res.getString(R.string.dried_tomato)] = 20
+        perGramCalories[res.getString(R.string.common_beet)] = 40
+        perGramCalories[res.getString(R.string.garden_asparagus)] = 20
+        perGramCalories[res.getString(R.string.Savory)] = 272
+        perGramCalories[res.getString(R.string.allium_stipitatum)] = 72
+        perGramCalories[res.getString(R.string.green_Chickpea)] = 30
+        perGramCalories[res.getString(R.string.dried_Mint)] = 200
+        perGramCalories[res.getString(R.string.Mint)] = 40
+        perGramCalories[res.getString(R.string.carrot)] = 35
+
+
+
+
+        perGramCalories[res.getString(R.string.rice_flour)] = 366
+        perGramCalories[res.getString(R.string.white_rice_flour)] = 366
+        perGramCalories[res.getString(R.string.barley_flour)] = 360
+        perGramCalories[res.getString(R.string.Oat_flour)] = 400
+        perGramCalories[res.getString(R.string.cornmeal)] = 381
+        perGramCalories[res.getString(R.string.high_fat_soy_flour)] = 447
+        perGramCalories[res.getString(R.string.low_fat_soy_flour)] = 352
+        perGramCalories[res.getString(R.string.wheat_flour)] = 360
+        perGramCalories[res.getString(R.string.brown_wheat_flour)] = 323
+        perGramCalories[res.getString(R.string.dried_broad_bean)] = 350
+        perGramCalories[res.getString(R.string.raw_rice)] = 380
+        perGramCalories[res.getString(R.string.oatmeal)] = 331
+        perGramCalories[res.getString(R.string.Wheatmeal)] = 342
+        perGramCalories[res.getString(R.string.cooked_Wheatmeal)] = 83
+        perGramCalories[res.getString(R.string.barley)] = 350
+        perGramCalories[res.getString(R.string.rolled_oats)] = 360
+        perGramCalories[res.getString(R.string.Oat)] = 355
+        perGramCalories[res.getString(R.string.Wheatgrass)] = 50
+        perGramCalories[res.getString(R.string.munggrass)] = 45
+        perGramCalories[res.getString(R.string.Lentil)] = 90
+        perGramCalories[res.getString(R.string.raw_Lentil)] = 110
+        perGramCalories[res.getString(R.string.cooked_Lentil)] = 80
+        perGramCalories[res.getString(R.string.bean)] = 80
+        perGramCalories[res.getString(R.string.Chickpea)] = 85
+        perGramCalories[res.getString(R.string.raw_flour_Bran)] = 85
+        perGramCalories[res.getString(R.string.flour_Bran)] = 206
+        perGramCalories[res.getString(R.string.cooked_oat_bran)] = 80
+        perGramCalories[res.getString(R.string.raw_oat_bran)] = 246
+        perGramCalories[res.getString(R.string.cerelac)] = 380
+        perGramCalories[res.getString(R.string.Quinoa)] = 120
+        perGramCalories[res.getString(R.string.raw_quinoa)] = 368
+        perGramCalories[res.getString(R.string.Wheat)] = 350
+        perGramCalories[res.getString(R.string.black_Wheat)] = 343
+        perGramCalories[res.getString(R.string.split_pea)] = 360
+        perGramCalories[res.getString(R.string.Cowpea)] = 130
+        perGramCalories[res.getString(R.string.Pinto_bean)] = 340
+        perGramCalories[res.getString(R.string.cooked_Pinto_bean)] = 100
+        perGramCalories[res.getString(R.string.red_bean)] = 300
+        perGramCalories[res.getString(R.string.cooked_red_bean)] = 110
+        perGramCalories[res.getString(R.string.boiled_Macaroni)] = 158
+        perGramCalories[res.getString(R.string.macaroni_with_soy)] = 150
+        perGramCalories[res.getString(R.string.raw_macaroni)] = 350
+
+
         perGramCalories.put("خوراک نخود",85)
         perGramCalories.put("دال عدس",90)
         perGramCalories.put("سبوس برنج خام",360)

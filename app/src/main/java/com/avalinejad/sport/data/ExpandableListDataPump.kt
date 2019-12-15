@@ -50,7 +50,6 @@ class ExpandableListDataPump {
         Ajil.newAdd(R.string.dried_peach)
         Ajil.newAdd(R.string.wafers)
         Ajil.newAdd(R.string.popcorn)
-        Ajil.newAdd(R.string.pistachio)
         Ajil.newAdd(R.string.dried_coconut)
         Ajil.newAdd(R.string.popcorn)
         Ajil.newAdd(R.string.sunflower_seed)
