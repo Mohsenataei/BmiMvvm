@@ -338,12 +338,7 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="1dp"
                     lib:layout_constraintTop_toBottomOf="@id/layout4"
-                    lib:layout_constraintStart_toStartOf="parent"
-
-                    >
-
-
-
+                    lib:layout_constraintStart_toStartOf="parent">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

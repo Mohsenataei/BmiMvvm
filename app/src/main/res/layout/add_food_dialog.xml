@@ -57,78 +57,74 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/food_name" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/meals"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/meal_text_view">
 
         <TextView
             android:id="@+id/add_food_dialog_breakfast"
             style="@style/mealsStyle"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:background="@drawable/add_food_dialog_items_background"
             android:drawableTop="@drawable/ic_breakfast"
-            android:drawablePadding="5dp"
             android:text="@string/breakfast"
             android:textAlignment="center"
             android:textColor="@color/grey"
-            app:layout_constraintBottom_toBottomOf="@+id/add_food_dialog_dinner"
-            app:layout_constraintEnd_toStartOf="@+id/add_food_dialog_dinner"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/add_food_dialog_dinner" />
+
+        />
 
         <TextView
             android:id="@+id/add_food_dialog_dinner"
             style="@style/mealsStyle"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:background="@drawable/add_food_dialog_items_background"
             android:drawableTop="@drawable/ic_dinner"
-            android:drawablePadding="5dp"
             android:text="@string/dinner"
             android:textAlignment="center"
             android:textColor="@color/grey"
-            app:layout_constraintBottom_toBottomOf="@+id/add_food_dialog_launch"
-            app:layout_constraintEnd_toStartOf="@+id/add_food_dialog_launch"
-            app:layout_constraintStart_toEndOf="@+id/add_food_dialog_breakfast"
-            app:layout_constraintTop_toTopOf="@+id/add_food_dialog_launch" />
+
+           />
 
         <TextView
             android:id="@+id/add_food_dialog_launch"
             style="@style/mealsStyle"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:background="@drawable/add_food_dialog_items_background"
             android:drawableTop="@drawable/ic_utensils_alt"
-            android:drawablePadding="5dp"
             android:text="@string/launch"
             android:textAlignment="center"
             android:textColor="@color/grey"
-            app:layout_constraintBottom_toBottomOf="@+id/add_food_dialog_mianvade"
-            app:layout_constraintEnd_toStartOf="@+id/add_food_dialog_mianvade"
-            app:layout_constraintStart_toEndOf="@+id/add_food_dialog_dinner"
-            app:layout_constraintTop_toTopOf="@+id/add_food_dialog_mianvade" />
+
+             />
 
         <TextView
             android:id="@+id/add_food_dialog_mianvade"
             style="@style/mealsStyle"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:background="@drawable/add_food_dialog_items_background"
             android:drawableTop="@drawable/ic_bread"
-            android:drawablePadding="5dp"
             android:text="@string/snack"
             android:textAlignment="center"
             android:textColor="@color/grey"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/add_food_dialog_launch"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+           />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/consumed_amount_txt_view"
@@ -162,6 +158,8 @@
             android:hint="@string/enter_amount"
             android:inputType="number"
             android:padding="5dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:textAlignment="center"
             android:textColor="@color/bmi_30_to_40"
             android:textColorHint="@color/bmi_20_to_25"
@@ -182,6 +180,7 @@
             android:textColor="@color/bmi_30_to_40"
             android:textColorHint="@color/bmi_20_to_25"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toEndOf="@+id/add_food_dialog_edit_text"
@@ -191,9 +190,10 @@
             android:id="@+id/add_food_dialog_gram_text_view"
             android:layout_width="50dp"
             android:layout_height="22dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/amount_background"
             android:hint="@string/grams"
+
             android:textAlignment="center"
             android:textColor="@color/bmi_30_to_40"
             android:textColorHint="@color/bmi_20_to_25"
@@ -262,6 +262,7 @@
         android:layout_marginBottom="@dimen/space_4"
         android:background="@drawable/add_food_confirm_background"
         android:text="@string/confirm"
+        android:textStyle="normal"
         android:textColor="@color/white"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"

@@ -219,6 +219,7 @@
             android:layout_height="45dp"
             android:layout_marginStart="16dp"
             android:layout_weight="1"
+            android:textAllCaps="false"
             android:background="@drawable/add_food_confirm_background"
             android:drawableTop="@drawable/ic_roast_chicken"
             android:drawableTint="@color/white"
@@ -230,6 +231,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
+            android:textAllCaps="false"
             android:id="@+id/add_exercise"
             android:layout_width="0dp"
             android:layout_height="45dp"
@@ -247,6 +249,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
         <Button
+            android:textAllCaps="false"
             android:id="@+id/calculateBmi"
             android:layout_width="0dp"
             android:layout_height="45dp"

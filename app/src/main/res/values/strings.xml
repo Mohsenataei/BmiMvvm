@@ -39,12 +39,15 @@
     <string name="add_exercise">Add Exercise</string>
     <string name="add_food">Add Food</string>
     <string name="consumed_calories">consumed calories‌</string>
-    <string name="burned_calories">consumed calories‌</string>
+    <string name="burned_calories">burned calories‌</string>
     <string name="activities">Activities during day</string>
     <string name="start">start</string>
     <string name="app_description">calculate your body BMI and how much calories you earned and consumed during the day</string>
     <string name="nuts">nuts</string>
     <string name="meal">meal</string>
+    <string name="cake">cake</string>
+    <string name="low_fat_steak">low fat steak</string>
+    <string name="high_fat_steak">high fat steak</string>
     <string name="dinner">dinner</string>
     <string name="launch">launch</string>
     <string name="breakfast">breakfast</string>
@@ -921,6 +924,21 @@
     <string name="swimming">Swimming</string>
     <string name="contests">Contests</string>
     <string name="bike_riding">Bike Riding</string>
+
+
+
+    <!-- toast messages-->
+    <string name="plz_enter_amount">Please enter used amount.</string>
+    <string name="plz_specify_when">Please Specify When did you eat this meal.</string>
+    <string name="plz_select_unit">Please select unit.</string>
+    <string name="breakfast_toast">Selected : Breakfast.</string>
+    <string name="dinner_toast">Selected : Dinner.</string>
+    <string name="snack_toast">Selected : Snack.</string>
+    <string name="launch_toast">Selected : Launch.</string>
+    <string name="selected_unit_gram">Selected unit : grams.</string>
+    <string name="selected_unit_glass">Selected unit : glass.</string>
+
+
 
 
 

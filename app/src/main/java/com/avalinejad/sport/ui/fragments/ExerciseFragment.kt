@@ -42,6 +42,8 @@ class ExerciseFragment(context: Context) : BaseFragment() {
         //activity!!.toolbar.title = "انتخاب فعالیت ها"
        // expandableListDetail = getExpandableListData()
         expandableListTitle = ArrayList<String>((expandableListDetail as HashMap<String, MutableList<String>>?)!!.keys)
+            //expandableListDetail!!.keys as ArrayList<String>
+           //
         expandableListAdapter =
             CustomExpandableListAdapter(context, expandableListTitle, expandableListDetail!!)
         exerciseExpandableListView.setAdapter(expandableListAdapter)

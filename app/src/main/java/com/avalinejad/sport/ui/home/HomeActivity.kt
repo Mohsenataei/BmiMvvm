@@ -45,6 +45,8 @@ import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.add_food_dialog.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class HomeActivity : BaseActivity() {
@@ -58,6 +60,9 @@ class HomeActivity : BaseActivity() {
     var detailDao: DetailDao? = null
     var i = 0
     private val res = App.instance.resources
+    private lateinit var locale:Locale
+
+
     val chartLbls = arrayOf(
         res.getString(R.string.snack),
         res.getString(R.string.dinner),
@@ -76,12 +81,22 @@ class HomeActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         //  this.toast("common list size is : ${commonList.size} in line 55")
+        locale = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            App.instance.resources.configuration.locales[0]
+        } else {
+            App.instance.resources.configuration.locale
+        }
+        Log.d("locale",locale.toString() )
         Log.d("today", " today date is : $today")
+
         userPrefs = SavedSharedPrerefrences(this)
         val typeface =
             Typeface.createFromAsset(applicationContext.assets, "fonts/iran_sans_normal.ttf")
-
-        todayDate.text = dateHelper(today_Date)
+        if (locale.toString() == "fa_IR"){
+            todayDate.text = dateHelper(today_Date)
+        }else if (locale.toString() == "en_US"){
+            todayDate.text = today.toString().substring(0,10)
+        }
         initDataBaseShits()
         //loadStoredData()
         addExtraToList()
@@ -172,9 +187,9 @@ class HomeActivity : BaseActivity() {
         }
 
         val local = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            App.instance.resources.configuration.locales
+            App.instance.resources.configuration.locales[0]
         } else {
-            TODO("VERSION.SDK_INT < N")
+            App.instance.resources.configuration.locale
         }
         Log.d("locale",local.toString() )
     }

@@ -17,8 +17,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:cardElevation="10dp"
         app:cardCornerRadius="10dp">
+
         <ExpandableListView
-            android:layoutDirection="rtl"
+            android:layoutDirection="locale"
             android:id="@+id/expandableListView"
             android:layout_height="match_parent"
             android:layout_width="match_parent"

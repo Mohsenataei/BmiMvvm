@@ -15,7 +15,7 @@ class App : Application() {
                 .addInterceptor(
                     CalligraphyInterceptor(
                         CalligraphyConfig.Builder()
-                            .setDefaultFontPath("fonts/iran_sans_normal.ttf")
+                            .setDefaultFontPath("fonts/iran.ttf")
                             .setFontAttrId(R.attr.fontPath)
                             .build()
                     )

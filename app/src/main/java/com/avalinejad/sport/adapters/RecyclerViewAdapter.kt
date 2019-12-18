@@ -9,6 +9,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.avalinejad.sport.App
 import com.avalinejad.sport.R
 import com.avalinejad.sport.database.entity.Food
 import com.avalinejad.sport.ui.dialogs.AddFoodDialog
@@ -22,6 +23,7 @@ class RecyclerViewAdapter (val list: MutableList<Food>, context: Context) :
     RecyclerView.Adapter<RecyclerViewAdapter.FoodViewHolder>() {
 
     private val foodList = list
+    private val res = App.instance.resources
 
     private val mContext = context
 
@@ -41,12 +43,12 @@ class RecyclerViewAdapter (val list: MutableList<Food>, context: Context) :
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
         Log.d("recycler","in adapter size is : ${foodList.size}")
         holder.foodname.text = foodList[position].name.fa()
-        holder.amount.text = foodList[position].calory.toString().fa()
+        holder.amount.text = foodList[position].calory.toString()
         if(foodList[position].unit == TYPE_GRAM){
-            holder.unit.text = "گرم"
+            holder.unit.text = res?.getString(R.string.grams)
 
         }else if (foodList[position].unit == TYPE_GLASS){
-            holder.unit.text = "لیوان"
+            holder.unit.text = res?.getString(R.string.glass)
         }
         holder.remove.setOnClickListener {
             Log.d("delete","deleted at index : $position")

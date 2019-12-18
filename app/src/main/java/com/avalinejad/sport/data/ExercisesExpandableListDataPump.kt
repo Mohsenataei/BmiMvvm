@@ -8,10 +8,11 @@ import java.util.HashMap
 class ExercisesExpandableListDataPump {
     private var context: Context? = null
     private val res = App.instance.resources
+    private val expandableListDetail = HashMap<String, List<String>>()
 
-
+    fun getHeaders() = expandableListDetail.keys as ArrayList<String>
     fun getData(): HashMap<String, List<String>> {
-        val expandableListDetail = HashMap<String, List<String>>()
+
 
         val walking = ArrayList<String>()
         val running = ArrayList<String>()
@@ -176,44 +177,44 @@ class ExercisesExpandableListDataPump {
         power.add("وزنه زدن با شدت کم")
 
         //init contest
-        contest.newAdd(R.string.cleaning)
-        contest.newAdd(R.string.carpentry)
-        contest.newAdd(R.string.welding)
-        contest.newAdd(R.string.Shoemaking)
-        contest.newAdd(R.string.bathing)
-        contest.newAdd(R.string.Bathing)
-        contest.newAdd(R.string.makingup)
-        contest.newAdd(R.string.eating)
-        contest.newAdd(R.string.putting_clothes_on_and_off)
-        contest.newAdd(R.string.typing)
-        contest.newAdd(R.string.Sewing)
-        contest.newAdd(R.string.Sewing_machine)
-        contest.newAdd(R.string.Sewing_hand)
-        contest.newAdd(R.string.Sewing_cutting)
-        contest.newAdd(R.string.standing_and_lifting_more_than_22)
-        contest.newAdd(R.string.car_fixing)
-        contest.newAdd(R.string.fixing_heavy_parts)
-        contest.newAdd(R.string.speaking_and_standing_in_work)
-        contest.newAdd(R.string.sitting)
-        contest.newAdd(R.string.shovelling_5_7)
-        contest.newAdd(R.string.shovelling_4)
-        contest.newAdd(R.string.shovelling_7)
-        contest.newAdd(R.string.shovelling)
-        contest.newAdd(R.string.pulling)
-        contest.newAdd(R.string.massaging)
-        contest.newAdd(R.string.stone_carving)
-        contest.newAdd(R.string.pressing_or_punching)
-        contest.newAdd(R.string.cutting_machine)
-        contest.newAdd(R.string.metal_paper)
-        contest.newAdd(R.string.building_locks)
-        contest.newAdd(R.string.hours_cleaning)
-        contest.newAdd(R.string.keeping_jungle)
-        contest.newAdd(R.string.fireman)
-        contest.newAdd(R.string.farming)
-        contest.newAdd(R.string.plumber)
-        contest.newAdd(R.string.mining_drilling)
-        contest.newAdd(R.string.house_keeping)
-        contest.newAdd(R.string.napping)
+        dailyWorks.newAdd(R.string.cleaning)
+        dailyWorks.newAdd(R.string.carpentry)
+        dailyWorks.newAdd(R.string.welding)
+        dailyWorks.newAdd(R.string.Shoemaking)
+        dailyWorks.newAdd(R.string.bathing)
+        dailyWorks.newAdd(R.string.Bathing)
+        dailyWorks.newAdd(R.string.makingup)
+        dailyWorks.newAdd(R.string.eating)
+        dailyWorks.newAdd(R.string.putting_clothes_on_and_off)
+        dailyWorks.newAdd(R.string.typing)
+        dailyWorks.newAdd(R.string.Sewing)
+        dailyWorks.newAdd(R.string.Sewing_machine)
+        dailyWorks.newAdd(R.string.Sewing_hand)
+        dailyWorks.newAdd(R.string.Sewing_cutting)
+        dailyWorks.newAdd(R.string.standing_and_lifting_more_than_22)
+        dailyWorks.newAdd(R.string.car_fixing)
+        dailyWorks.newAdd(R.string.fixing_heavy_parts)
+        dailyWorks.newAdd(R.string.speaking_and_standing_in_work)
+        dailyWorks.newAdd(R.string.sitting)
+        dailyWorks.newAdd(R.string.shovelling_5_7)
+        dailyWorks.newAdd(R.string.shovelling_4)
+        dailyWorks.newAdd(R.string.shovelling_7)
+        dailyWorks.newAdd(R.string.shovelling)
+        dailyWorks.newAdd(R.string.pulling)
+        dailyWorks.newAdd(R.string.massaging)
+        dailyWorks.newAdd(R.string.stone_carving)
+        dailyWorks.newAdd(R.string.pressing_or_punching)
+        dailyWorks.newAdd(R.string.cutting_machine)
+        dailyWorks.newAdd(R.string.metal_paper)
+        dailyWorks.newAdd(R.string.building_locks)
+        dailyWorks.newAdd(R.string.hours_cleaning)
+        dailyWorks.newAdd(R.string.keeping_jungle)
+        dailyWorks.newAdd(R.string.fireman)
+        dailyWorks.newAdd(R.string.farming)
+        dailyWorks.newAdd(R.string.plumber)
+        dailyWorks.newAdd(R.string.mining_drilling)
+        dailyWorks.newAdd(R.string.house_keeping)
+        dailyWorks.newAdd(R.string.napping)
 
 
         expandableListDetail[res.getString(R.string.walking) + " (" + walking.size + ")"] = walking
@@ -221,7 +222,7 @@ class ExercisesExpandableListDataPump {
         expandableListDetail[res.getString(R.string.bike_riding) + " (" + bicycle.size + ")"] = bicycle
         expandableListDetail[res.getString(R.string.solo) + " (" + solo.size + ")"] = solo
         expandableListDetail[res.getString(R.string.swimming) + " (" + swimming.size + ")"] = swimming
-        expandableListDetail[res.getString(R.string.contests) + " (" + swimming.size + ")"] = swimming
+        //expandableListDetail[res.getString(R.string.contests) + " (" + contest.size + ")"] = contest
         expandableListDetail[res.getString(R.string.power) + " (" + power.size + ")"] = power
         expandableListDetail[res.getString(R.string.daily_activities) + " (" + dailyWorks.size + ")"] = dailyWorks
         expandableListDetail[res.getString(R.string.other_activities) + " (" + others.size + ")"] = others

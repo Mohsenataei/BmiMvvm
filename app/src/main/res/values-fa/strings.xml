@@ -130,6 +130,7 @@
     <string name="carrot_pilaf">هویج پلو</string>
 
     <string name="candy">آبنبات ساده</string>
+    <string name="nuts">آجیل</string>
     <!--    <string name="gam">gam</string>-->
     <string name="tahini">ارده</string>
     <string name="Baklava">باقلوا</string>
@@ -864,6 +865,20 @@
     <string name="swimming">شنا</string>
     <string name="contests">مسابقات</string>
     <string name="bike_riding">دوچرخه سواری</string>
+
+
+    <!-- toast messages-->
+    <string name="plz_enter_amount">لطفا میزان مصرفی را وارد کنید: </string>
+    <string name="plz_specify_when">لطفا وعده مصرفی را انتخاب کنی</string>
+    <string name="plz_select_unit"> :لطفا واحد مصرفی را انتخاب کنید</string>
+
+    <string name="breakfast_toast">وعده انتخابی :‌صبحانه.</string>
+    <string name="dinner_toast">وعده انتخابی :شام.</string>
+    <string name="snack_toast">وعده انتخابی :میان وعده.</string>
+    <string name="launch_toast">وعده انتخابی :نهار.</string>
+    <string name="selected_unit_gram">واحد انتخابی:‌ گرم</string>
+    <string name="selected_unit_glass">واحد انتخابی:‌ لیوان</string>
+
 
 
 </resources>

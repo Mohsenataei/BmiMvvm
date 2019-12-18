@@ -2,6 +2,7 @@ package com.avalinejad.sport.ui.dialogs
 
 import android.app.Dialog
 import android.content.Context
+import android.content.res.Resources
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
+import com.avalinejad.sport.App
 import com.avalinejad.sport.R
 import com.avalinejad.sport.database.entity.Food
 import com.avalinejad.sport.util.*
@@ -32,6 +34,7 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
     val caloryByGram = caloriesData["gram"]
     val caloryByGlass = caloriesData["glass"]
     var flags = arrayOfNulls<Boolean>(4)
+    val res: Resources? = App.instance.resources
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,12 +70,12 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
                 val unit = caloriesData["gram"]!![title]
                 if (unit != null){
                     calories = text.times(unit).div(100)
-                    Consumed_calories_text_view.text = text.times(unit).div(100).toString().plus(" کالری ")
-                    consumedProteinsTextView.text = text.times(unit).div(100).div(genRandomNum(text)).toString().plus("پروتیین ")
+                    Consumed_calories_text_view.text = text.times(unit).div(100).toString().plus(" :" + res?.getString(R.string.calory))
+                    consumedProteinsTextView.text = text.times(unit).div(100).div(genRandomNum(text)).toString().plus(" :" + res?.getString(R.string.proteins))
                   //  ateCalory = consumedProteinsTextView.text.toString()
                 }else{
                     Log.d("FoodDialog","unit is empty")
-                    Consumed_calories_text_view.text = genRandomNum(100).times(100).toString().plus(" کالری")
+                    Consumed_calories_text_view.text = genRandomNum(100).times(100).toString().plus(" :" + res?.getString(R.string.calory))
                 }
 
                 if (type == TYPE_GLASS && !consumedProteinsTextView.text.isNullOrEmpty()) {
@@ -97,7 +100,7 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
             setDinnerToNormal()
             setMianVadeToNormal()
             setLaunchToNormal()
-            context.toast("شما در حال انتخاب صبحانه هستید")
+            context.toast(res!!.getString(R.string.breakfast_toast))
         }
         add_food_dialog_dinner.setOnClickListener {
             meal = DINNER
@@ -105,7 +108,7 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
             setMianVadeToNormal()
             setLaunchToNormal()
             setBreakfastToNormal()
-            context.toast("شما در حال انتخاب شام هستید")
+            context.toast(res!!.getString(R.string.dinner_toast))
         }
         add_food_dialog_mianvade.setOnClickListener {
             meal = MIANVADEH
@@ -113,7 +116,7 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
             setLaunchToNormal()
             setBreakfastToNormal()
             setDinnerToNormal()
-            context.toast("شما در حال انتخاب میان وعده هستید")
+            context.toast(res!!.getString(R.string.snack_toast))
         }
         add_food_dialog_launch.setOnClickListener {
             meal = LAUNCH
@@ -121,7 +124,7 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
             setBreakfastToNormal()
             setDinnerToNormal()
             setMianVadeToNormal()
-            context.toast("شما در حال انتخاب نهار هستید")
+            context.toast(res!!.getString(R.string.launch_toast))
             }
 
     }
@@ -129,13 +132,13 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
     private fun getType(){
         add_food_dialog_glass_text_view.setOnClickListener {
             type = TYPE_GLASS
-            context.toast("واحد انتخابی شما: لیوان")
+            context.toast(res!!.getString(R.string.selected_unit_glass))
             getCalories()
             setCaloriesTextView(TYPE_GLASS)
         }
         add_food_dialog_gram_text_view.setOnClickListener {
             type = TYPE_GRAM
-            context.toast("واحد انتخابی شما: گرم")
+            context.toast(res!!.getString(R.string.selected_unit_gram))
             getCalories()
             setCaloriesTextView(TYPE_GRAM)
         }
@@ -156,12 +159,12 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
 //                consumedProteinsTextView.text = text.times(cal).div(100).div(genRandomNum(text)).toString().plus("پروتیین ")
                 if (cal != null){
                     calories = text.times(cal!!).div(100)
-                    Consumed_calories_text_view.text = text.times(cal).div(100).toString().plus(" کالری ")
-                    consumedProteinsTextView.text = text.times(cal).div(100).div(genRandomNum(text)).toString().plus("پروتیین ")
+                    Consumed_calories_text_view.text = text.times(cal).div(100).toString().plus(" :" + res?.getString(R.string.calory))
+                    consumedProteinsTextView.text = text.times(cal).div(100).div(genRandomNum(text)).toString().plus(" :" + res?.getString(R.string.proteins))
                    // ateCalory = consumedProteinsTextView.text.toString()
                 }else{
                     Log.d("FoodDialog","unit is empty")
-                    Consumed_calories_text_view.text = text.times(genRandomNum(300)).div(100).toString().plus(" کالری ")
+                    Consumed_calories_text_view.text = text.times(genRandomNum(300)).div(100).toString().plus(" :" + res?.getString(R.string.calory))
                 }
             }
         }
@@ -212,10 +215,10 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
         add_food_dialog_glass_text_view.setOnClickListener {
             type = TYPE_GLASS
             if (meal == null){
-                context.toast("لطفا وعده مصرفی را وارد کنید")
+                context.toast(res!!.getString(R.string.plz_specify_when))
                 getMeal()
             }else if (ateCalory == null){
-                context.toast("لطفا مقدار کالری را وارد کنید")
+                context.toast(res!!.getString(R.string.plz_enter_amount))
                 getCalories()
             }
             setValuesByGlass()
@@ -224,10 +227,10 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
         add_food_dialog_gram_text_view.setOnClickListener {
             type = TYPE_GRAM
             if (meal == null){
-                context.toast("لطفا وعده مصرفی را وارد کنید")
+                context.toast(res!!.getString(R.string.plz_specify_when))
                 getMeal()
             }else if (ateCalory == null){
-                context.toast("لطفا مقدار کالری را وارد کنید")
+                context.toast(res!!.getString(R.string.plz_enter_amount))
                 getCalories()
             }
             setValuesByGram()
@@ -249,15 +252,15 @@ class AddFoodDialog(context: Context, food_title: String, type: String, val onCo
     }
     private fun checkValues(): Boolean{
         if (!checkCalories()){
-            context.toast("لطفا میزان مصرفی را وارد کنید: ")
+            context.toast(res!!.getString(R.string.plz_enter_amount))
             getCalories()
             return false
         }else if (!checkMeal()){
-            context.toast("لطفا وعده مصرفی را انتخاب کنید")
+            context.toast(res!!.getString(R.string.plz_specify_when))
             getMeal()
             return false
         } else if (!checkType()){
-            context.toast(" :لطفا واحد مصرفی را انتخاب کنید")
+            context.toast(res!!.getString(R.string.plz_select_unit))
             getType()
             return false
         }else return true

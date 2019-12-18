@@ -11,6 +11,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.avalinejad.sport.App
 import com.avalinejad.sport.R
 import com.avalinejad.sport.model.Exercise
 import com.avalinejad.sport.ui.dialogs.AddExerciseDialog
@@ -21,6 +22,7 @@ class ExerciseAdapter (val list: MutableList<Exercise>, context: Context) :
     RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
 
     val mContext = context
+    val res = App.instance.resources
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_row_item,parent,false)
         return ExerciseViewHolder(view)
@@ -32,8 +34,8 @@ class ExerciseAdapter (val list: MutableList<Exercise>, context: Context) :
 
     override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
         holder.title.text = list[position].name
-        holder.amount.text = list[position].duration.toString().fa()
-        holder.unit.text = "دقیقه"
+        holder.amount.text = list[position].duration.toString()
+        holder.unit.text = res.getString(R.string.minute)
 
         holder.remove.setOnClickListener {
             Log.d("delete","deleted at index : $position")
