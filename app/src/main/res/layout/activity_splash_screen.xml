@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/splash_background"
-    tools:context="com.avalinejad.sport.ui.splash.SplashScreenActivity">
+    tools:context="com.mohsen.caculatebmi_mvvm.ui.splash.SplashScreenActivity">
 
     <ImageView
         android:id="@+id/splashImageView"

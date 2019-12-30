@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "344045459084",
+    "firebase_url": "https://sport4-e2a33.firebaseio.com",
+    "project_id": "sport4-e2a33",
+    "storage_bucket": "sport4-e2a33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344045459084:android:4501f77b6db23f25",
+        "android_client_info": {
+          "package_name": "com.test.sport4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "344045459084-pdckuc1ri9eji6hng45ma0e0abjqptn6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.test.sport4",
+            "certificate_hash": "d274a79673ef779af74aeef8baf590727e4e9423"
+          }
+        },
+        {
+          "client_id": "344045459084-65vfsbopn5iirueoubpglrhshkaslehb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4_vVzagkjXZgrOQKa6MW1F-FtVakMOng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "344045459084-65vfsbopn5iirueoubpglrhshkaslehb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

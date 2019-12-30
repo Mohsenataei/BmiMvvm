@@ -8,7 +8,7 @@
     xmlns:CircleProgressView="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="com.avalinejad.sport.ui.BMI.BMIActivity"
+    tools:context="com.mohsen.caculatebmi_mvvm.ui.BMI.BMIActivity"
     android:background="@color/default_background_color">
 
     <ScrollView
@@ -226,7 +226,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textSize="14sp"
+                        android:textSize="13sp"
                         android:text="@string/bmi_more_than_40"
                         android:background="@color/bmi_more_than_40"
                         style="@style/TextView.BMITableTitle"
@@ -343,6 +343,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:textSize="16sp"
+
                         android:text="@string/bmi_18.5_to_20"
                         android:background="@color/bmi_18.5_to_20"
                         style="@style/TextView.BMITableTitle"

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.avalinejad.sport.ui.fragments.FragmentFavFoods">
+    tools:context="com.mohsen.caculatebmi_mvvm.ui.fragments.FragmentFavFoods">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favsRecycler"

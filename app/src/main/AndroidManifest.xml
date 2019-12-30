@@ -1,33 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.avalinejad.sport">
+    package="com.mohsen.caculatebmi_mvvm">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".App"
+        android:name="com.mohsen.caculatebmi_mvvm.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher1"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.splash.SplashScreenActivity">
+
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8616739363688136~5362909026"/>
+<!--        <meta-data-->
+<!--            android:name="com.google.android.gms.ads.APPLICATION_ID"-->
+<!--            android:value="ca-app-pub-8616739363688136~5362909026"/>-->
+<!--            android:value="ca-app-pub-xxxxxxxxxxxxxxxx~yyyyyyyyyy"/>-->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8616739363688136~5362909026"/>
+
+        <activity android:name="com.mohsen.caculatebmi_mvvm.ui.splash.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.addfood.AddFood"></activity>
+        <activity android:name="com.mohsen.caculatebmi_mvvm.ui.addfood.AddFood"/>
         <activity
-            android:name=".ui.home.HomeActivity"
+            android:name="com.mohsen.caculatebmi_mvvm.ui.home.HomeActivity"
             android:launchMode="singleTop">
 
         </activity>
-        <activity android:name=".ui.BMI.BMIActivity"></activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.mohsen.caculatebmi_mvvm.ui.BMI.BMIActivity"></activity>
+        <activity android:name="com.mohsen.caculatebmi_mvvm.MainActivity" />
     </application>
 
 </manifest>

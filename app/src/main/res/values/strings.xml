@@ -763,20 +763,20 @@
 
 
 
-    <string name="RPM">آر پی ام</string>
-    <string name="spinning">اسپینینگ</string>
+    <string name="RPM">RPM</string>
+    <string name="spinning">Spinning</string>
     <string name="slow_fixed_bike_35_50">slow fixed bike 35 50 W</string>
     <string name="so_so_fast_fixed_bike_201_270">so so fast fixed bike 201 270 W</string>
-    <string name="so_fast_fixed_bike_161_200">so_fast fixed bike 161 200 W</string>
-    <string name="fast_fixed_bike_101_160">ast fixed bike 101 160 W</string>
+    <string name="so_fast_fixed_bike_161_200">so fast fixed bike 161 200 W</string>
+    <string name="fast_fixed_bike_101_160">fast fixed bike 101 160 W</string>
     <string name="medium_fixed_bike_51_89">medium fixed bike 51 89 W</string>
     <string name="medium_fixed_bike_90_100">medium fixed bike 90 100</string>
-    <string name="bycycling">دوچرخه سواری تفریحی</string>
-    <string name="so_slow_bycycling">so slow bycycling</string>
-    <string name="so_slow_bycycling_24_to_30">"so slow bycycling 24 to 30</string>
-    <string name="bycycling_in_mountains">bycycling in mountains</string>
-    <string name="bycycling_23_25">bycycling 23 25</string>
-    <string name="bycycling_more_than_32">bycycling more than 32</string>
+    <string name="bycycling">Recreation ‌Bicycling</string>
+    <string name="so_slow_bycycling">so slow bicycling</string>
+    <string name="so_slow_bycycling_24_to_30">"so slow bicycling 24 to 30</string>
+    <string name="bycycling_in_mountains">bicycling in mountains</string>
+    <string name="bycycling_23_25">bicycling 23 25</string>
+    <string name="bycycling_more_than_32">bicycling more than 32</string>
 
 
 
@@ -857,7 +857,7 @@
     <string name="dart">dart</string>
     <string name="boxing_contest">boxing contest</string>
     <string name="boxing_training">boxing training</string>
-    <string name="boxing_in_the_ring">boxing_in_the_ring</string>
+    <string name="boxing_in_the_ring">boxing in the ring</string>
 
 
 
@@ -898,7 +898,7 @@
     <string name="plumber">plumber</string>
     <string name="mining_drilling">mining and drilling</string>
     <string name="house_keeping">house keeping</string>
-    <string name="napping">خوابیدن</string>
+    <string name="napping">Sleeping</string>
 
 
     <string name="fixed_bike_100_low">fixed bike 100 watts low</string>
