@@ -1,6 +1,5 @@
 package com.mohsen.caculatebmi_mvvm.ui.dialogs
 
-import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.content.res.Resources
@@ -9,7 +8,6 @@ import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -18,23 +16,19 @@ import com.mohsen.caculatebmi_mvvm.App
 import com.mohsen.caculatebmi_mvvm.R
 import com.mohsen.caculatebmi_mvvm.database.entity.Food
 import com.mohsen.caculatebmi_mvvm.util.*
-import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.reward.RewardedVideoAd
-import com.google.android.gms.ads.reward.RewardedVideoAdListener
 import com.google.android.gms.ads.rewarded.RewardItem
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdCallback
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.add_food_dialog.*
-import java.util.HashMap
 
 @Suppress("DEPRECATION")
 const val AD_UNIT_ID = "ca-app-pub-8616739363688136/3776981726"
-const val AD_REWARD_UNIT_ID = "ca-app-pub-3940256099942544/5224354917"
+const val AD_REWARD_UNIT_ID = "ca-app-pub-8616739363688136/6484419001"
 
 //const val AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"
 
@@ -43,52 +37,16 @@ class AddFoodDialog(
     context: Context,
     food_title: String,
     type: String,
-    val onConfirmClick: (food: Food) -> Unit = {}
-) : Dialog(context), RewardedVideoAdListener {
-    override fun onRewarded(p0: com.google.android.gms.ads.reward.RewardItem?) {
-        Toast.makeText(
-            context, "onRewarded! currency: ${p0!!.type} amount: ${p0.amount}",
-            Toast.LENGTH_SHORT
-        ).show()
-        // Reward the user.    }
-    }
-    override fun onRewardedVideoAdLeftApplication() {
-        Toast.makeText(context, "onRewardedVideoAdLeftApplication", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onRewardedVideoAdClosed() {
-        Toast.makeText(context, "onRewardedVideoAdClosed", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onRewardedVideoAdFailedToLoad(errorCode: Int) {
-        Toast.makeText(context, "onRewardedVideoAdFailedToLoad with error code : $errorCode", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onRewardedVideoAdLoaded() {
-        Toast.makeText(context, "onRewardedVideoAdLoaded", Toast.LENGTH_SHORT).show()
-
-    }
-
-    override fun onRewardedVideoAdOpened() {
-        Toast.makeText(context, "onRewardedVideoAdOpened", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onRewardedVideoStarted() {
-        Toast.makeText(context, "onRewardedVideoStarted", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onRewardedVideoCompleted() {
-        Toast.makeText(context, "onRewardedVideoCompleted", Toast.LENGTH_SHORT).show()
-    }
-
-
+//    val onConfirmClick: (food: Food) -> Unit = {},
+    val onResult: ((Food) -> Unit)? = null
+) : Dialog(context) {
     val key: String? = null
     var ateCalory: String? = null
     var calories: Int? = null
     var meal: Int? = null
     var type: Int? = null
     val title = food_title
-    var userPrefs: SavedSharedPrerefrences? = null
+    var userPrefs:Preferences? = null
     val caloriesData = getCaloriesData()
     val caloryByGram = caloriesData["gram"]
     val caloryByGlass = caloriesData["glass"]
@@ -98,7 +56,6 @@ class AddFoodDialog(
     private lateinit var mRewardedAd: RewardedAd
 
     private lateinit var mRewardedVideoAd: RewardedVideoAd
-
 
 
     private var mCoinCount: Int = 0
@@ -114,7 +71,7 @@ class AddFoodDialog(
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_food_dialog)
 
-        userPrefs = SavedSharedPrerefrences(context)
+        userPrefs = Preferences(context)
         //  MobileAds.initialize(context)
         Log.i("onCreate", "Start")
         MobileAds.initialize(context) {
@@ -126,51 +83,15 @@ class AddFoodDialog(
 
 
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(context)
-        mRewardedVideoAd.rewardedVideoAdListener = this
-       // loadRewardedVideoAd()
-
         loadRewardedAd()
         prepareRewardAd()
-
-
-        // Create the InterstitialAd and set it up.
-
-//        mInterstitialAd = InterstitialAd(context).apply {
-//            adUnitId = AD_UNIT_ID
-//            adListener = (object : AdListener() {
-//                override fun onAdLoaded() {
-//                    Toast.makeText(context, "onAdLoaded()", Toast.LENGTH_SHORT).show()
-//                    Log.d("admob", "onAdLoaded()")
-//                }
-//
-//                override fun onAdFailedToLoad(errorCode: Int) {
-//                    Toast.makeText(
-//                        context,
-//                        "onAdFailedToLoad() with error code: $errorCode",
-//                        Toast.LENGTH_LONG
-//                    ).show()
-//                    Log.d("admob", "onAdFailedToLoad() with error code: $errorCode")
-//                }
-//
-//                override fun onAdClosed() {
-//                    confirmation()
-//                }
-//            })
-//        }
-//        prepareAd()
-
 
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
         for (i in 0..flags.size - 1)
             flags[i] = false
         food_name.text = title
-        if (caloryByGlass!![title] == null) {
-            add_food_dialog_glass_text_view.visibility = View.GONE
-//            var params = add_food_dialog_glass_text_view.layoutParams as LinearLayout.LayoutParams
-//            params.setMargins(0, 10,0,  0); //substitute parameters for left, top, right, bottom
-//            add_food_dialog_glass_text_view.layoutParams = params
-        }
+
         getMeal()
         getType()
         //getCalories()
@@ -220,10 +141,11 @@ class AddFoodDialog(
         onConfirmClicked()
 
     }
-
     private fun loadRewardedVideoAd() {
-        mRewardedVideoAd.loadAd("ca-app-pub-3940256099942544/5224354917",
-            AdRequest.Builder().build())
+        mRewardedVideoAd.loadAd(
+            "ca-app-pub-3940256099942544/5224354917",
+            AdRequest.Builder().build()
+        )
     }
 
 
@@ -332,22 +254,22 @@ class AddFoodDialog(
         //onConfirmClick(Food(0,type!!,title,ateCalory!!.toInt(),meal.toString()))
 
         //  commonList.add(Food(0,type!!,title,ateCalory!!.toInt(),meal.toString()))
-        var cat: String? = null
-        when (meal) {
-            BREAKFAST -> cat = "breakfast"
-            LAUNCH -> cat = "launch"
-            DINNER -> cat = "dinner"
-            MIANVADEH -> cat = "mianvadeh"
+        val cat = when (meal) {
+            BREAKFAST -> "breakfast"
+            LAUNCH -> "launch"
+            DINNER -> "dinner"
+            MIANVADEH -> "mianvadeh"
+            else -> throw NotImplementedError("meal type is wrong")
         }
-        tempList.add(Food(calories!!, type!!, title, ateCalory!!.toInt(), cat!!))
-        Log.d(
-            "extra_food",
-            "item added to common list in addFood dialog and list size now is : ${commonList.size}"
-        )
-        Log.d("testing", "Start Debugging")
-        for (item in commonList) {
-            Log.d("testing", item.name)
-        }
+//        tempList.add(Food(calories!!, type!!, title, ateCalory!!.toInt(), cat!!))
+//        Log.d(
+//            "extra_food",
+//            "item added to common list in addFood dialog and list size now is : ${commonList.size}"
+//        )
+//        Log.d("testing", "Start Debugging")
+//        for (item in commonList) {
+//            Log.d("testing", item.name)
+//        }
         Log.d("testing", "End Debugging")
 
 
@@ -358,7 +280,7 @@ class AddFoodDialog(
         }
 
 
-        onConfirmClick(Food(calories!!, type!!, title, ateCalory!!.toInt(), cat))
+        onResult?.invoke(Food(calories!!, type!!, title, ateCalory!!.toInt(), cat))
         dismiss()
     }
 
@@ -542,9 +464,14 @@ class AddFoodDialog(
 
                     override fun onRewardedAdFailedToLoad(errorCode: Int) {
                         mIsLoading = false
-                        Toast.makeText(context, "onRewardedAdFailedToLoad error code : $errorCode", Toast.LENGTH_LONG)
+                        Toast.makeText(
+                            context,
+                            "onRewardedAdFailedToLoad error code : $errorCode",
+                            Toast.LENGTH_LONG
+                        )
                             .show()
                     }
+
                 }
             )
         }

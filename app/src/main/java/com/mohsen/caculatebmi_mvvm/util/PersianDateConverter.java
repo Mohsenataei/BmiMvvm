@@ -1,5 +1,7 @@
 package com.mohsen.caculatebmi_mvvm.util;
 
+import com.alirezaafkar.sundatepicker.components.JDF;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -257,14 +259,6 @@ public class PersianDateConverter {
 
         }
 
-    }
-
-    public static String getCurrentShamsidate() {
-        Locale loc = new Locale("en_US");
-        PersianDateConverter util = new PersianDateConverter();
-        SolarCalendar sc = util.new SolarCalendar();
-        return String.valueOf(sc.year) + "/" + String.format(loc, "%02d",
-                sc.month) + "/" + String.format(loc, "%02d", sc.date);
     }
 
     public String day_of_week() {

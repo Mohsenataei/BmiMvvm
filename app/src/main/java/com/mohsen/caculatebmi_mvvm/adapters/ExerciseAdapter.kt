@@ -10,13 +10,22 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mohsen.caculatebmi_mvvm.App
 import com.mohsen.caculatebmi_mvvm.R
+import com.mohsen.caculatebmi_mvvm.database.entity.Food
 import com.mohsen.caculatebmi_mvvm.model.Exercise
 import com.mohsen.caculatebmi_mvvm.ui.dialogs.AddExerciseDialog
+import com.mohsen.caculatebmi_mvvm.ui.home.HomeActivity
+import com.mohsen.caculatebmi_mvvm.util.Preferences
 import kotlinx.android.synthetic.main.recycler_row_item.view.*
 
-class ExerciseAdapter (val list: MutableList<Exercise>, context: Context) :
+class ExerciseAdapter (val context: Context, list: List<Exercise> = listOf()) :
     RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
-
+    var exerciseList: MutableList<Exercise> = list.toMutableList()
+        set(value) {
+            if (value == field)
+                return
+            field = value
+            notifyDataSetChanged()
+        }
     val mContext = context
     val res = App.instance.resources
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseViewHolder {
@@ -25,28 +34,32 @@ class ExerciseAdapter (val list: MutableList<Exercise>, context: Context) :
     }
 
     override fun getItemCount(): Int {
-       return list.size
+       return exerciseList.size
     }
 
     override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
-        holder.title.text = list[position].name
-        holder.amount.text = list[position].duration.toString()
+        val exercise = exerciseList[position]
+        holder.title.text = exercise.name
+        holder.amount.text = exercise.duration.toString()
         holder.unit.text = res.getString(R.string.minute)
 
         holder.remove.setOnClickListener {
             Log.d("delete","deleted at index : $position")
-            list.removeAt(position)
+            exerciseList.removeAt(position)
             notifyItemRemoved(position)
-            notifyItemRangeChanged(position,list.size)
+            notifyItemRangeChanged(position,exerciseList.size)
+            Preferences.getInstance(context).removeExercise(exercise)
         }
 
         holder.edit.setOnClickListener {
-            val addExerciseDialog = AddExerciseDialog(mContext,list[position].name, onConfirmClick = {
-                list.removeAt(position)
-                notifyItemRemoved(position)
-               // list.add(position,it)
-                notifyItemInserted(position)
-                notifyItemRangeChanged(position,list.size)
+            val addExerciseDialog = AddExerciseDialog(mContext,exerciseList[position].name, onResult = {
+                Preferences.getInstance(context).saveExercise(exercise)
+                HomeActivity.addExerciseLiveData.value = Unit
+//                exerciseList.removeAt(position)
+//                notifyItemRemoved(position)
+//               // list.add(position,it)
+//                notifyItemInserted(position)
+//                notifyItemRangeChanged(position,exerciseList.size)
 //                holder.title.text = it.name
 //                holder.amount.text = it.duration.toString()
 //                holder.unit.text = "دقیقه"

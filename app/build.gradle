@@ -94,6 +94,7 @@ dependencies {
     implementation 'com.alirezaafkar:sundatepicker:2.1.2'
     implementation "com.google.code.gson:gson:$gsonConverterVersion"
     implementation 'com.google.android.gms:play-services-ads:18.2.0'
+    implementation 'com.takisoft.datetimepicker:datetimepicker:1.0.0'
 
 
 }

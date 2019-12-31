@@ -6,6 +6,7 @@ import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
+import android.widget.Toast
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
@@ -13,18 +14,17 @@ import com.google.android.gms.ads.MobileAds
 import com.mohsen.caculatebmi_mvvm.App
 import com.mohsen.caculatebmi_mvvm.R
 import com.mohsen.caculatebmi_mvvm.model.Exercise
-import com.mohsen.caculatebmi_mvvm.util.exerciseList
 import com.mohsen.caculatebmi_mvvm.util.first_skip
 import com.mohsen.caculatebmi_mvvm.util.getExerciseCalories
 import kotlinx.android.synthetic.main.add_exercise_dialog.*
 
 
-const val AD_UNIT_IDD = "ca-app-pub-3940256099942544/1033173712"
+const val AD_UNIT_IDD = "ca-app-pub-8616739363688136/3776981726"
 
 class AddExerciseDialog(
     context: Context,
     title: String,
-    val onConfirmClick: (food: Exercise) -> Unit = {}
+    val onResult: ((Exercise) -> Unit)? = null
 ) : Dialog(context) {
 
     private val title = title
@@ -52,16 +52,16 @@ class AddExerciseDialog(
             adUnitId = AD_UNIT_IDD
             adListener = (object : AdListener() {
                 override fun onAdLoaded() {
-                    // Toast.makeText(context, "onAdLoaded()", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "onAdLoaded()", Toast.LENGTH_SHORT).show()
                     Log.d("AddExAd", "onAdLoaded()")
                 }
 
                 override fun onAdFailedToLoad(errorCode: Int) {
-//                    Toast.makeText(
-//                        context,
-//                        "onAdFailedToLoad() with error code: $errorCode",
-//                        Toast.LENGTH_LONG
-//                    ).show()
+                    Toast.makeText(
+                        context,
+                        "onAdFailedToLoad() with error code: $errorCode",
+                        Toast.LENGTH_LONG
+                    ).show()
                     Log.d("AddExAd", "onAdFailedToLoad() with error code: $errorCode")
                 }
 
@@ -82,9 +82,7 @@ class AddExerciseDialog(
             setCaloriesValue(newVal)
         }
         addExerciseConfirm.setOnClickListener {
-            exerciseList.add(Exercise(title, duration, cal))
-            onConfirmClick(Exercise(title, duration, cal))
-
+            onResult?.invoke(Exercise(title, duration, cal))
             showInterstitial()
             dismiss()
         }

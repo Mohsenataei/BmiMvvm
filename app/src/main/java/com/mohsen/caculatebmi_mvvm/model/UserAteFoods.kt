@@ -3,7 +3,7 @@ package com.mohsen.caculatebmi_mvvm.model
 import com.mohsen.caculatebmi_mvvm.database.entity.Food
 
 class UserAteFoods (timestamp: String, list : MutableList<Food> ) {
-    var timeStamp = String
+    var timeStamp = timestamp
     var list : MutableList<Food> = ArrayList()
 
    fun addFood(food: Food){

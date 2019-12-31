@@ -2,9 +2,11 @@ package com.mohsen.caculatebmi_mvvm.util
 
 import android.content.Context
 import android.content.res.Resources
+import android.os.Build
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
+import com.mohsen.caculatebmi_mvvm.App
 import com.mohsen.caculatebmi_mvvm.R
 import com.mohsen.caculatebmi_mvvm.data.CaloriesPerGram
 import com.mohsen.caculatebmi_mvvm.data.Exercises
@@ -183,7 +185,9 @@ fun dateHelper(date: String): String {
     Log.d("dateHelper", "dateHelper fun: day is $day")
     return dateHelper(day.toString().toInt(), month.toString().toInt())!!
 
-}fun dateHelperEn(date: String): String {
+}
+
+fun dateHelperEn(date: String): String {
     val tmp = date.subSequence(5, date.length)
     Log.d("dateHelper", "dateHelper fun: tmp is $tmp")
     val month = tmp.subSequence(0, 2)
@@ -193,3 +197,10 @@ fun dateHelper(date: String): String {
     return dateHelperEn(day.toString().toInt(), month.toString().toInt())!!
 }
 
+
+val Context.currentLocale
+    get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        App.instance.resources.configuration.locales[0]
+    } else {
+        App.instance.resources.configuration.locale
+    }

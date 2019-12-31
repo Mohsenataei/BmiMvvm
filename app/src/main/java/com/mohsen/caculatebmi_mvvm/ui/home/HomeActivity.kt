@@ -5,12 +5,14 @@ import android.content.Intent
 import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
-import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alirezaafkar.sundatepicker.DatePicker
+import com.alirezaafkar.sundatepicker.components.JDF
 import com.mohsen.caculatebmi_mvvm.App
 import com.mohsen.caculatebmi_mvvm.adapters.RecyclerViewAdapter
 import com.mohsen.caculatebmi_mvvm.database.AppDatabase
@@ -21,12 +23,9 @@ import com.mohsen.caculatebmi_mvvm.database.entity.Food
 import com.mohsen.caculatebmi_mvvm.ui.addfood.AddFood
 import com.mohsen.caculatebmi_mvvm.util.*
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 import com.mohsen.caculatebmi_mvvm.R
 import com.mohsen.caculatebmi_mvvm.adapters.ExerciseAdapter
-import com.mohsen.caculatebmi_mvvm.model.UserAteFoods
 import com.mohsen.caculatebmi_mvvm.ui.BMI.BMIActivity
 import com.mohsen.caculatebmi_mvvm.ui.BaseActivity
 import com.mohsen.caculatebmi_mvvm.ui.dialogs.AD_UNIT_ID
@@ -36,6 +35,7 @@ import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.github.mikephil.charting.formatter.ValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.InterstitialAd
@@ -46,7 +46,12 @@ import kotlin.collections.ArrayList
 
 
 class HomeActivity : BaseActivity() {
+    companion object {
+        val addFoodLiveData by lazy { MutableLiveData<Unit>() }
+        val addExerciseLiveData by lazy { MutableLiveData<Unit>() }
+    }
 
+//    var foodList: MutableList<Food> = ArrayList()
 
     var adapter: RecyclerViewAdapter? = null
     var exerAdapter: ExerciseAdapter? = null
@@ -59,7 +64,7 @@ class HomeActivity : BaseActivity() {
     //private lateinit var rewardedAd: RewardedAd
 
     private val res = App.instance.resources
-    private lateinit var locale:Locale
+    private lateinit var locale: Locale
 
 
     val chartLbls = arrayOf(
@@ -69,7 +74,7 @@ class HomeActivity : BaseActivity() {
         res.getString(R.string.breakfast)
     )
     var isDateChanged = false
-    var userPrefs: SavedSharedPrerefrences? = null
+    //    var userPrefs: Preferences? = null
     var userDay: Int = 0
     var userMonth: Int = 0
     var userYear: Int = 0
@@ -87,6 +92,12 @@ class HomeActivity : BaseActivity() {
             }
         }
 
+        // loadStoredData()
+        addFoodLiveData.observe(this, androidx.lifecycle.Observer {
+            //            val commonList = Preferences.getInstance(this).loadAllFoods()
+//            adapter?.foodList = commonList
+            bindData()
+        })
 
         mInterstitialAd = InterstitialAd(this).apply {
             adUnitId = AD_UNIT_ID
@@ -96,57 +107,41 @@ class HomeActivity : BaseActivity() {
                 }
 
                 override fun onAdFailedToLoad(errorCode: Int) {
-                    Toast.makeText(this@HomeActivity,
+                    Toast.makeText(
+                        this@HomeActivity,
                         "onAdFailedToLoad() with error code: $errorCode",
-                        Toast.LENGTH_SHORT).show()
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
                 override fun onAdClosed() {
-                    Toast.makeText(this@HomeActivity,
+                    Toast.makeText(
+                        this@HomeActivity,
                         "ad closed.",
-                        Toast.LENGTH_SHORT).show()                }
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             })
         }
-//        val adRequest = AdRequest.Builder()
-//            .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-//            .build()
-//        ad_view.loadAd(adRequest)
-//        MobileAds.initialize(this, "reward1ca-app-pub-8616739363688136/6484419001")
-//        rewardedAd = RewardedAd(
-//            this,
-//            "ca-app-pub-8616739363688136/6484419001"
-//        )
-
-//        val adLoadCallback = object : RewardedAdLoadCallback() {
-//            override fun onRewardedAdLoaded() {
-//                Toast.makeText(this@HomeActivity,"add loaded successfully", Toast.LENGTH_SHORT).show()
-//            }
-//
-//            override fun onRewardedAdFailedToLoad(errorCode: Int) {
-//                   Toast.makeText(this@HomeActivity,"add loading failed.", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-      //  rewardedAd.loadAd(AdRequest.Builder().build(), adLoadCallback)
-    //  this.toast("common list size is : ${commonList.size} in line 55")
         locale = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             App.instance.resources.configuration.locales[0]
         } else {
             App.instance.resources.configuration.locale
         }
-        Log.d("locale",locale.toString() )
+        Log.d("locale", locale.toString())
         Log.d("today", " today date is : $today")
 
-        userPrefs = SavedSharedPrerefrences(this)
         val typeface =
             Typeface.createFromAsset(applicationContext.assets, "fonts/iran_sans_normal.ttf")
-        if (locale.toString() == "fa_IR"){
+        if (locale.toString() == "fa_IR") {
             todayDate.text = dateHelper(today_Date)
-        }else if (locale.toString() == "en_US"){
-            todayDate.text = today.toString().substring(0,10)
+        } else if (locale.toString() == "en_US") {
+            todayDate.text = today.toString().substring(0, 10)
         }
         initDataBaseShits()
         //loadStoredData()
-        addExtraToList()
+        initRecAdapter() // dont you date touch this line
+        bindData()
         //this.toast("common list size is : ${commonList.size} in line 59")
         barChart.setMaxVisibleValueCount(4)
         barChart.setPinchZoom(false)
@@ -161,7 +156,7 @@ class HomeActivity : BaseActivity() {
         xAxis.position = XAxis.XAxisPosition.BOTTOM
         xAxis.setDrawGridLines(false)
         xAxis.isGranularityEnabled = true
-        barChart.xAxis.valueFormatter = IndexAxisValueFormatter(chartLbls)
+        barChart.xAxis.valueFormatter = IndexAxisValueFormatter(chartLbls) as ValueFormatter?
 
         barChart.axisLeft.setDrawGridLines(false)
         barChart.axisLeft.typeface = typeface
@@ -184,6 +179,8 @@ class HomeActivity : BaseActivity() {
                 .id(1)
                 .date(mDate.day, mDate.getMonth(), mDate.getYear())
                 .build { id, calendar, day, month, year ->
+                    today_Date = JDF(calendar).iranianDate
+                    bindData()
                     calendar!!.time.toString()
                     //his.toast("is it working ?"+calendar!!.time.toString())
                     //todayDate.text = calendar!!.time.toString().subSequence(4,10)
@@ -198,28 +195,26 @@ class HomeActivity : BaseActivity() {
                     userSelectedDate = returnStandardDate(userDay, userMonth, userYear)
                     isDateChanged = true
                     Log.d("dateTime", "$day and $month and $year")
-                    startNewActivity()
                 }
                 .show(supportFragmentManager, "")
 
             Log.d("compareDates", "today date is :" + today_Date)
             Log.d("compareDates", "user selected date is :" + userSelectedDate)
-            if (!today_Date.equals(userSelectedDate)) {
-                Log.d("timestamp", "is it cleared ?")
-                saveUserFoods()
-                commonList.clear()
-                exerciseList.clear()
-            } else {
-                Log.d("compareTimeStamp", "else is executed.")
-                loadUserFood(userSelectedDate)
-            }
+//            if (!today_Date.equals(userSelectedDate)) {
+//                Log.d("timestamp", "is it cleared ?")
+//                saveUserFoods()
+//                commonList.clear()
+//                exerciseList.clear()
+//            } else {
+//                Log.d("compareTimeStamp", "else is executed.")
+//                loadUserFood(userSelectedDate)
+//            }
         }
-
 
         adFoodButton.setOnClickListener {
             val intent = Intent(this, AddFood::class.java)
             intent.putExtra("food_button", "120")
-           startActivity(intent)
+            startActivity(intent)
             //mInterstitialAd.show()
             //showInterstitial()
         }
@@ -229,25 +224,19 @@ class HomeActivity : BaseActivity() {
             intent.putExtra("exercise_button", "121")
             startActivity(intent)
         }
-        calculateCalories()
 
         calculateBmi.setOnClickListener {
             startActivity(Intent(this, BMIActivity::class.java))
         }
 
-        val local = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            App.instance.resources.configuration.locales[0]
-        } else {
-            App.instance.resources.configuration.locale
-        }
-        Log.d("locale",local.toString() )
+        Log.d("locale", currentLocale.toString())
     }
 
-    private fun startNewActivity() {
-        Log.d("timestamp", "Invoked")
-        saveUserFoods()
-        startActivity(Intent(this, HomeActivity::class.java))
-    }
+//    private fun startNewActivity() {
+//        Log.d("timestamp", "Invoked")
+//        saveUserFoods()
+//        startActivity(Intent(this, HomeActivity::class.java))
+//    }
 
     private fun getDialogFood(): Food? {
         if (intent.hasExtra(EXTRA_FOOD)) {
@@ -259,20 +248,23 @@ class HomeActivity : BaseActivity() {
     }
 
 
-    private fun addExtraToList() {
-        val food = getDialogFood()
-        // this.toast("common list size is : ${commonList.size} in line 55")
-        if (food != null) {
-            commonList.add(food)
-            //      this.toast("common list size is : ${commonList.size} in line 55")
-            Log.d(
-                "extra_food",
-                "common list size now is : ${commonList.size} and received food is ${food.name}"
-            )
-            adapter = RecyclerViewAdapter(commonList, this)
-            adapter!!.notifyItemInserted(commonList.size - 1)
-            // initRecAdapter()
-            //   this.toast("common list size is : ${commonList.size} in line 55")
+    private fun bindData() {
+        val commonList = Preferences.getInstance(this).loadAllFoods()
+
+        adapter?.foodList = commonList
+
+//        commonList.addAll(tempList)
+//        tempList.clear()
+        //   this.toast("common list size is : ${commonList.size}")
+//        adapter!!.notifyItemRangeInserted(commonList.size - 1, tempList.size)
+
+        calculateCalories(commonList)
+        calculateBurntCalories()
+        produceBarChartData(commonList)
+        //    this.toast("common list size is : ${commonList.size} in line 225")
+
+        if (exerciseList.isEmpty()) {
+            exerciseLBl.visibility = View.GONE
         }
     }
 
@@ -282,21 +274,17 @@ class HomeActivity : BaseActivity() {
         finishAffinity()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        if (tempList.size > 0) {
-            //     Toast.makeText(this,"data has been saved from here",Toast.LENGTH_SHORT).show()
-            saveOnExit()
-
-        } else {
-            //         Toast.makeText(this,"data has not been saved because list is empty",Toast.LENGTH_SHORT).show()
-        }
-        // Toast.makeText(this,"onDestroy",Toast.LENGTH_SHORT).show()
-    }
-
-    private fun initCommotList() {
-
-    }
+//    override fun onDestroy() {
+//        super.onDestroy()
+////        if (tempList.size > 0) {
+////            //     Toast.makeText(this,"data has been saved from here",Toast.LENGTH_SHORT).show()
+////            saveOnExit()
+////
+////        } else {
+////            //         Toast.makeText(this,"data has not been saved because list is empty",Toast.LENGTH_SHORT).show()
+////        }
+//        // Toast.makeText(this,"onDestroy",Toast.LENGTH_SHORT).show()
+//    }
 
     private fun initDataBaseShits() {
         database = AppDatabase.getDatabase(this)
@@ -304,102 +292,14 @@ class HomeActivity : BaseActivity() {
         foodDao = database!!.foodDao()
         detailDao = database!!.detailDao()
     }
-
-
-    private fun saveOnExit() {
-        Log.d("extra_food", "saveOnExit list size is : ${tempList.size}")
-        GlobalScope.launch {
-            this@HomeActivity.let {
-                for (item in tempList)
-                    detailDao!!.insertAll(item)
-                // Log.d("extra_food","saveOnExit Saving: ${item.name}"  )
-            }
-        }
-        tempList.clear()
-    }
-
-    private fun retreiveOnStart() {
-
-    }
-
-    override fun onStart() {
-        super.onStart()
-        //  Toast.makeText(this,"onStart",Toast.LENGTH_SHORT).show()
-//        GlobalScope.launch {
-//            this@HomeActivity.let {
-//                val size = AppDatabase.getDatabase(this@HomeActivity).detailDao().getAll().size
-//                Log.d("globalscope","still is not empty and size is $size and second element is : ")
-//            }
-//        }
-        if (commonList.isEmpty()) {
-            //  this.toast("still empty outside global scope ()")
-        }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        // this.toast("common list size is : ${commonList.size} in line 207")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-
-        //  this.toast("common list size is : ${commonList.size} in line 213")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        //   this.toast("common list size is : ${commonList.size} in line 218")
-        initRecAdapter() // dont you date touch this line
-        commonList.addAll(tempList)
-        tempList.clear()
-        //   this.toast("common list size is : ${commonList.size}")
-        adapter!!.notifyItemRangeInserted(commonList.size - 1, tempList.size)
-        calculateCalories()
-        calculateBurntCalories()
-        //    this.toast("common list size is : ${commonList.size} in line 225")
-
-        if (exerciseList.isEmpty()) {
-            exerciseLBl.visibility = View.GONE
-        }
-        if (commonList.isEmpty()) {
-            foodLbl.visibility = View.GONE
-            // home_status_text_view.visibility = View.VISIBLE
-        } else {
-            foodLbl.visibility = View.VISIBLE
-            //home_status_text_view.visibility = View.GONE
-        }
-        produceBarChartData()
-    }
-
-    private fun loadStoredData() {
-        GlobalScope.launch {
-            this@HomeActivity.let {
-                commonList = detailDao!!.getAll()
-                updateLASTITEMINDEX(commonList.size)
-                if (commonList.isEmpty()) {
-                    Log.d("globalscope", "list is empty")
-                } else {
-                    Looper.prepare()
-                    //          this@HomeActivity.toast("common list size is : ${commonList.size} in line 240")
-                    initRecAdapter()
-                    produceBarChartData()
-//                    exercise_recycler_view.adapter = RecyclerViewAdapter(commonList,it)
-//                    exercise_recycler_view.layoutManager = LinearLayoutManager(it)
-                }
-            }
-        }
-    }
-
-
     private fun initRecAdapter() {
         if (!exerciseList.isEmpty()) {
             exerciseLBl.visibility = View.VISIBLE
         }
-        Log.d("recycleer", "initRecAdapter common list size is: ${commonList.size}")
+//        Log.d("recycleer", "initRecAdapter common list size is: ${commonList.size}")
         //   this.toast("common list size is : ${commonList.size} in line 258")
-        adapter = RecyclerViewAdapter(commonList, this@HomeActivity)
-        exerAdapter = ExerciseAdapter(exerciseList, this@HomeActivity)
+        adapter = RecyclerViewAdapter(this)
+        exerAdapter = ExerciseAdapter( this)
         layoutManager = LinearLayoutManager(this)
         consumed_food_recycler_view.layoutManager = layoutManager
         consumed_food_recycler_view.adapter = adapter
@@ -420,15 +320,7 @@ class HomeActivity : BaseActivity() {
         }
     }
 
-    private fun updateLASTITEMINDEX(index: Int) {
-        LAST_ITEM_INDEX = index
-    }
-
-    private fun updateUI() {
-
-    }
-
-    private fun calculateCalories() {
+    private fun calculateCalories(commonList: List<Food>) {
         var total = 0
         for (item in commonList) {
             total = total.plus(item.calory)
@@ -460,7 +352,7 @@ class HomeActivity : BaseActivity() {
 
     }
 
-    private fun produceBarChartData() {
+    private fun produceBarChartData(commonList: List<Food>) {
         var breakfastCalory = 0f
         var launchCalory = 0f
         var dinnerCalory = 0f
@@ -481,14 +373,6 @@ class HomeActivity : BaseActivity() {
         values.add(BarEntry(3f, breakfastCalory))
 
 
-//        for (i in 0..3){
-//            if (commonList.size == 0){
-//                applicationContext.toast("size problem")
-//            }else{
-//                values.add(BarEntry(i.toFloat(), commonList[i].calory.toFloat()))
-//            }
-//
-//        }
         var dataSet: BarDataSet? = null
         val barEntry: ArrayList<BarEntry> = ArrayList()
         if (barChart.data != null && barChart.data.dataSetCount > 0) {
@@ -526,36 +410,4 @@ class HomeActivity : BaseActivity() {
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
     }
-
-    private fun clearData() {
-        barChart.clear()
-        commonList.clear()
-//        adapter!!.notifyItemMoved()
-
-    }
-
-    private fun isDateChanged() {
-    }
-
-    private fun saveUserFoods() {
-        val userAteFoods = UserAteFoods(today_Date, commonList)
-
-        userPrefs!!.putObject(today_Date, userAteFoods)
-    }
-
-    private fun loadUserFood(timeStamp: String) {
-        commonList =
-            userPrefs!!.getObject(timeStamp, UserAteFoods::class.java)!!.getList(timeStamp)!!
-
-    }
-
-
-    private fun showInterstitial() {
-        if (mInterstitialAd.isLoaded) {
-            mInterstitialAd.show()
-        } else {
-            Toast.makeText(this, "Ad wasn't loaded.", Toast.LENGTH_SHORT).show()
-        }
-    }
-
 }

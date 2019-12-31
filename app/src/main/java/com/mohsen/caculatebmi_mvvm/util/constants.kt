@@ -1,6 +1,8 @@
 package com.mohsen.caculatebmi_mvvm.util
 
 //import com.mohsen.caculatebmi_mvvm.database.entity.SelectedFood
+import com.alirezaafkar.sundatepicker.components.JDF
+import com.mohsen.caculatebmi_mvvm.App
 import com.mohsen.caculatebmi_mvvm.database.entity.Food
 import com.mohsen.caculatebmi_mvvm.model.Exercise
 import java.util.*
@@ -23,20 +25,19 @@ val EXTRA_FOOD = "extra_food"
 val FOOD_BUTTON = "food_button"
 val EXERCISE_BUTTON = "exercise_button"
 val persianDateConverter = PersianDateConverter()
-var commonList: MutableList<Food> = ArrayList()
-var tempList: MutableList<Food> = ArrayList()
-val exerciseList: MutableList<Exercise> = ArrayList()
+//var commonList: MutableList<Food> = ArrayList()
+//var tempList: MutableList<Food> = ArrayList()
+//val exerciseList: MutableList<Exercise> = ArrayList()
 val favouriteFoods: MutableList<String> = ArrayList()
 val today = Calendar.getInstance().time
-val today_Date = PersianDateConverter.getCurrentShamsidate()
+var today_Date = JDF(Calendar.getInstance()).iranianDate.format(App.instance.currentLocale)
+    set(value) {
+        field = value.format(App.instance.currentLocale)
+    }
 var first_skip = false
 //val prefs = SavedSharedPrerefrences()
 
 
-
-
-
-
 //var ateFoodIds: MutableList<SelectedFood> = ArrayList()
 
-var  LAST_ITEM_INDEX = 0
+var LAST_ITEM_INDEX = 0

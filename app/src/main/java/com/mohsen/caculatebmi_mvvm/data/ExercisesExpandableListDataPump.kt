@@ -182,7 +182,6 @@ class ExercisesExpandableListDataPump {
         dailyWorks.newAdd(R.string.welding)
         dailyWorks.newAdd(R.string.Shoemaking)
         dailyWorks.newAdd(R.string.bathing)
-        dailyWorks.newAdd(R.string.Bathing)
         dailyWorks.newAdd(R.string.makingup)
         dailyWorks.newAdd(R.string.eating)
         dailyWorks.newAdd(R.string.putting_clothes_on_and_off)
