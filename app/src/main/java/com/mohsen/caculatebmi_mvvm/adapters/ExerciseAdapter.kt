@@ -55,6 +55,7 @@ class ExerciseAdapter (val context: Context, list: List<Exercise> = listOf()) :
             val addExerciseDialog = AddExerciseDialog(mContext,exerciseList[position].name, onResult = {
                 Preferences.getInstance(context).saveExercise(exercise)
                 HomeActivity.addExerciseLiveData.value = Unit
+
 //                exerciseList.removeAt(position)
 //                notifyItemRemoved(position)
 //               // list.add(position,it)

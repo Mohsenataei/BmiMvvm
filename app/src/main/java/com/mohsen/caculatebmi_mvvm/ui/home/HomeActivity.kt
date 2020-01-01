@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alirezaafkar.sundatepicker.DatePicker
@@ -23,7 +22,6 @@ import com.mohsen.caculatebmi_mvvm.database.entity.Food
 import com.mohsen.caculatebmi_mvvm.ui.addfood.AddFood
 import com.mohsen.caculatebmi_mvvm.util.*
 import kotlinx.android.synthetic.main.activity_home.*
-
 import com.mohsen.caculatebmi_mvvm.R
 import com.mohsen.caculatebmi_mvvm.adapters.ExerciseAdapter
 import com.mohsen.caculatebmi_mvvm.ui.BMI.BMIActivity
@@ -98,6 +96,9 @@ class HomeActivity : BaseActivity() {
 //            adapter?.foodList = commonList
             bindData()
         })
+        addExerciseLiveData.observe(this,androidx.lifecycle.Observer {
+            bindData()
+        })
 
         mInterstitialAd = InterstitialAd(this).apply {
             adUnitId = AD_UNIT_ID
@@ -138,7 +139,6 @@ class HomeActivity : BaseActivity() {
         } else if (locale.toString() == "en_US") {
             todayDate.text = today.toString().substring(0, 10)
         }
-        initDataBaseShits()
         //loadStoredData()
         initRecAdapter() // dont you date touch this line
         bindData()
@@ -167,11 +167,6 @@ class HomeActivity : BaseActivity() {
         //todayDate.text = dateHelper()
         barChart.legend.isEnabled = false
 
-
-
-        if (exerciseList.isEmpty()) {
-            exerciseLBl.visibility = View.GONE
-        }
         todayDate.setOnClickListener {
 
             val mDate = Date()
@@ -232,40 +227,28 @@ class HomeActivity : BaseActivity() {
         Log.d("locale", currentLocale.toString())
     }
 
-//    private fun startNewActivity() {
-//        Log.d("timestamp", "Invoked")
-//        saveUserFoods()
-//        startActivity(Intent(this, HomeActivity::class.java))
-//    }
-
-    private fun getDialogFood(): Food? {
-        if (intent.hasExtra(EXTRA_FOOD)) {
-            Log.d(EXTRA_FOOD, "food extra has been found")
-            return intent.getSerializableExtra(EXTRA_FOOD) as Food
-        }
-        Log.d(EXTRA_FOOD, "returned null")
-        return null
-    }
 
 
     private fun bindData() {
         val commonList = Preferences.getInstance(this).loadAllFoods()
+        val exList = Preferences.getInstance(this).loadAllExercises()
+
+        if (commonList.isEmpty()){
+            foodLbl.visibility = View.VISIBLE
+        }
+
+        if (exList.isEmpty()) {
+            exerciseLBl.visibility = View.GONE
+        }
 
         adapter?.foodList = commonList
+        exerAdapter?.exerciseList = exList
 
-//        commonList.addAll(tempList)
-//        tempList.clear()
-        //   this.toast("common list size is : ${commonList.size}")
-//        adapter!!.notifyItemRangeInserted(commonList.size - 1, tempList.size)
+
 
         calculateCalories(commonList)
         calculateBurntCalories()
         produceBarChartData(commonList)
-        //    this.toast("common list size is : ${commonList.size} in line 225")
-
-        if (exerciseList.isEmpty()) {
-            exerciseLBl.visibility = View.GONE
-        }
     }
 
 
@@ -274,18 +257,6 @@ class HomeActivity : BaseActivity() {
         finishAffinity()
     }
 
-//    override fun onDestroy() {
-//        super.onDestroy()
-////        if (tempList.size > 0) {
-////            //     Toast.makeText(this,"data has been saved from here",Toast.LENGTH_SHORT).show()
-////            saveOnExit()
-////
-////        } else {
-////            //         Toast.makeText(this,"data has not been saved because list is empty",Toast.LENGTH_SHORT).show()
-////        }
-//        // Toast.makeText(this,"onDestroy",Toast.LENGTH_SHORT).show()
-//    }
-
     private fun initDataBaseShits() {
         database = AppDatabase.getDatabase(this)
         ateFoodDao = database!!.ateFoodDao()
@@ -293,11 +264,7 @@ class HomeActivity : BaseActivity() {
         detailDao = database!!.detailDao()
     }
     private fun initRecAdapter() {
-        if (!exerciseList.isEmpty()) {
-            exerciseLBl.visibility = View.VISIBLE
-        }
-//        Log.d("recycleer", "initRecAdapter common list size is: ${commonList.size}")
-        //   this.toast("common list size is : ${commonList.size} in line 258")
+
         adapter = RecyclerViewAdapter(this)
         exerAdapter = ExerciseAdapter( this)
         layoutManager = LinearLayoutManager(this)
@@ -332,7 +299,7 @@ class HomeActivity : BaseActivity() {
 
     private fun setCunsumedCaloriestv(txt: String) {
         //consumedCalories.text = "کالری دریافتی امروز: $txt".fa()
-        consumedCalories.text = res.getString(R.string.today_calories).plus(": $txt")
+       // consumedCalories.text = res.getString(R.string.today_calories).plus(": $txt")
 
     }
 
@@ -344,8 +311,8 @@ class HomeActivity : BaseActivity() {
     }
 
     private fun calculateBurntCalories() {
-        var temp = 0;
-        for (item in exerciseList)
+        var temp = 0
+        for (item in Preferences.getInstance(this).loadAllExercises())
             temp = temp.plus(item.unitCal)
 
         setBurntCaloriestv(temp.toString())
